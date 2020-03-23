@@ -4,6 +4,7 @@
   "description": "D3 visualization of COVID cases using a Sankey diagram",
   "main": "src/index.js",
   "scripts": {
+    "start": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/LonnyGomes/covid-sankey-vizualization/issues"
   },
-  "homepage": "https://github.com/LonnyGomes/covid-sankey-vizualization#readme"
+  "homepage": "https://github.com/LonnyGomes/covid-sankey-vizualization#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "d3": "^5.15.0"
+  }
 }

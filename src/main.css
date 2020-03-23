@@ -15,3 +15,8 @@
 .link:hover {
     stroke-opacity: 0.5;
 }
+
+#chart {
+    width: 100%;
+    height: auto;
+}

@@ -1,5 +1,5 @@
 // derived from https://www.d3-graph-gallery.com/graph/sankey_basic.html
-// import classes from './main.css';
+import classes from './main.css';
 import * as d3 from 'd3';
 import { sankeyLinkHorizontal, sankey as sankeyInstance } from 'd3-sankey';
 import { parseWorld } from './process-data';
@@ -112,7 +112,7 @@ const genChart = data => {
 
     link.append('path')
         .attr('d', sankeyLinkHorizontal())
-        .attr('class', 'link')
+        .attr('class', data => `${data.target.name} link`)
         .attr('stroke-width', d => Math.max(1, d.width));
 
     link.append('title').text(

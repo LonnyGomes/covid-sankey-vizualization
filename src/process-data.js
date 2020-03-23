@@ -6,13 +6,14 @@ const NODE_TYPES = {
     GEO: 'geo',
     CASE: 'case',
 };
-const CASE_TYPES = ['confirmed', 'deaths', 'recovered'];
+const CASE_TYPES = ['active', 'deaths', 'recovered'];
 
 export const parseWorld = data => {
     const totals = {
         confirmed: 0,
         deaths: 0,
         recovered: 0,
+        active: 0,
     };
 
     const nodes = [];
@@ -38,9 +39,12 @@ export const parseWorld = data => {
 
         const latestStats = [...data[curCountry]].pop();
 
+        latestStats.active =
+            latestStats.confirmed - latestStats.deaths - latestStats.recovered;
         totals.confirmed += latestStats.confirmed;
         totals.deaths += latestStats.deaths;
         totals.recovered += latestStats.recovered;
+        totals.active += latestStats.active;
 
         // link country to case types
         CASE_TYPES.forEach(caseType => {

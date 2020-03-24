@@ -4,7 +4,6 @@ import * as d3 from 'd3';
 import { sankeyLinkHorizontal, sankey as sankeyInstance } from 'd3-sankey';
 import { parseWorld } from './process-data';
 import rawData from './raw-data.json';
-import processedData from './data.json';
 
 const GLOBALS = {
     ALL_COUNTRIES: 'All Countries',

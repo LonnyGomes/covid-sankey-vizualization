@@ -48,7 +48,7 @@ export const parseWorld = (data, selectedCountry = null, threshold = 500) => {
         totals.recovered += latestStats.recovered;
         totals.active += latestStats.active;
 
-        if (latestStats.confirmed <= threshold) {
+        if (latestStats.confirmed <= threshold && !selectedCountry) {
             otherTotals.confirmed += latestStats.confirmed;
             otherTotals.deaths += latestStats.deaths;
             otherTotals.recovered += latestStats.recovered;

@@ -51,6 +51,16 @@ const init = () => {
     // } catch (error) {}
 };
 
+const calcSize = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    return {
+        width,
+        height,
+    };
+};
+
 const genCountryDropdown = countries => {
     const dropdown = d3.select('#countries');
 

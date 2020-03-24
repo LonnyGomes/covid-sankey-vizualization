@@ -1,22 +1,73 @@
+$link-clr-default: #d0d4d4;
+$link-stroke-clr: #474747;
+$link-clr-recovered: #4f8137;
+$link-clr-active: #d39a02;
+$link-clr-deaths: #ce412f;
+$node-clr-geo: #3664c3;
+$header-font-family: 'Oswald', sans-serif;
+$body-font-family: 'Raleway', sans-serif;
+$bg-clr: #e4e4e4;
+$chart-bg-clr: #fff;
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $header-font-family;
+}
+
+body {
+    font-family: $body-font-family;
+    background-color: $bg-clr;
+}
+
 .link {
     fill: none;
-    stroke: rgb(0, 0, 0);
+    stroke: $link-stroke-clr;
     stroke-opacity: 0.2;
+
+    &.recovered {
+        stroke: $link-clr-recovered;
+    }
+
+    &.active {
+        stroke: $link-clr-active;
+    }
+
+    &.deaths {
+        stroke: $link-clr-deaths;
+    }
+
+    &:hover {
+        stroke-opacity: 0.5;
+    }
 }
 
-.link.recovered {
-    stroke: green;
-}
-
-.link.deaths {
-    stroke: #7c1515;
-}
-
-.link:hover {
-    stroke-opacity: 0.5;
+.node {
+    &.deaths {
+        fill: $link-clr-deaths;
+    }
+    &.recovered {
+        fill: $link-clr-recovered;
+    }
+    &.active {
+        fill: $link-clr-active;
+    }
+    &.geo {
+        fill: $node-clr-geo;
+    }
 }
 
 #chart {
     width: 100%;
     height: auto;
+    font-family: $body-font-family;
+    font-size: 16px;
+    background-color: $chart-bg-clr;
+    border-radius: 4px;
+}
+
+#countries {
+    font-family: $body-font-family;
+    font-size: 18px;
 }

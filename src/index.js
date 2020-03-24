@@ -12,7 +12,6 @@ const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 const width = 900;
 const height = 500;
 const color = '#ccc';
-const colorMap = d3.scaleOrdinal(d3.schemeSet3);
 
 const init = () => {
     const results = parseWorld(rawData);
@@ -103,7 +102,7 @@ const genChart = data => {
     const link = svg.append('g').attr('fill', 'none');
 
     // generate labels
-    const label = svg.append('g').style('font', '10px sans-serif');
+    const label = svg.append('g');
 
     return {
         sankey,
@@ -119,30 +118,6 @@ const updateChart = (graph, node, link, label) => {
         .duration(350)
         .ease(d3.easeLinear);
 
-    const calcNodeClr = d => {
-        let c;
-        if (d.type) {
-            switch (d.type) {
-                case 'geo':
-                    c = '#008fa8';
-                    break;
-                case 'case':
-                    if (d.name === 'deaths') {
-                        c = '#7c1515';
-                    } else if (d.name === 'recovered') {
-                        c = 'green';
-                    } else {
-                        c = '#bbb';
-                    }
-                    break;
-                default:
-                    c = 'red';
-                    break;
-            }
-        }
-
-        return d3.color(c);
-    };
     // nodes
     node.selectAll('rect')
         .data(graph.nodes, data => data.name)
@@ -155,8 +130,7 @@ const updateChart = (graph, node, link, label) => {
                     .attr('y', d => d.y0)
                     .attr('height', d => d.y1 - d.y0)
                     .attr('width', d => d.x1 - d.x0 - 2)
-                    .attr('class', 'node')
-                    .attr('fill', calcNodeClr)
+                    .attr('class', d => `node ${d.type} ${d.name}`)
                     .append('title')
                     .text(d => `${d.name}\n${d.value.toLocaleString()}`);
             },

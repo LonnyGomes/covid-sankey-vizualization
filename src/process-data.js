@@ -8,7 +8,7 @@ const NODE_TYPES = {
 };
 const CASE_TYPES = ['active', 'deaths', 'recovered'];
 
-export const parseWorld = data => {
+export const parseWorld = (data, selectedCountry = null) => {
     const totals = {
         confirmed: 0,
         deaths: 0,
@@ -28,7 +28,7 @@ export const parseWorld = data => {
 
     const links = [];
 
-    const countries = Object.keys(data);
+    const countries = selectedCountry ? [selectedCountry] : Object.keys(data);
 
     countries.forEach((curCountry, idx) => {
         // add node for country

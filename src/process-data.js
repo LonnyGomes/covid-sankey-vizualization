@@ -28,11 +28,11 @@ export const parseWorld = (data, selectedCountry = null) => {
 
     const links = [];
 
-    const countries = selectedCountry
-        ? [selectedCountry]
-        : Object.keys(data).sort();
+    const countries = Object.keys(data).sort();
 
-    countries.forEach((curCountry, idx) => {
+    const selectedCountries = selectedCountry ? [selectedCountry] : countries;
+
+    selectedCountries.forEach(curCountry => {
         // add node for country
         nodes.push({
             name: curCountry,

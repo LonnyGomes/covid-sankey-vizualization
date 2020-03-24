@@ -4,7 +4,6 @@ import * as d3 from 'd3';
 import { sankeyLinkHorizontal, sankey as sankeyInstance } from 'd3-sankey';
 import { parseWorld } from './process-data';
 import rawData from './raw-data.json';
-import processedData from './data.json';
 
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 const margin = { top: 10, right: 10, bottom: 10, left: 10 };

@@ -9,9 +9,8 @@ const GLOBALS = {
     ALL_COUNTRIES: 'All Countries',
 };
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
-const margin = { top: 10, right: 10, bottom: 10, left: 10 };
-const width = 700 - margin.left - margin.right;
-const height = 2000 - margin.top - margin.bottom;
+const width = 900;
+const height = 500;
 const color = '#ccc';
 const colorMap = d3.scaleOrdinal(d3.schemeSet3);
 

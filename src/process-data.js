@@ -9,7 +9,7 @@ const NODE_TYPES = {
 };
 const CASE_TYPES = ['active', 'deaths', 'recovered'];
 
-export const parseWorld = (data, selectedCountry = null, threshold = 500) => {
+export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
     const totals = {
         confirmed: 0,
         deaths: 0,
@@ -36,9 +36,11 @@ export const parseWorld = (data, selectedCountry = null, threshold = 500) => {
 
     const links = [];
 
-    const countries = selectedCountry ? [selectedCountry] : Object.keys(data);
+    const countries = Object.keys(data).sort();
 
-    countries.forEach((curCountry, idx) => {
+    const selectedCountries = selectedCountry ? [selectedCountry] : countries;
+
+    selectedCountries.forEach(curCountry => {
         const latestStats = [...data[curCountry]].pop();
 
         latestStats.active =
@@ -87,7 +89,11 @@ export const parseWorld = (data, selectedCountry = null, threshold = 500) => {
     }
 
     return {
-        nodes,
-        links,
+        totals,
+        countries,
+        sankey: {
+            nodes,
+            links,
+        },
     };
 };

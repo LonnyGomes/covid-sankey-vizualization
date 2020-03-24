@@ -1,6 +1,7 @@
 // constants
 const NODE_NAMES = {
     WORLD_WIDE: 'worldwide',
+    OTHER: 'other',
 };
 const NODE_TYPES = {
     GEO: 'geo',
@@ -8,8 +9,15 @@ const NODE_TYPES = {
 };
 const CASE_TYPES = ['active', 'deaths', 'recovered'];
 
-export const parseWorld = (data, selectedCountry = null) => {
+export const parseWorld = (data, selectedCountry = null, threshold = 500) => {
     const totals = {
+        confirmed: 0,
+        deaths: 0,
+        recovered: 0,
+        active: 0,
+    };
+
+    const otherTotals = {
         confirmed: 0,
         deaths: 0,
         recovered: 0,
@@ -31,12 +39,6 @@ export const parseWorld = (data, selectedCountry = null) => {
     const countries = selectedCountry ? [selectedCountry] : Object.keys(data);
 
     countries.forEach((curCountry, idx) => {
-        // add node for country
-        nodes.push({
-            name: curCountry,
-            type: 'geo',
-        });
-
         const latestStats = [...data[curCountry]].pop();
 
         latestStats.active =
@@ -46,15 +48,43 @@ export const parseWorld = (data, selectedCountry = null) => {
         totals.recovered += latestStats.recovered;
         totals.active += latestStats.active;
 
-        // link country to case types
+        if (latestStats.confirmed <= threshold) {
+            otherTotals.confirmed += latestStats.confirmed;
+            otherTotals.deaths += latestStats.deaths;
+            otherTotals.recovered += latestStats.recovered;
+            otherTotals.active += latestStats.active;
+        } else {
+            // add node for country
+            nodes.push({
+                name: curCountry,
+                type: 'geo',
+            });
+
+            // link country to case types
+            CASE_TYPES.forEach(caseType => {
+                links.push({
+                    source: curCountry,
+                    target: caseType,
+                    value: latestStats[caseType],
+                });
+            });
+        }
+    });
+
+    if (otherTotals.confirmed > 0) {
+        nodes.push({
+            name: NODE_NAMES.OTHER,
+            type: 'geo',
+        });
+
         CASE_TYPES.forEach(caseType => {
             links.push({
-                source: curCountry,
+                source: NODE_NAMES.OTHER,
                 target: caseType,
-                value: latestStats[caseType],
+                value: otherTotals[caseType],
             });
         });
-    });
+    }
 
     return {
         nodes,

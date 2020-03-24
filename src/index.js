@@ -14,8 +14,13 @@ const color = '#ccc';
 const colorMap = d3.scaleOrdinal(d3.schemeSet3);
 
 const init = () => {
-    const d = parseWorld(rawData);
-    genChart(d);
+    const results = parseWorld(rawData);
+    // add all countries option
+    results.countries.unshift('All Countries');
+    const dropdownEl = genCountryDropdown(results.countries);
+
+    // generate chart
+    genChart(results.sankey);
     // try {
     //     fetch(dataURL)
     //         .then(response => response.json())
@@ -28,6 +33,20 @@ const init = () => {
     //             );
     //         });
     // } catch (error) {}
+};
+
+const genCountryDropdown = countries => {
+    const dropdown = d3.select('#countries');
+
+    dropdown
+        .selectAll('option')
+        .data(countries)
+        .enter()
+        .append('option')
+        .text(data => data)
+        .attr('value', data => data);
+
+    return dropdown.node();
 };
 
 const genChart = data => {

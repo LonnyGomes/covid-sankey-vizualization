@@ -28,7 +28,9 @@ export const parseWorld = (data, selectedCountry = null) => {
 
     const links = [];
 
-    const countries = selectedCountry ? [selectedCountry] : Object.keys(data);
+    const countries = selectedCountry
+        ? [selectedCountry]
+        : Object.keys(data).sort();
 
     countries.forEach((curCountry, idx) => {
         // add node for country
@@ -57,7 +59,11 @@ export const parseWorld = (data, selectedCountry = null) => {
     });
 
     return {
-        nodes,
-        links,
+        totals,
+        countries,
+        sankey: {
+            nodes,
+            links,
+        },
     };
 };

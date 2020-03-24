@@ -9,7 +9,7 @@ const NODE_TYPES = {
 };
 const CASE_TYPES = ['active', 'deaths', 'recovered'];
 
-export const parseWorld = (data, selectedCountry = null, threshold = 500) => {
+export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
     const totals = {
         confirmed: 0,
         deaths: 0,

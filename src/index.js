@@ -109,73 +109,122 @@ const genChart = data => {
 };
 
 const updateChart = (graph, node, link, label) => {
+    const t = d3
+        .transition()
+        .duration(350)
+        .ease(d3.easeLinear);
+
+    const calcNodeClr = d => {
+        let c;
+        if (d.type) {
+            switch (d.type) {
+                case 'geo':
+                    c = '#008fa8';
+                    break;
+                case 'case':
+                    if (d.name === 'deaths') {
+                        c = '#7c1515';
+                    } else if (d.name === 'recovered') {
+                        c = 'green';
+                    } else {
+                        c = '#bbb';
+                    }
+                    break;
+                default:
+                    c = 'red';
+                    break;
+            }
+        }
+
+        return d3.color(c);
+    };
     // nodes
     node.selectAll('rect')
-        .data(graph.nodes)
-        .join('rect')
-        .attr('x', d => d.x0 + 1)
-        .attr('y', d => d.y0)
-        .attr('height', d => d.y1 - d.y0)
-        .attr('width', d => d.x1 - d.x0 - 2)
-        .attr('class', 'node')
-        .attr('fill', d => {
-            let c;
-            if (d.type) {
-                switch (d.type) {
-                    case 'geo':
-                        c = '#008fa8';
-                        break;
-                    case 'case':
-                        if (d.name === 'deaths') {
-                            c = '#7c1515';
-                        } else if (d.name === 'recovered') {
-                            c = 'green';
-                        } else {
-                            c = '#bbb';
-                        }
-                        break;
-                    default:
-                        c = 'red';
-                        break;
-                }
-            }
+        .data(graph.nodes, data => data.name)
 
-            return d3.color(c);
-        })
-        .append('title')
-        .text(d => `${d.name}\n${d.value.toLocaleString()}`);
+        .join(
+            enter => {
+                enter
+                    .append('rect')
+                    .attr('x', d => d.x0 + 1)
+                    .attr('y', d => d.y0)
+                    .attr('height', d => d.y1 - d.y0)
+                    .attr('width', d => d.x1 - d.x0 - 2)
+                    .attr('class', 'node')
+                    .attr('fill', calcNodeClr)
+                    .append('title')
+                    .text(d => `${d.name}\n${d.value.toLocaleString()}`);
+            },
+            update =>
+                update
+                    .transition(t)
+                    .attr('y', d => d.y0)
+                    .attr('height', d => d.y1 - d.y0)
+                    .select('title')
+                    .text(d => `${d.name}\n${d.value.toLocaleString()}`),
+            exit => exit.remove()
+        );
 
     // links
     link.selectAll('g')
-        .data(graph.links)
-        .join('g')
-        .attr('stroke', d => d3.color(d.color) || color)
-        .style('mix-blend-mode', 'multiply')
-        .append('path')
-        .attr('d', sankeyLinkHorizontal())
-        .attr('class', data => `${data.target.name} link`)
-        .attr('stroke-width', d => Math.max(1, d.width))
-        .append('title')
-        .text(
-            d =>
-                `${d.source.name} → ${
-                    d.target.name
-                }\n${d.value.toLocaleString()}`
+        .data(graph.links, data => {
+            //console.log('data', data);
+            return `${data.source.name}${data.target.name}`;
+        })
+        .join(
+            enter => {
+                enter
+                    .append('g')
+                    .attr('stroke', d => d3.color(d.color) || color)
+                    .style('mix-blend-mode', 'multiply')
+                    .append('path')
+                    .attr('d', sankeyLinkHorizontal())
+                    .attr('class', data => `${data.target.name} link`)
+                    .attr('stroke-width', d => Math.max(1, d.width))
+                    .append('title')
+                    .text(
+                        d =>
+                            `${d.source.name} → ${
+                                d.target.name
+                            }\n${d.value.toLocaleString()}`
+                    );
+            },
+            update => update,
+            exit => exit.remove()
         );
 
     // labels
     label
         .selectAll('text')
-        .data(graph.nodes)
-        .join('text')
-        .attr('x', d => (d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6))
-        .attr('y', d => (d.y1 + d.y0) / 2)
-        .attr('dy', '0.35em')
-        .attr('text-anchor', d => (d.x0 < width / 2 ? 'start' : 'end'))
-        .text(d => d.name)
-        .append('tspan')
-        .attr('fill-opacity', 0.7)
-        .text(d => ` (${d.value.toLocaleString()})`);
+        .data(graph.nodes, data => data.name)
+        .join(
+            enter => {
+                enter
+                    .append('text')
+                    .attr('x', d => (d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6))
+                    .attr('y', d => (d.y1 + d.y0) / 2)
+                    .attr('dy', '0.35em')
+                    .attr('text-anchor', d =>
+                        d.x0 < width / 2 ? 'start' : 'end'
+                    )
+                    .text(d => d.name)
+                    .append('tspan')
+                    .attr('fill-opacity', 0.7)
+                    .text(d => ` (${d.value.toLocaleString()})`);
+            },
+            update =>
+                update
+                    .transition(t)
+                    .attr('x', d => (d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6))
+                    .attr('y', d => (d.y1 + d.y0) / 2)
+                    .attr('dy', '0.35em')
+                    .attr('text-anchor', d =>
+                        d.x0 < width / 2 ? 'start' : 'end'
+                    )
+                    .select('tspan')
+                    .text(d => ` (${d.value.toLocaleString()})`),
+            exit => exit.remove()
+        );
 };
 
 init();

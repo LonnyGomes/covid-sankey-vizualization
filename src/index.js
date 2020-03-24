@@ -72,6 +72,7 @@ const genChart = data => {
         //.attr('width', width + margin.left + margin.right)
         //.attr('height', height + margin.top + margin.bottom)
         .attr('viewBox', `0 0 ${width} ${height}`)
+        .attr('preserveAspectRatio', 'xMidYMid meet')
         .append('g');
     // .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 

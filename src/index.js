@@ -6,7 +6,7 @@ import { parseWorld } from './process-data';
 import rawData from './raw-data.json';
 
 const GLOBALS = {
-    ALL_COUNTRIES: 'All Countries',
+    ALL_COUNTRIES: 'Overall Worldwide Totals',
 };
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 const width = 900;

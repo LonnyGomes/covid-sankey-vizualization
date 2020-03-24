@@ -8,7 +8,7 @@ import processedData from './data.json';
 
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 const margin = { top: 10, right: 10, bottom: 10, left: 10 };
-const width = 650 - margin.left - margin.right;
+const width = 700 - margin.left - margin.right;
 const height = 2000 - margin.top - margin.bottom;
 const color = '#ccc';
 const colorMap = d3.scaleOrdinal(d3.schemeSet3);
@@ -41,7 +41,7 @@ const genChart = data => {
     // .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     const sankey = sankeyInstance()
-        .size([width, height])
+        //.size([width, height])
         .nodeId(d => d.name)
         .nodeWidth(20)
         .nodePadding(10)
@@ -74,10 +74,16 @@ const genChart = data => {
                         c = '#008fa8';
                         break;
                     case 'case':
-                        c = '#7337d3';
+                        if (d.name === 'deaths') {
+                            c = '#7c1515';
+                        } else if (d.name === 'recovered') {
+                            c = 'green';
+                        } else {
+                            c = '#bbb';
+                        }
                         break;
                     default:
-                        c = 'grey';
+                        c = 'red';
                         break;
                 }
             }

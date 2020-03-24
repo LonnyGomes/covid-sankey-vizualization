@@ -6,6 +6,9 @@ import { parseWorld } from './process-data';
 import rawData from './raw-data.json';
 import processedData from './data.json';
 
+const GLOBALS = {
+    ALL_COUNTRIES: 'All Countries',
+};
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 const margin = { top: 10, right: 10, bottom: 10, left: 10 };
 const width = 700 - margin.left - margin.right;
@@ -15,12 +18,27 @@ const colorMap = d3.scaleOrdinal(d3.schemeSet3);
 
 const init = () => {
     const results = parseWorld(rawData);
+    let sankeyData = results.sankey;
     // add all countries option
-    results.countries.unshift('All Countries');
+    results.countries.unshift(GLOBALS.ALL_COUNTRIES);
     const dropdownEl = genCountryDropdown(results.countries);
 
     // generate chart
-    genChart(results.sankey);
+    const { link, label, node, sankey } = genChart(sankeyData);
+    const graph = sankey(sankeyData);
+    updateChart(graph, node, link, label);
+
+    dropdownEl.addEventListener('change', evt => {
+        const country =
+            dropdownEl.value === GLOBALS.ALL_COUNTRIES
+                ? null
+                : dropdownEl.value;
+
+        const newResults = parseWorld(rawData, country);
+        const graph = sankey(newResults.sankey);
+        updateChart(graph, node, link, label);
+        //sankey.update(graph);
+    });
     // try {
     //     fetch(dataURL)
     //         .then(response => response.json())
@@ -73,12 +91,27 @@ const genChart = data => {
             [width, height - 5],
         ]);
 
-    const { nodes, links } = sankey(data);
-
     // build nodes
-    svg.append('g')
-        .selectAll('rect')
-        .data(nodes)
+    const node = svg.append('g');
+
+    // generate links
+    const link = svg.append('g').attr('fill', 'none');
+
+    // generate labels
+    const label = svg.append('g').style('font', '10px sans-serif');
+
+    return {
+        sankey,
+        node,
+        link,
+        label,
+    };
+};
+
+const updateChart = (graph, node, link, label) => {
+    // nodes
+    node.selectAll('rect')
+        .data(graph.nodes)
         .join('rect')
         .attr('x', d => d.x0 + 1)
         .attr('y', d => d.y0)
@@ -108,45 +141,32 @@ const genChart = data => {
             }
 
             return d3.color(c);
-
-            // //        return 'red';
-            // for (const link of d.sourceLinks) {
-            //     if (c === undefined) c = link.color;
-            //     else if (c !== link.color) c = null;
-            // }
-            // if (c === undefined)
-            //     for (const link of d.targetLinks) {
-            //         if (c === undefined) c = link.color;
-            //         else if (c !== link.color) c = null;
-            //     }
-            // return (d3.color(c) || d3.color(color)).darker(0.5);
         })
         .append('title')
         .text(d => `${d.name}\n${d.value.toLocaleString()}`);
 
-    // generate links
-    const link = svg
-        .append('g')
-        .attr('fill', 'none')
-        .selectAll('g')
-        .data(links)
+    // links
+    link.selectAll('g')
+        .data(graph.links)
         .join('g')
         .attr('stroke', d => d3.color(d.color) || color)
-        .style('mix-blend-mode', 'multiply');
-
-    link.append('path')
+        .style('mix-blend-mode', 'multiply')
+        .append('path')
         .attr('d', sankeyLinkHorizontal())
         .attr('class', data => `${data.target.name} link`)
-        .attr('stroke-width', d => Math.max(1, d.width));
+        .attr('stroke-width', d => Math.max(1, d.width))
+        .append('title')
+        .text(
+            d =>
+                `${d.source.name} → ${
+                    d.target.name
+                }\n${d.value.toLocaleString()}`
+        );
 
-    link.append('title').text(
-        d => `${d.source.name} → ${d.target.name}\n${d.value.toLocaleString()}`
-    );
-
-    svg.append('g')
-        .style('font', '10px sans-serif')
+    // labels
+    label
         .selectAll('text')
-        .data(nodes)
+        .data(graph.nodes)
         .join('text')
         .attr('x', d => (d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6))
         .attr('y', d => (d.y1 + d.y0) / 2)

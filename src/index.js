@@ -76,14 +76,20 @@ const genChart = data => {
         .append('g');
     // .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
+    const sortFunc = (a, b) => {
+        if (a === b) {
+            return 0;
+        }
+
+        return b.value > a.value ? 1 : -1;
+    };
     const sankey = sankeyInstance()
         //.size([width, height])
         .nodeId(d => d.name)
         .nodeWidth(20)
         .nodePadding(10)
-        .linkSort((a, b) => {
-            return b.value > a.value ? 1 : -1;
-        })
+        .linkSort(sortFunc)
+        .nodeSort(sortFunc)
         //.nodeAlign(sankeyLinkHorizontal)
         .extent([
             [0, 5],

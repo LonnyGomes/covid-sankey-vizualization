@@ -1,0 +1,103 @@
+$link-clr-default: #d0d4d4;
+$link-stroke-clr: #474747;
+$link-clr-recovered: #4f8137;
+$link-clr-active: #d39a02;
+$link-clr-deaths: #ce412f;
+$node-clr-geo: #3664c3;
+$header-font-clr: #fff;
+$header-font-family: 'Roboto', sans-serif;
+$body-font-family: 'Raleway', sans-serif;
+$bg-clr: #d0d4d4;
+$chart-bg-clr: #ececec;
+$header-bg-clr: #344555;
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: $header-font-family;
+    color: $header-font-clr;
+    margin: 4px 0px;
+    font-weight: 300;
+}
+
+body {
+    margin: 0px;
+    font-family: $body-font-family;
+    background-color: $bg-clr;
+}
+
+.header {
+    display: flex;
+    background-color: $header-bg-clr;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 0px 10px;
+}
+
+.country-dropdown {
+    display: flex;
+    flex-direction: column;
+
+    & label {
+        color: #fff;
+        font-size: 1.1rem;
+    }
+}
+
+.link {
+    fill: none;
+    stroke: $link-stroke-clr;
+    stroke-opacity: 0.2;
+
+    &.recovered {
+        stroke: $link-clr-recovered;
+    }
+
+    &.active {
+        stroke: $link-clr-active;
+    }
+
+    &.deaths {
+        stroke: $link-clr-deaths;
+    }
+
+    &:hover {
+        stroke-opacity: 0.5;
+    }
+}
+
+.node {
+    &.deaths {
+        fill: $link-clr-deaths;
+    }
+    &.recovered {
+        fill: $link-clr-recovered;
+    }
+    &.active {
+        fill: $link-clr-active;
+    }
+    &.geo {
+        fill: $node-clr-geo;
+    }
+}
+
+.chart-container {
+    margin: 5px;
+}
+
+#chart {
+    width: 100%;
+    height: auto;
+    font-family: $body-font-family;
+    font-size: 16px;
+    background-color: $chart-bg-clr;
+    border-radius: 4px;
+}
+
+#countries {
+    font-family: $body-font-family;
+    font-size: 18px;
+}

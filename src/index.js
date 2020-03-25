@@ -1,5 +1,5 @@
 // derived from https://www.d3-graph-gallery.com/graph/sankey_basic.html
-import classes from './main.css';
+import classes from './main.scss';
 import * as d3 from 'd3';
 import { sankeyLinkHorizontal, sankey as sankeyInstance } from 'd3-sankey';
 import { parseWorld } from './process-data';
@@ -12,7 +12,6 @@ const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 const width = 900;
 const height = 500;
 const color = '#ccc';
-const colorMap = d3.scaleOrdinal(d3.schemeSet3);
 
 const init = () => {
     const results = parseWorld(rawData);
@@ -92,8 +91,8 @@ const genChart = data => {
         .nodeSort(sortFunc)
         //.nodeAlign(sankeyLinkHorizontal)
         .extent([
-            [0, 5],
-            [width, height - 5],
+            [10, 10],
+            [width - 10, height - 10],
         ]);
 
     // build nodes
@@ -103,7 +102,7 @@ const genChart = data => {
     const link = svg.append('g').attr('fill', 'none');
 
     // generate labels
-    const label = svg.append('g').style('font', '10px sans-serif');
+    const label = svg.append('g');
 
     return {
         sankey,
@@ -119,30 +118,6 @@ const updateChart = (graph, node, link, label) => {
         .duration(350)
         .ease(d3.easeLinear);
 
-    const calcNodeClr = d => {
-        let c;
-        if (d.type) {
-            switch (d.type) {
-                case 'geo':
-                    c = '#008fa8';
-                    break;
-                case 'case':
-                    if (d.name === 'deaths') {
-                        c = '#7c1515';
-                    } else if (d.name === 'recovered') {
-                        c = 'green';
-                    } else {
-                        c = '#bbb';
-                    }
-                    break;
-                default:
-                    c = 'red';
-                    break;
-            }
-        }
-
-        return d3.color(c);
-    };
     // nodes
     node.selectAll('rect')
         .data(graph.nodes, data => data.name)
@@ -153,10 +128,9 @@ const updateChart = (graph, node, link, label) => {
                     .append('rect')
                     .attr('x', d => d.x0 + 1)
                     .attr('y', d => d.y0)
-                    .attr('height', d => d.y1 - d.y0)
+                    .attr('height', d => Math.max(0.5, d.y1 - d.y0))
                     .attr('width', d => d.x1 - d.x0 - 2)
-                    .attr('class', 'node')
-                    .attr('fill', calcNodeClr)
+                    .attr('class', d => `node ${d.type} ${d.name}`)
                     .append('title')
                     .text(d => `${d.name}\n${d.value.toLocaleString()}`);
             },
@@ -164,7 +138,7 @@ const updateChart = (graph, node, link, label) => {
                 update
                     .transition(t)
                     .attr('y', d => d.y0)
-                    .attr('height', d => d.y1 - d.y0)
+                    .attr('height', d => Math.max(0.5, d.y1 - d.y0))
                     .select('title')
                     .text(d => `${d.name}\n${d.value.toLocaleString()}`),
             exit => exit.remove()

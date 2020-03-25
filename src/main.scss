@@ -14,7 +14,8 @@ $header-bg-clr: #344555;
 $leader-card-bg-clr: #fff;
 $leader-title-txt-clr: #fff;
 
-$breakpoints-mobile-width: 480px;
+$breakpoints-leader-board-portrait: 715px;
+$breakpoints-leader-board-mobile: 480px;
 
 h1,
 h2,
@@ -137,7 +138,12 @@ body {
         text-align: center;
         margin: 0px 5px;
 
-        @media screen and (max-width: $breakpoints-mobile-width) {
+        @media screen and (max-width: $breakpoints-leader-board-portrait) {
+            font-size: 0.9rem;
+            white-space: pre;
+        }
+
+        @media screen and (max-width: $breakpoints-leader-board-mobile) {
             font-size: 0.7rem;
             white-space: pre;
         }
@@ -149,7 +155,12 @@ body {
         font-size: 2rem;
         margin: 0px 20px;
 
-        @media screen and (max-width: $breakpoints-mobile-width) {
+        @media screen and (max-width: $breakpoints-leader-board-portrait) {
+            font-size: 1.3rem;
+            margin: 0px 15px;
+        }
+
+        @media screen and (max-width: $breakpoints-leader-board-mobile) {
             font-size: 0.8rem;
             margin: 0px 10px;
         }

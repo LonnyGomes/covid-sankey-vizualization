@@ -4,21 +4,46 @@ $link-clr-recovered: #4f8137;
 $link-clr-active: #d39a02;
 $link-clr-deaths: #ce412f;
 $node-clr-geo: #3664c3;
+$header-font-clr: #fff;
 $header-font-family: 'Oswald', sans-serif;
 $body-font-family: 'Raleway', sans-serif;
-$bg-clr: #e4e4e4;
-$chart-bg-clr: #fff;
+$bg-clr: #d0d4d4;
+$chart-bg-clr: #ececec;
+$header-bg-clr: #344555;
 
 h1,
 h2,
 h3,
 h4 {
     font-family: $header-font-family;
+    color: $header-font-clr;
+    margin: 4px 0px;
 }
 
 body {
+    margin: 0px;
     font-family: $body-font-family;
     background-color: $bg-clr;
+}
+
+.header {
+    display: flex;
+    background-color: $header-bg-clr;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 0px 10px;
+}
+
+.country-dropdown {
+    display: flex;
+    flex-direction: column;
+
+    & label {
+        color: #fff;
+        font-size: 1.3rem;
+    }
 }
 
 .link {
@@ -56,6 +81,10 @@ body {
     &.geo {
         fill: $node-clr-geo;
     }
+}
+
+.chart-container {
+    margin: 5px;
 }
 
 #chart {

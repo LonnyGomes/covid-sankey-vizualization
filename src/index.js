@@ -91,8 +91,8 @@ const genChart = data => {
         .nodeSort(sortFunc)
         //.nodeAlign(sankeyLinkHorizontal)
         .extent([
-            [0, 5],
-            [width, height - 5],
+            [10, 10],
+            [width - 10, height - 10],
         ]);
 
     // build nodes

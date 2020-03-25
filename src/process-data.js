@@ -15,6 +15,7 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
         deaths: 0,
         recovered: 0,
         active: 0,
+        rate: 0,
     };
 
     const otherTotals = {
@@ -22,6 +23,7 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
         deaths: 0,
         recovered: 0,
         active: 0,
+        rate: 0,
     };
 
     const nodes = [];
@@ -55,6 +57,8 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
         totals.deaths += latestStats.deaths;
         totals.recovered += latestStats.recovered;
         totals.active += latestStats.active;
+        totals.rate = `${Math.round((totals.deaths / totals.confirmed) * 1000) /
+            10}%`;
 
         if (latestStats.confirmed <= threshold && !selectedCountry) {
             otherTotals.confirmed += latestStats.confirmed;

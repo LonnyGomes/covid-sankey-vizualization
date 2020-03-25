@@ -7,6 +7,13 @@ const NODE_TYPES = {
     GEO: 'geo',
     CASE: 'case',
 };
+const LEADER_BOARD_TITLES = {
+    DEATHS: 'Total Deaths',
+    ACTIVE: 'Active Cases',
+    CONFIRMED: 'Total Confirmed',
+    RECOVERED: 'Total Recovered',
+    RATE: 'Death Rate',
+};
 const CASE_TYPES = ['active', 'deaths', 'recovered'];
 
 export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
@@ -105,5 +112,32 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
             nodes,
             links,
         },
+        leaderBoard: [
+            {
+                title: LEADER_BOARD_TITLES.CONFIRMED,
+                value: totals.confirmed,
+                key: 'confirmed',
+            },
+            {
+                title: LEADER_BOARD_TITLES.ACTIVE,
+                value: totals.active,
+                key: 'active',
+            },
+            {
+                title: LEADER_BOARD_TITLES.RECOVERED,
+                value: totals.recovered,
+                key: 'recovered',
+            },
+            {
+                title: LEADER_BOARD_TITLES.DEATHS,
+                value: totals.deaths,
+                key: 'deaths',
+            },
+            {
+                title: LEADER_BOARD_TITLES.RATE,
+                value: totals.rate,
+                key: 'rate',
+            },
+        ],
     };
 };

@@ -20,6 +20,9 @@ const init = () => {
     results.countries.unshift(GLOBALS.ALL_COUNTRIES);
     const dropdownEl = genCountryDropdown(results.countries);
 
+    // generate leader board
+    genLeaderBoard(results.leaderBoard);
+
     // generate chart
     const { link, label, node, sankey } = genChart(sankeyData);
     const graph = sankey(sankeyData);
@@ -32,6 +35,8 @@ const init = () => {
                 : dropdownEl.value;
 
         const newResults = parseWorld(rawData, country);
+        updateLeaderBoard(newResults.leaderBoard);
+
         const graph = sankey(newResults.sankey);
         updateChart(graph, node, link, label);
         //sankey.update(graph);
@@ -62,6 +67,34 @@ const genCountryDropdown = countries => {
         .attr('value', data => data);
 
     return dropdown.node();
+};
+
+const genLeaderBoard = leaderBoard => {
+    const formatter = d3.format(',');
+    const board = d3
+        .select('#leader-board')
+        .selectAll('div')
+        .data(leaderBoard)
+        .join('div')
+        .attr('class', 'leader-board-card');
+
+    board
+        .append('div')
+        .attr('class', 'leader-board-title')
+        .text(d => d.title);
+
+    board
+        .append('div')
+        .attr('class', d => `leader-board-value ${d.key}`)
+        .text(d => (isNaN(d.value) ? d.value : formatter(d.value)));
+};
+
+const updateLeaderBoard = leaderBoard => {
+    const formatter = d3.format(',');
+    d3.select('#leader-board')
+        .selectAll('.leader-board-value')
+        .data(leaderBoard)
+        .text(d => (isNaN(d.value) ? d.value : formatter(d.value)));
 };
 
 const genChart = data => {

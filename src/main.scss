@@ -8,8 +8,11 @@ $header-font-clr: #fff;
 $header-font-family: 'Roboto', sans-serif;
 $body-font-family: 'Raleway', sans-serif;
 $bg-clr: #d0d4d4;
-$chart-bg-clr: #ececec;
+$chart-bg-clr: #fff;
 $header-bg-clr: #344555;
+
+$leader-card-bg-clr: #fff;
+$leader-title-txt-clr: #fff;
 
 h1,
 h2,
@@ -34,7 +37,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
 
-    padding: 0px 10px;
+    padding: 10px 10px;
 }
 
 .country-dropdown {
@@ -94,10 +97,54 @@ body {
     font-family: $body-font-family;
     font-size: 16px;
     background-color: $chart-bg-clr;
-    border-radius: 4px;
 }
 
 #countries {
     font-family: $body-font-family;
     font-size: 18px;
+}
+
+#leader-board {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.leader-board-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $leader-card-bg-clr;
+
+    .leader-board-title {
+        font-family: $header-font-family;
+        color: $leader-title-txt-clr;
+        background-color: $header-bg-clr;
+        width: 100%;
+        text-align: center;
+        margin: 0px 5px;
+    }
+
+    .leader-board-value {
+        font-family: $header-font-family;
+        font-weight: 500;
+        font-size: 2rem;
+        margin: 0px 15px;
+
+        &.deaths {
+            color: $link-clr-deaths;
+        }
+
+        &.active {
+            color: $link-clr-active;
+        }
+
+        &.recovered {
+            color: $link-clr-recovered;
+        }
+
+        &.confirmed {
+            color: $node-clr-geo;
+        }
+    }
 }

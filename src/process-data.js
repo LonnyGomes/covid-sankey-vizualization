@@ -43,6 +43,12 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
     selectedCountries.forEach(curCountry => {
         const latestStats = [...data[curCountry]].pop();
 
+        Object.keys(totals).forEach(curItemKey => {
+            if (!latestStats[curItemKey]) {
+                latestStats[curItemKey] = 0;
+            }
+        });
+
         latestStats.active =
             latestStats.confirmed - latestStats.deaths - latestStats.recovered;
         totals.confirmed += latestStats.confirmed;

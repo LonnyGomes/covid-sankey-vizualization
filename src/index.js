@@ -128,7 +128,7 @@ const updateChart = (graph, node, link, label) => {
                     .append('rect')
                     .attr('x', d => d.x0 + 1)
                     .attr('y', d => d.y0)
-                    .attr('height', d => d.y1 - d.y0)
+                    .attr('height', d => Math.max(0.5, d.y1 - d.y0))
                     .attr('width', d => d.x1 - d.x0 - 2)
                     .attr('class', d => `node ${d.type} ${d.name}`)
                     .append('title')
@@ -138,7 +138,7 @@ const updateChart = (graph, node, link, label) => {
                 update
                     .transition(t)
                     .attr('y', d => d.y0)
-                    .attr('height', d => d.y1 - d.y0)
+                    .attr('height', d => Math.max(0.5, d.y1 - d.y0))
                     .select('title')
                     .text(d => `${d.name}\n${d.value.toLocaleString()}`),
             exit => exit.remove()

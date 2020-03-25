@@ -8,11 +8,11 @@ const NODE_TYPES = {
     CASE: 'case',
 };
 const LEADER_BOARD_TITLES = {
-    DEATHS: 'Total Deaths',
-    ACTIVE: 'Active Cases',
-    CONFIRMED: 'Total Confirmed',
-    RECOVERED: 'Total Recovered',
-    RATE: 'Death Rate',
+    DEATHS: 'Total\nDeaths',
+    ACTIVE: 'Active \nCases',
+    CONFIRMED: 'Total\nConfirmed',
+    RECOVERED: 'Total\nRecovered',
+    RATE: 'Death\nRate',
 };
 const CASE_TYPES = ['active', 'deaths', 'recovered'];
 

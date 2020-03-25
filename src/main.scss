@@ -104,9 +104,14 @@ body {
     font-size: 18px;
 }
 
+.leader-board-container {
+    display: flex;
+    justify-content: center;
+}
+
 #leader-board {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 5px;
 }
 
@@ -118,6 +123,8 @@ body {
 
     .leader-board-title {
         font-family: $header-font-family;
+        font-weight: 300;
+        font-size: 1.1rem;
         color: $leader-title-txt-clr;
         background-color: $header-bg-clr;
         width: 100%;
@@ -129,7 +136,7 @@ body {
         font-family: $header-font-family;
         font-weight: 500;
         font-size: 2rem;
-        margin: 0px 15px;
+        margin: 0px 20px;
 
         &.deaths {
             color: $link-clr-deaths;

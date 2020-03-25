@@ -7,6 +7,13 @@ const NODE_TYPES = {
     GEO: 'geo',
     CASE: 'case',
 };
+const LEADER_BOARD_TITLES = {
+    DEATHS: 'Total\nDeaths',
+    ACTIVE: 'Active \nCases',
+    CONFIRMED: 'Total\nConfirmed',
+    RECOVERED: 'Total\nRecovered',
+    RATE: 'Death\nRate',
+};
 const CASE_TYPES = ['active', 'deaths', 'recovered'];
 
 export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
@@ -15,6 +22,7 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
         deaths: 0,
         recovered: 0,
         active: 0,
+        rate: 0,
     };
 
     const otherTotals = {
@@ -22,6 +30,7 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
         deaths: 0,
         recovered: 0,
         active: 0,
+        rate: 0,
     };
 
     const nodes = [];
@@ -55,6 +64,8 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
         totals.deaths += latestStats.deaths;
         totals.recovered += latestStats.recovered;
         totals.active += latestStats.active;
+        totals.rate = `${Math.round((totals.deaths / totals.confirmed) * 1000) /
+            10}%`;
 
         if (latestStats.confirmed <= threshold && !selectedCountry) {
             otherTotals.confirmed += latestStats.confirmed;
@@ -101,5 +112,32 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
             nodes,
             links,
         },
+        leaderBoard: [
+            {
+                title: LEADER_BOARD_TITLES.CONFIRMED,
+                value: totals.confirmed,
+                key: 'confirmed',
+            },
+            {
+                title: LEADER_BOARD_TITLES.ACTIVE,
+                value: totals.active,
+                key: 'active',
+            },
+            {
+                title: LEADER_BOARD_TITLES.RECOVERED,
+                value: totals.recovered,
+                key: 'recovered',
+            },
+            {
+                title: LEADER_BOARD_TITLES.DEATHS,
+                value: totals.deaths,
+                key: 'deaths',
+            },
+            {
+                title: LEADER_BOARD_TITLES.RATE,
+                value: totals.rate,
+                key: 'rate',
+            },
+        ],
     };
 };

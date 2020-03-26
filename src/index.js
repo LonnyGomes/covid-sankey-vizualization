@@ -7,10 +7,13 @@ import rawData from './raw-data.json';
 
 const GLOBALS = {
     ALL_COUNTRIES: 'Overall Worldwide Totals',
+    LANDSCAPE_WIDTH: 900,
+    LANDSCAPE_HEIGHT: 500,
+    PORTRAIT_WIDTH: 450,
+    PORTRAIT_HEIGHT: 500,
 };
+
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
-const width = 900;
-const height = 500;
 const color = '#ccc';
 
 const init = () => {
@@ -56,8 +59,18 @@ const init = () => {
 };
 
 const calcSize = () => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    const frameWidth = window.innerWidth;
+    const frameHeight = window.innerHeight;
+
+    // set width/height ratio for landscape
+    let width = GLOBALS.LANDSCAPE_WIDTH;
+    let height = GLOBALS.LANDSCAPE_HEIGHT;
+
+    // change ratios if we are in portrait mode
+    if (frameHeight > frameWidth) {
+        width = GLOBALS.PORTRAIT_WIDTH;
+        height = GLOBALS.PORTRAIT_HEIGHT;
+    }
 
     return {
         width,
@@ -108,6 +121,7 @@ const updateLeaderBoard = leaderBoard => {
 };
 
 const genChart = data => {
+    const { width, height } = calcSize();
     const svg = d3
         .select('#chart')
         .append('svg')
@@ -156,6 +170,7 @@ const genChart = data => {
 };
 
 const updateChart = (graph, node, link, label) => {
+    const { width, height } = calcSize();
     const t = d3
         .transition()
         .duration(350)

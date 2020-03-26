@@ -105,18 +105,24 @@ const genLeaderBoard = leaderBoard => {
     const formatter = d3.format(',');
     const board = d3
         .select('#leader-board')
-        .selectAll('div')
-        .data(leaderBoard)
-        .join('div')
-        .attr('class', 'leader-board-card');
+        .append('table')
+        .attr('class', 'leader-board-table');
 
     board
-        .append('div')
+        .append('tr')
+        .selectAll('th')
+        .data(leaderBoard)
+        .enter()
+        .append('th')
         .attr('class', 'leader-board-title')
         .text(d => d.title);
 
     board
-        .append('div')
+        .append('tr')
+        .selectAll('td')
+        .data(leaderBoard)
+        .enter()
+        .append('td')
         .attr('class', d => `leader-board-value ${d.key}`)
         .text(d => (isNaN(d.value) ? d.value : formatter(d.value)));
 };

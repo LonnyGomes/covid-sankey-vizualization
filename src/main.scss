@@ -179,11 +179,12 @@ body {
 .leader-board-container {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 #leader-board {
-    display: flex;
-    justify-content: flex-start;
+    width: 100%;
+    max-width: $content-max-width;
     padding: 5px 10px;
 }
 
@@ -191,7 +192,6 @@ body {
     background-color: #fff;
     border-collapse: collapse;
     border: 0px;
-    max-width: $content-max-width;
 
     .leader-board-title {
         font-family: $header-font-family;

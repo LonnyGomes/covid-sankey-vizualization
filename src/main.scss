@@ -16,6 +16,8 @@ $leader-card-bg-clr: #fff;
 $leader-title-txt-clr: #fff;
 $footer-text-clr: #fff;
 
+$content-max-width: 1200px;
+
 $breakpoints-leader-board-portrait: 715px;
 $breakpoints-leader-board-mobile: 480px;
 
@@ -83,7 +85,6 @@ body {
 .content {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     min-height: 100vh;
 }
 
@@ -146,6 +147,9 @@ body {
 
 .chart-container {
     margin: 5px;
+    max-width: $content-max-width;
+    width: 100%;
+    align-self: center;
     flex: 1 0 auto;
 }
 

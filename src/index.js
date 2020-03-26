@@ -56,7 +56,6 @@ const init = () => {
     const fullNotes = document.getElementById('full-methodology-notes');
     notesToggleBtn.addEventListener('click', evt => {
         fullNotes.classList.toggle('hidden');
-        console.log('evt.target', evt.target.innerHTML);
         evt.target.innerHTML =
             evt.target.innerHTML === GLOBALS.TOGGLE_BTN_SHOW_MORE
                 ? GLOBALS.TOGGLE_BTN_HIDE

@@ -11,13 +11,14 @@ const GLOBALS = {
     LANDSCAPE_HEIGHT: 500,
     PORTRAIT_WIDTH: 450,
     PORTRAIT_HEIGHT: 500,
+    THRESHOLD: 5000,
 };
 
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 const color = '#ccc';
 
 const init = () => {
-    const results = parseWorld(rawData);
+    const results = parseWorld(rawData, null, GLOBALS.THRESHOLD);
     let sankeyData = results.sankey;
     // add all countries option
     results.countries.unshift(GLOBALS.ALL_COUNTRIES);
@@ -40,7 +41,7 @@ const init = () => {
                 ? null
                 : dropdownEl.value;
 
-        const newResults = parseWorld(rawData, country);
+        const newResults = parseWorld(rawData, country, GLOBALS.THRESHOLD);
         updateLeaderBoard(newResults.leaderBoard);
 
         const graph = sankey(newResults.sankey);
@@ -85,6 +86,15 @@ const updateTimestamp = results => {
     d3.select('#timestamp-label')
         .data([results])
         .text(d => `Last Updated: ${d.timestamp} GMT`);
+};
+
+const formatNodeLabelLabel = (label, threshold = GLOBALS.THRESHOLD) => {
+    const formatter = d3.format(',');
+    const upperFormatter = str => `${str[0].toUpperCase()}${str.slice(1)}`;
+
+    return label === 'other'
+        ? `< ${formatter(threshold)} cases`
+        : upperFormatter(label);
 };
 
 const genCountryDropdown = countries => {
@@ -205,7 +215,12 @@ const updateChart = (graph, node, link, label) => {
                     .attr('width', d => d.x1 - d.x0 - 2)
                     .attr('class', d => `node ${d.type} ${d.name}`)
                     .append('title')
-                    .text(d => `${d.name}\n${d.value.toLocaleString()}`);
+                    .text(
+                        d =>
+                            `${formatNodeLabelLabel(
+                                d.name
+                            )}\n${d.value.toLocaleString()}`
+                    );
             },
             update =>
                 update
@@ -236,9 +251,11 @@ const updateChart = (graph, node, link, label) => {
                     .append('title')
                     .text(
                         d =>
-                            `${d.source.name} → ${
+                            `${formatNodeLabelLabel(
+                                d.source.name
+                            )} → ${formatNodeLabelLabel(
                                 d.target.name
-                            }\n${d.value.toLocaleString()}`
+                            )}\n${d.value.toLocaleString()}`
                     );
             },
             update => update,
@@ -259,7 +276,7 @@ const updateChart = (graph, node, link, label) => {
                     .attr('text-anchor', d =>
                         d.x0 < width / 2 ? 'start' : 'end'
                     )
-                    .text(d => d.name)
+                    .text(d => formatNodeLabelLabel(d.name))
                     .append('tspan')
                     .attr('fill-opacity', 0.7)
                     .text(d => ` (${d.value.toLocaleString()})`);

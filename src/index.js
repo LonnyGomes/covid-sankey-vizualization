@@ -12,6 +12,8 @@ const GLOBALS = {
     PORTRAIT_WIDTH: 450,
     PORTRAIT_HEIGHT: 500,
     THRESHOLD: 5000,
+    TOGGLE_BTN_SHOW_MORE: 'Show Details',
+    TOGGLE_BTN_HIDE: 'Hide Details',
 };
 
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
@@ -48,6 +50,18 @@ const init = () => {
     countries.unshift(GLOBALS.ALL_COUNTRIES); // add all countries option
     const dropdownEl = genCountryDropdown(countries);
     dropdownEl.addEventListener('change', onDropdownChange);
+
+    const notesToggleBtn = document.getElementById('notes-toggle-btn');
+    notesToggleBtn.innerHTML = GLOBALS.TOGGLE_BTN_SHOW_MORE;
+    const fullNotes = document.getElementById('full-methodology-notes');
+    notesToggleBtn.addEventListener('click', evt => {
+        fullNotes.classList.toggle('hidden');
+        console.log('evt.target', evt.target.innerHTML);
+        evt.target.innerHTML =
+            evt.target.innerHTML === GLOBALS.TOGGLE_BTN_SHOW_MORE
+                ? GLOBALS.TOGGLE_BTN_HIDE
+                : GLOBALS.TOGGLE_BTN_SHOW_MORE;
+    });
 
     // set last updated timestamp
     updateTimestamp(totals);

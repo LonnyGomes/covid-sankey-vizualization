@@ -38,6 +38,15 @@ body {
     color: $body-font-clr;
 }
 
+button {
+    background-color: $header-bg-clr;
+    color: $header-font-clr;
+    font: $body-font-family;
+    font-size: 0.8rem;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+}
 // derived from https://www.filamentgroup.com/lab/select-css.html
 .select-css {
     display: block;
@@ -253,6 +262,44 @@ body {
     }
 }
 
+.notes {
+    display: block;
+    box-sizing: border-box;
+    max-width: $content-max-width;
+    background-color: $chart-bg-clr;
+    align-self: center;
+    color: $body-font-clr;
+    margin: 5px 10px;
+    padding: 20px 80px;
+    & h2,
+    & h3 {
+        color: $body-font-clr;
+        font-weight: 400;
+    }
+    p {
+        font-size: 1.3rem;
+    }
+    a {
+        color: $header-bg-clr;
+    }
+    @media screen and (max-width: $breakpoints-leader-board-mobile) {
+        padding: 20px 20px;
+        & h2 {
+            font-size: 1.2rem;
+        }
+        & h3 {
+            font-size: 1rem;
+        }
+        p {
+            font-size: 0.9rem;
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+}
+
 .footer {
     height: 40px;
     display: flex;
@@ -274,12 +321,6 @@ body {
 
         &:last-child {
             border-right: none;
-        }
-
-        &.copyright {
-            @media screen and (max-width: $breakpoints-leader-board-mobile) {
-                display: none;
-            }
         }
     }
 }

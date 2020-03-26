@@ -96,6 +96,16 @@ body {
     flex-wrap: wrap;
 
     padding: 10px 10px;
+
+    .header-title {
+        margin-bottom: 8px;
+    }
+}
+
+#timestamp-label {
+    font-style: italic;
+    font-weight: 100;
+    font-size: 1rem;
 }
 
 .country-dropdown {

@@ -84,25 +84,103 @@
             <div class="chart-container">
                 <div id="chart"></div>
             </div>
+            <div class="notes">
+                <h2>Methodology Note</h2>
+                <p>
+                    This data visualization uses a
+                    <a href="https://en.wikipedia.org/wiki/Sankey_diagram"
+                        >sankey diagram</a
+                    >
+                    to responsibly display the overall reported cases and death
+                    toll of the 2019-2020 novel COVID-19 pandemic broken down by
+                    geography.
+                </p>
+
+                <h3>Data sources</h3>
+                <p>
+                    The data is derived from Johns Hopkins University Center for
+                    Systems Science and Engineering (<a
+                        href="https://github.com/CSSEGISandData/COVID-19"
+                        >JHU CSSE</a
+                    >).
+                </p>
+                <p>
+                    This visual uses consolidated data sources of the JHU CSSEE
+                    data sources from
+                    <a href="https://github.com/pomber/covid19/">@covid19</a>
+                    and
+                    <a href="https://github.com/NovelCOVID/API">@NovelCOVID</a>.
+                </p>
+
+                <p>
+                    This dataset usually tracks 12-24 hours behind the latest
+                    reporting from JHU CSSE, so refer to
+                    <a
+                        href="https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6"
+                        >their dashboard</a
+                    >
+                    for the most up to date information.
+                </p>
+
+                <h3>Data Grouping</h3>
+                <p>
+                    All countries that have reported less than 5,000 cases have
+                    been grouped in to one category labeled as "< 5,00 cases" to
+                    reduce visual noise in the visualization.
+                </p>
+
+                <h3>Total Confirmed Metric</h3>
+                <p>
+                    The JHU CSSE consolidated total of confirmed cases of
+                    COVID-19. Note that confirmed cases are just that, and there
+                    are an unknown quantity of unreported COVID-19 cases.
+                </p>
+
+                <h3>Total Deaths Metric</h3>
+                <p>
+                    The JHU CSSE consolidated total COVID-19 related deaths
+                    reported by various governmental agencies.
+                </p>
+
+                <h3>Total Recovered Metric</h3>
+                <p>
+                    The consolidated total reported recovered cases. Keep in
+                    mind that the reporting of this metric is likely to be
+                    inconsistent across global government agencies.
+                </p>
+
+                <h3>Active Cases Metric</h3>
+                <p>
+                    The visualization computes this number by subtracting the
+                    total recovered and total deaths from the total confirmed
+                    cases:
+                    <br />
+                    <br />
+                    <code
+                        >Active Cases = Total Confirmed - Total Deaths - Total
+                        Recovered</code
+                    >)
+                </p>
+
+                <h3>Death Rate</h3>
+                <p>
+                    The visualization computes this number by dividing the Total
+                    Deaths metric by the Total Confirmed cases:
+                    <br />
+                    <br />
+                    <code>Death Rate = Total Deaths / Total Confirmed</code>
+                </p>
+            </div>
             <footer class="footer">
-                <p class="footer-item copyright">
+                <p class="footer-item">
                     © 2020
                     <a href="https://twitter.com/lonnygomes">Lonny Gomes</a>
-                </p>
-                <p class="footer-item">
-                    <a
-                        href="https://github.com/LonnyGomes/covid-sankey-vizualization/blob/master/methodology.md"
-                        >Methodology</a
-                    >
                 </p>
                 <p class="footer-item">
                     <a
                         href="https://github.com/LonnyGomes/covid-sankey-vizualization"
                         >GitHub</a
                     >
-                </p>
-                <p class="footer-item">
-                    <a href="https://github.com/pomber/covid19/">Data Source</a>
                 </p>
             </footer>
         </div>

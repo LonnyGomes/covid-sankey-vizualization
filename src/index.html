@@ -63,22 +63,45 @@
         />
 
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@300;400;500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:ital,wght@0,300;0,400;0,500;1,100&display=swap');
         </style>
     </head>
     <body>
-        <header class="header">
-            <h1>COVID-19 Global Cases</h1>
-            <div class="country-dropdown">
-                <label for="countries">Select a location</label>
-                <select class="select-css" id="countries"></select>
+        <div class="content">
+            <header class="header">
+                <h1>COVID-19 Global Cases</h1>
+                <div class="country-dropdown">
+                    <label for="countries">Select a location</label>
+                    <select class="select-css" id="countries"></select>
+                </div>
+            </header>
+            <div class="leader-board-container">
+                <div id="leader-board"></div>
             </div>
-        </header>
-        <div class="leader-board-container">
-            <div id="leader-board"></div>
-        </div>
-        <div class="chart-container">
-            <div id="chart"></div>
+            <div class="chart-container">
+                <div id="chart"></div>
+            </div>
+            <footer class="footer">
+                <p class="footer-item copyright">
+                    © 2020
+                    <a href="https://twitter.com/lonnygomes">Lonny Gomes</a>
+                </p>
+                <p class="footer-item">
+                    <a
+                        href="https://github.com/LonnyGomes/covid-sankey-vizualization/blob/master/methodology.md"
+                        >Methodology</a
+                    >
+                </p>
+                <p class="footer-item">
+                    <a
+                        href="https://github.com/LonnyGomes/covid-sankey-vizualization"
+                        >GitHub</a
+                    >
+                </p>
+                <p class="footer-item">
+                    <a href="https://github.com/pomber/covid19/">Data Source</a>
+                </p>
+            </footer>
         </div>
         <script src="./index.js"></script>
     </body>

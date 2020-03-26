@@ -18,36 +18,47 @@ const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 const color = '#ccc';
 
 const init = () => {
-    const results = parseWorld(rawData, null, GLOBALS.THRESHOLD);
-    let sankeyData = results.sankey;
-    // add all countries option
-    results.countries.unshift(GLOBALS.ALL_COUNTRIES);
-    const dropdownEl = genCountryDropdown(results.countries);
+    // retrieve data
+    const { sankey: sankeyData, countries, totals, leaderBoard } = parseWorld(
+        rawData,
+        null,
+        GLOBALS.THRESHOLD
+    );
 
-    // update last updated
-    updateTimestamp(results.totals);
-
-    // generate leader board
-    genLeaderBoard(results.leaderBoard);
-
-    // generate chart
-    const { link, label, node, sankey } = genChart(sankeyData);
-    const graph = sankey(sankeyData);
-    updateChart(graph, node, link, label);
-
-    dropdownEl.addEventListener('change', evt => {
+    // event handler for dropdown change
+    const onDropdownChange = () => {
         const country =
             dropdownEl.value === GLOBALS.ALL_COUNTRIES
                 ? null
                 : dropdownEl.value;
 
-        const newResults = parseWorld(rawData, country, GLOBALS.THRESHOLD);
-        updateLeaderBoard(newResults.leaderBoard);
+        const { sankey: sankeyData, leaderBoard } = parseWorld(
+            rawData,
+            country,
+            GLOBALS.THRESHOLD
+        );
+        updateLeaderBoard(leaderBoard);
 
-        const graph = sankey(newResults.sankey);
+        const graph = sankey(sankeyData);
         updateChart(graph, node, link, label);
         //sankey.update(graph);
-    });
+    };
+
+    // configure country dropdown
+    countries.unshift(GLOBALS.ALL_COUNTRIES); // add all countries option
+    const dropdownEl = genCountryDropdown(countries);
+    dropdownEl.addEventListener('change', onDropdownChange);
+
+    // set last updated timestamp
+    updateTimestamp(totals);
+
+    // generate leader board
+    genLeaderBoard(leaderBoard);
+
+    // generate chart
+    const { link, label, node, sankey } = genChart(sankeyData);
+    updateChart(sankey(sankeyData), node, link, label);
+
     // try {
     //     fetch(dataURL)
     //         .then(response => response.json())

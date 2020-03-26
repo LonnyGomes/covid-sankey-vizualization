@@ -118,11 +118,6 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
         },
         leaderBoard: [
             {
-                title: LEADER_BOARD_TITLES.CONFIRMED,
-                value: totals.confirmed,
-                key: 'confirmed',
-            },
-            {
                 title: LEADER_BOARD_TITLES.ACTIVE,
                 value: totals.active,
                 key: 'active',
@@ -140,7 +135,12 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
             {
                 title: LEADER_BOARD_TITLES.RATE,
                 value: totals.rate,
-                key: 'rate',
+                key: 'deaths',
+            },
+            {
+                title: LEADER_BOARD_TITLES.CONFIRMED,
+                value: totals.confirmed,
+                key: 'confirmed',
             },
         ],
     };

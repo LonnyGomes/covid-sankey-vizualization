@@ -23,6 +23,9 @@ const init = () => {
     results.countries.unshift(GLOBALS.ALL_COUNTRIES);
     const dropdownEl = genCountryDropdown(results.countries);
 
+    // update last updated
+    updateTimestamp(results.totals);
+
     // generate leader board
     genLeaderBoard(results.leaderBoard);
 
@@ -76,6 +79,12 @@ const calcSize = () => {
         width,
         height,
     };
+};
+
+const updateTimestamp = results => {
+    d3.select('#timestamp-label')
+        .data([results])
+        .text(d => `Last Updated: ${d.timestamp} GMT`);
 };
 
 const genCountryDropdown = countries => {

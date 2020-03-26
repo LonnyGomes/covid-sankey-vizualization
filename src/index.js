@@ -90,8 +90,11 @@ const updateTimestamp = results => {
 
 const formatNodeLabelLabel = (label, threshold = GLOBALS.THRESHOLD) => {
     const formatter = d3.format(',');
+    const upperFormatter = str => `${str[0].toUpperCase()}${str.slice(1)}`;
 
-    return label === 'other' ? `< ${formatter(threshold)} cases` : label;
+    return label === 'other'
+        ? `< ${formatter(threshold)} cases`
+        : upperFormatter(label);
 };
 
 const genCountryDropdown = countries => {
@@ -248,9 +251,11 @@ const updateChart = (graph, node, link, label) => {
                     .append('title')
                     .text(
                         d =>
-                            `${formatNodeLabelLabel(d.source.name)} → ${
+                            `${formatNodeLabelLabel(
+                                d.source.name
+                            )} → ${formatNodeLabelLabel(
                                 d.target.name
-                            }\n${d.value.toLocaleString()}`
+                            )}\n${d.value.toLocaleString()}`
                     );
             },
             update => update,

@@ -86,8 +86,8 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
             // link country to case types
             CASE_TYPES.forEach(caseType => {
                 links.push({
-                    source: curCountry,
-                    target: caseType,
+                    source: caseType,
+                    target: curCountry,
                     value: latestStats[caseType],
                 });
             });
@@ -102,8 +102,8 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
 
         CASE_TYPES.forEach(caseType => {
             links.push({
-                source: NODE_NAMES.OTHER,
-                target: caseType,
+                source: caseType,
+                target: NODE_NAMES.OTHER,
                 value: otherTotals[caseType],
             });
         });

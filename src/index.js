@@ -271,7 +271,7 @@ const updateChart = (graph, node, link, label) => {
                     .style('mix-blend-mode', 'multiply')
                     .append('path')
                     .attr('d', sankeyLinkHorizontal())
-                    .attr('class', data => `${data.target.name} link`)
+                    .attr('class', data => `${data.source.name} link`)
                     .attr('stroke-width', d => Math.max(1, d.width))
                     .append('title')
                     .text(

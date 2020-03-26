@@ -219,7 +219,7 @@ body {
         font-size: 2rem;
         padding: 5px 20px;
         text-align: center;
-        border-left: 0.5px solid lightgray;
+        border-left: 1px solid $bg-clr;
 
         &:first-child {
             border-left: none;

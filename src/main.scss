@@ -38,6 +38,15 @@ body {
     color: $body-font-clr;
 }
 
+button {
+    background-color: $header-bg-clr;
+    color: $header-font-clr;
+    font: $body-font-family;
+    font-size: 0.8rem;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+}
 // derived from https://www.filamentgroup.com/lab/select-css.html
 .select-css {
     display: block;
@@ -281,6 +290,10 @@ body {
         p {
             font-size: 0.9rem;
         }
+    }
+
+    .hidden {
+        display: none;
     }
 }
 

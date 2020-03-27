@@ -112,12 +112,15 @@ const updateTimestamp = results => {
 
 const formatNodeLabelLabel = (label, threshold = GLOBALS.THRESHOLD) => {
     const formatter = d3.format(',');
+    const mappedLabel = mapLabelName(label);
     const upperFormatter = str => `${str[0].toUpperCase()}${str.slice(1)}`;
 
     return label === 'other'
         ? `< ${formatter(threshold)} cases`
-        : upperFormatter(label);
+        : upperFormatter(mappedLabel);
 };
+
+const mapLabelName = label => GLOBALS.DROPDOWN_MAPPING[label] || label;
 
 const genCountryDropdown = countries => {
     const dropdown = d3.select('#countries');
@@ -127,7 +130,7 @@ const genCountryDropdown = countries => {
         .data(countries)
         .enter()
         .append('option')
-        .text(data => data)
+        .text(data => mapLabelName(data))
         .attr('value', data => data);
 
     return dropdown.node();

@@ -9,4 +9,7 @@ export const GLOBALS = {
     US_KEY: 'US',
     TOGGLE_BTN_SHOW_MORE: 'Show Details',
     TOGGLE_BTN_HIDE: 'Hide Details',
+    DROPDOWN_MAPPING: {
+        US: 'United States',
+    },
 };

@@ -298,6 +298,23 @@ button {
     .hidden {
         display: none;
     }
+
+    .formula {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-style: italic;
+        font-size: 1.2rem;
+
+        margin: 5px 0px;
+
+        @media screen and (max-width: $breakpoints-leader-board-mobile) {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
 }
 
 .footer {

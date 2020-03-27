@@ -45,7 +45,6 @@ const init = () => {
     };
 
     // configure country dropdown
-    countries.unshift(GLOBALS.ALL_COUNTRIES); // add all countries option
     const dropdownEl = genCountryDropdown(countries);
     dropdownEl.addEventListener('change', onDropdownChange);
 
@@ -124,10 +123,15 @@ const mapLabelName = label => GLOBALS.DROPDOWN_MAPPING[label] || label;
 
 const genCountryDropdown = countries => {
     const dropdown = d3.select('#countries');
+    const filteredCountries = countries.filter(
+        country => country !== GLOBALS.US_KEY
+    );
+    // add all countries and us to the top of the list
+    filteredCountries.unshift(GLOBALS.ALL_COUNTRIES, GLOBALS.US_KEY);
 
     dropdown
         .selectAll('option')
-        .data(countries)
+        .data(filteredCountries)
         .enter()
         .append('option')
         .text(data => mapLabelName(data))

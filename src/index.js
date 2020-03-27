@@ -264,9 +264,10 @@ const updateChart = (graph, node, link, label) => {
 
     // links
     link.selectAll('path')
-        .data(graph.links, data => {
-            return `${data.source.name}${data.target.name}${data.value}`;
-        })
+        .data(
+            graph.links,
+            data => `${data.source.name}${data.target.name}${data.value}`
+        )
         .join(
             enter => {
                 enter
@@ -286,8 +287,16 @@ const updateChart = (graph, node, link, label) => {
                             )}\n${d.value.toLocaleString()}`
                     );
             },
-            update => update,
-            exit => exit.remove()
+            update =>
+                update
+                    .transition(t)
+                    .attr('d', sankeyLinkHorizontal())
+                    .attr('stroke-width', d => Math.max(1, d.width)),
+            exit =>
+                exit
+                    .transition(t)
+                    .attr('stroke-width', 0)
+                    .remove()
         );
 
     // labels

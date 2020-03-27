@@ -17,6 +17,7 @@ const LEADER_BOARD_TITLES = {
 const CASE_TYPES = ['active', 'deaths', 'recovered'];
 
 export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
+    const { world: worldData, us: usData } = data;
     const totals = {
         confirmed: 0,
         deaths: 0,
@@ -46,12 +47,12 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
 
     const links = [];
 
-    const countries = Object.keys(data).sort();
+    const countries = Object.keys(worldData).sort();
 
     const selectedCountries = selectedCountry ? [selectedCountry] : countries;
 
     selectedCountries.forEach(curCountry => {
-        const latestStats = [...data[curCountry]].pop();
+        const latestStats = [...worldData[curCountry]].pop();
 
         Object.keys(totals).forEach(curItemKey => {
             if (!latestStats[curItemKey]) {

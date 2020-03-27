@@ -263,17 +263,14 @@ const updateChart = (graph, node, link, label) => {
         );
 
     // links
-    link.selectAll('g')
-        .data(graph.links, data => {
-            //console.log('data', data);
-            return `${data.source.name}${data.target.name}`;
-        })
+    link.selectAll('path')
+        .data(
+            graph.links,
+            data => `${data.source.name}${data.target.name}${data.value}`
+        )
         .join(
             enter => {
                 enter
-                    .append('g')
-                    .attr('stroke', d => d3.color(d.color) || color)
-                    .style('mix-blend-mode', 'multiply')
                     .append('path')
                     .attr('d', sankeyLinkHorizontal())
                     .attr('class', data => `${data.source.name} link`)
@@ -290,8 +287,16 @@ const updateChart = (graph, node, link, label) => {
                             )}\n${d.value.toLocaleString()}`
                     );
             },
-            update => update,
-            exit => exit.remove()
+            update =>
+                update
+                    .transition(t)
+                    .attr('d', sankeyLinkHorizontal())
+                    .attr('stroke-width', d => Math.max(1, d.width)),
+            exit =>
+                exit
+                    .transition(t)
+                    .attr('stroke-width', 0)
+                    .remove()
         );
 
     // labels

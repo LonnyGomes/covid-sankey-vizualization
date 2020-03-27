@@ -263,17 +263,13 @@ const updateChart = (graph, node, link, label) => {
         );
 
     // links
-    link.selectAll('g')
+    link.selectAll('path')
         .data(graph.links, data => {
-            //console.log('data', data);
-            return `${data.source.name}${data.target.name}`;
+            return `${data.source.name}${data.target.name}${data.value}`;
         })
         .join(
             enter => {
                 enter
-                    .append('g')
-                    .attr('stroke', d => d3.color(d.color) || color)
-                    .style('mix-blend-mode', 'multiply')
                     .append('path')
                     .attr('d', sankeyLinkHorizontal())
                     .attr('class', data => `${data.source.name} link`)

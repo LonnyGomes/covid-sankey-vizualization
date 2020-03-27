@@ -1,6 +1,8 @@
+import { GLOBALS } from './globals';
+
 // constants
 const NODE_NAMES = {
-    WORLD_WIDE: 'worldwide',
+    US: GLOBALS.US_KEY,
     OTHER: 'other',
 };
 const NODE_TYPES = {
@@ -16,7 +18,13 @@ const LEADER_BOARD_TITLES = {
 };
 const CASE_TYPES = ['active', 'deaths', 'recovered'];
 
-export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
+export const parseWorld = (
+    data,
+    selectedCountry = null,
+    threshold = 5000,
+    us_threshold = 1000
+) => {
+    const { world: worldData, us: usData } = data;
     const totals = {
         confirmed: 0,
         deaths: 0,
@@ -34,6 +42,9 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
         rate: 0,
     };
 
+    const curThreshold =
+        selectedCountry === NODE_NAMES.US ? us_threshold : threshold;
+
     const nodes = [];
 
     // add case times as nodes
@@ -46,12 +57,29 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
 
     const links = [];
 
-    const countries = Object.keys(data).sort();
+    const countries = Object.keys(worldData).sort();
+    const states = Object.keys(usData).sort();
 
-    const selectedCountries = selectedCountry ? [selectedCountry] : countries;
+    // we want to group countries into thresholds if a selected country
+    // is not defined or if one is defined and it is the US
+    const shouldGroup =
+        !selectedCountry ||
+        (selectedCountry && selectedCountry === NODE_NAMES.US)
+            ? true
+            : false;
+
+    // define selected region based on if US is selected
+    const selectedRegion =
+        selectedCountry === NODE_NAMES.US ? states : [selectedCountry];
+
+    // determine if the region or the countries should be used in the iteration
+    const selectedCountries = selectedCountry ? selectedRegion : countries;
+
+    // determine if we will use the US or World dataset
+    const dataset = selectedCountry === NODE_NAMES.US ? usData : worldData;
 
     selectedCountries.forEach(curCountry => {
-        const latestStats = [...data[curCountry]].pop();
+        const latestStats = [...dataset[curCountry]].pop();
 
         Object.keys(totals).forEach(curItemKey => {
             if (!latestStats[curItemKey]) {
@@ -71,7 +99,7 @@ export const parseWorld = (data, selectedCountry = null, threshold = 5000) => {
             totals.timestamp = latestStats.date;
         }
 
-        if (latestStats.confirmed <= threshold && !selectedCountry) {
+        if (latestStats.confirmed <= curThreshold && shouldGroup) {
             otherTotals.confirmed += latestStats.confirmed;
             otherTotals.deaths += latestStats.deaths;
             otherTotals.recovered += latestStats.recovered;

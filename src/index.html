@@ -96,6 +96,11 @@
                     geography.
                 </p>
 
+                <p>
+                    All reporting is at the country level with the exception of
+                    the United States which contains state-level detail.
+                </p>
+
                 <button id="notes-toggle-btn">Toggle details</button>
                 <div id="full-methodology-notes" class="hidden">
                     <h3>Data sources</h3>
@@ -131,8 +136,14 @@
                     <h3>Data Grouping</h3>
                     <p>
                         All countries that have reported less than 5,000 cases
-                        have been grouped in to one category labeled as "< 5,00
+                        have been grouped in to one category labeled as "< 5,000
                         cases" to reduce visual noise in the visualization.
+                    </p>
+                    <p>
+                        The United States is further broken down by state and
+                        uses a different threshold for visualization purposes.
+                        The label for the grouped category follows the same
+                        naming convention as with the all countries grouping.
                     </p>
 
                     <h3>Total Confirmed Metric</h3>

@@ -4,27 +4,19 @@ import * as d3 from 'd3';
 import { sankeyLinkHorizontal, sankey as sankeyInstance } from 'd3-sankey';
 import { parseWorld } from './process-data';
 import rawData from './raw-data.json';
-
-const GLOBALS = {
-    ALL_COUNTRIES: 'Overall Worldwide Totals',
-    LANDSCAPE_WIDTH: 900,
-    LANDSCAPE_HEIGHT: 500,
-    PORTRAIT_WIDTH: 450,
-    PORTRAIT_HEIGHT: 500,
-    THRESHOLD: 5000,
-    TOGGLE_BTN_SHOW_MORE: 'Show Details',
-    TOGGLE_BTN_HIDE: 'Hide Details',
-};
+import { GLOBALS } from './globals';
 
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 const color = '#ccc';
+let currentThreshold = GLOBALS.THRESHOLD;
 
 const init = () => {
     // retrieve data
     const { sankey: sankeyData, countries, totals, leaderBoard } = parseWorld(
         rawData,
         null,
-        GLOBALS.THRESHOLD
+        GLOBALS.THRESHOLD,
+        GLOBALS.US_THRESHOLD
     );
 
     // event handler for dropdown change
@@ -34,10 +26,16 @@ const init = () => {
                 ? null
                 : dropdownEl.value;
 
+        currentThreshold =
+            country === GLOBALS.US_KEY
+                ? GLOBALS.US_THRESHOLD
+                : GLOBALS.THRESHOLD;
+
         const { sankey: sankeyData, leaderBoard } = parseWorld(
             rawData,
             country,
-            GLOBALS.THRESHOLD
+            GLOBALS.THRESHOLD,
+            GLOBALS.US_THRESHOLD
         );
         updateLeaderBoard(leaderBoard);
 
@@ -47,7 +45,6 @@ const init = () => {
     };
 
     // configure country dropdown
-    countries.unshift(GLOBALS.ALL_COUNTRIES); // add all countries option
     const dropdownEl = genCountryDropdown(countries);
     dropdownEl.addEventListener('change', onDropdownChange);
 
@@ -114,22 +111,30 @@ const updateTimestamp = results => {
 
 const formatNodeLabelLabel = (label, threshold = GLOBALS.THRESHOLD) => {
     const formatter = d3.format(',');
+    const mappedLabel = mapLabelName(label);
     const upperFormatter = str => `${str[0].toUpperCase()}${str.slice(1)}`;
 
     return label === 'other'
         ? `< ${formatter(threshold)} cases`
-        : upperFormatter(label);
+        : upperFormatter(mappedLabel);
 };
+
+const mapLabelName = label => GLOBALS.DROPDOWN_MAPPING[label] || label;
 
 const genCountryDropdown = countries => {
     const dropdown = d3.select('#countries');
+    const filteredCountries = countries.filter(
+        country => country !== GLOBALS.US_KEY
+    );
+    // add all countries and us to the top of the list
+    filteredCountries.unshift(GLOBALS.ALL_COUNTRIES, GLOBALS.US_KEY);
 
     dropdown
         .selectAll('option')
-        .data(countries)
+        .data(filteredCountries)
         .enter()
         .append('option')
-        .text(data => data)
+        .text(data => mapLabelName(data))
         .attr('value', data => data);
 
     return dropdown.node();
@@ -242,7 +247,8 @@ const updateChart = (graph, node, link, label) => {
                     .text(
                         d =>
                             `${formatNodeLabelLabel(
-                                d.name
+                                d.name,
+                                currentThreshold
                             )}\n${d.value.toLocaleString()}`
                     );
             },
@@ -276,9 +282,11 @@ const updateChart = (graph, node, link, label) => {
                     .text(
                         d =>
                             `${formatNodeLabelLabel(
-                                d.source.name
+                                d.source.name,
+                                currentThreshold
                             )} → ${formatNodeLabelLabel(
-                                d.target.name
+                                d.target.name,
+                                currentThreshold
                             )}\n${d.value.toLocaleString()}`
                     );
             },
@@ -300,7 +308,7 @@ const updateChart = (graph, node, link, label) => {
                     .attr('text-anchor', d =>
                         d.x0 < width / 2 ? 'start' : 'end'
                     )
-                    .text(d => formatNodeLabelLabel(d.name))
+                    .text(d => formatNodeLabelLabel(d.name, currentThreshold))
                     .append('tspan')
                     .attr('fill-opacity', 0.7)
                     .text(d => ` (${d.value.toLocaleString()})`);

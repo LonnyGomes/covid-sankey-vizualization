@@ -1,6 +1,8 @@
+import { GLOBALS } from './globals';
+
 // constants
 const NODE_NAMES = {
-    US: 'US',
+    US: GLOBALS.US_KEY,
     OTHER: 'other',
 };
 const NODE_TYPES = {

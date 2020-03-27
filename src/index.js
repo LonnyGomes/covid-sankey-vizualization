@@ -4,17 +4,7 @@ import * as d3 from 'd3';
 import { sankeyLinkHorizontal, sankey as sankeyInstance } from 'd3-sankey';
 import { parseWorld } from './process-data';
 import rawData from './raw-data.json';
-
-const GLOBALS = {
-    ALL_COUNTRIES: 'Overall Worldwide Totals',
-    LANDSCAPE_WIDTH: 900,
-    LANDSCAPE_HEIGHT: 500,
-    PORTRAIT_WIDTH: 450,
-    PORTRAIT_HEIGHT: 500,
-    THRESHOLD: 5000,
-    TOGGLE_BTN_SHOW_MORE: 'Show Details',
-    TOGGLE_BTN_HIDE: 'Hide Details',
-};
+import { GLOBALS } from './globals';
 
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 const color = '#ccc';

@@ -1,6 +1,6 @@
 # COVID-19 sankey visualization
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/20041503-004f-4443-8d04-b0f60c4f3237/deploy-status)](https://app.netlify.com/sites/covid-sankey-viz/deploys)
@@ -31,6 +31,17 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://lonnygomes.com"><img src="https://avatars0.githubusercontent.com/u/50893208?v=4" width="100px;" alt=""/><br /><sub><b>Lonny Gomes</b></sub></a><br /><a href="https://github.com/LonnyGomes/covid-sankey-vizualization/commits?author=LonnyGomes" title="Code">💻</a> <a href="#maintenance-LonnyGomes" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/kmliebe"><img src="https://avatars2.githubusercontent.com/u/62724254?v=4" width="100px;" alt=""/><br /><sub><b>kmliebe</b></sub></a><br /><a href="#design-kmliebe" title="Design">🎨</a> <a href="#ideas-kmliebe" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/panoz7"><img src="https://avatars1.githubusercontent.com/u/41122569?v=4" width="100px;" alt=""/><br /><sub><b>panoz7</b></sub></a><br /><a href="#ideas-panoz7" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/pawn002"><img src="https://avatars3.githubusercontent.com/u/24492257?v=4" width="100px;" alt=""/><br /><sub><b>J. Z. Rioflorido</b></sub></a><br /><a href="#ideas-pawn002" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-pawn002" title="Design">🎨</a> <a href="#a11y-pawn002" title="Accessibility">️️️️♿️</a></td>
+    <td align="center"><a href="https://pomb.us"><img src="https://avatars1.githubusercontent.com/u/1911623?v=4" width="100px;" alt=""/><br /><sub><b>Rodrigo Pombo</b></sub></a><br /><a href="#data-pomber" title="Data">🔣</a></td>
+    <td align="center"><a href="https://github.com/NovelCOVID"><img src="https://avatars1.githubusercontent.com/u/61817610?v=4" width="100px;" alt=""/><br /><sub><b>NovelCOVID</b></sub></a><br /><a href="#data-NovelCOVID" title="Data">🔣</a></td>
+  </tr>
+</table>
+
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->

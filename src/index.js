@@ -8,13 +8,15 @@ import { GLOBALS } from './globals';
 
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 const color = '#ccc';
+let currentThreshold = GLOBALS.THRESHOLD;
 
 const init = () => {
     // retrieve data
     const { sankey: sankeyData, countries, totals, leaderBoard } = parseWorld(
         rawData,
         null,
-        GLOBALS.THRESHOLD
+        GLOBALS.THRESHOLD,
+        GLOBALS.US_THRESHOLD
     );
 
     // event handler for dropdown change
@@ -24,10 +26,16 @@ const init = () => {
                 ? null
                 : dropdownEl.value;
 
+        currentThreshold =
+            country === GLOBALS.US_KEY
+                ? GLOBALS.US_THRESHOLD
+                : GLOBALS.THRESHOLD;
+
         const { sankey: sankeyData, leaderBoard } = parseWorld(
             rawData,
             country,
-            GLOBALS.THRESHOLD
+            GLOBALS.THRESHOLD,
+            GLOBALS.US_THRESHOLD
         );
         updateLeaderBoard(leaderBoard);
 
@@ -232,7 +240,8 @@ const updateChart = (graph, node, link, label) => {
                     .text(
                         d =>
                             `${formatNodeLabelLabel(
-                                d.name
+                                d.name,
+                                currentThreshold
                             )}\n${d.value.toLocaleString()}`
                     );
             },
@@ -266,9 +275,11 @@ const updateChart = (graph, node, link, label) => {
                     .text(
                         d =>
                             `${formatNodeLabelLabel(
-                                d.source.name
+                                d.source.name,
+                                currentThreshold
                             )} → ${formatNodeLabelLabel(
-                                d.target.name
+                                d.target.name,
+                                currentThreshold
                             )}\n${d.value.toLocaleString()}`
                     );
             },
@@ -290,7 +301,7 @@ const updateChart = (graph, node, link, label) => {
                     .attr('text-anchor', d =>
                         d.x0 < width / 2 ? 'start' : 'end'
                     )
-                    .text(d => formatNodeLabelLabel(d.name))
+                    .text(d => formatNodeLabelLabel(d.name, currentThreshold))
                     .append('tspan')
                     .attr('fill-opacity', 0.7)
                     .text(d => ` (${d.value.toLocaleString()})`);

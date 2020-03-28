@@ -1,6 +1,6 @@
 # COVID-19 sankey visualization
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/20041503-004f-4443-8d04-b0f60c4f3237/deploy-status)](https://app.netlify.com/sites/covid-sankey-viz/deploys)
@@ -40,6 +40,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://pomb.us"><img src="https://avatars1.githubusercontent.com/u/1911623?v=4" width="100px;" alt=""/><br /><sub><b>Rodrigo Pombo</b></sub></a><br /><a href="#data-pomber" title="Data">🔣</a></td>
     <td align="center"><a href="https://github.com/NovelCOVID"><img src="https://avatars1.githubusercontent.com/u/61817610?v=4" width="100px;" alt=""/><br /><sub><b>NovelCOVID</b></sub></a><br /><a href="#data-NovelCOVID" title="Data">🔣</a></td>
     <td align="center"><a href="http://coreygearhart.com"><img src="https://avatars0.githubusercontent.com/u/13511406?v=4" width="100px;" alt=""/><br /><sub><b>Corey Gearhart</b></sub></a><br /><a href="#ideas-coreygearhart" title="Ideas, Planning, & Feedback">🤔</a> <a href="#a11y-coreygearhart" title="Accessibility">️️️️♿️</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/kelissa"><img src="https://avatars2.githubusercontent.com/u/50927767?v=4" width="100px;" alt=""/><br /><sub><b>kelissa</b></sub></a><br /><a href="#design-kelissa" title="Design">🎨</a> <a href="#ideas-kelissa" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 

@@ -1,6 +1,6 @@
 # COVID-19 sankey visualization
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/20041503-004f-4443-8d04-b0f60c4f3237/deploy-status)](https://app.netlify.com/sites/covid-sankey-viz/deploys)
@@ -43,6 +43,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/kelissa"><img src="https://avatars2.githubusercontent.com/u/50927767?v=4" width="100px;" alt=""/><br /><sub><b>kelissa</b></sub></a><br /><a href="#design-kelissa" title="Design">🎨</a> <a href="#ideas-kelissa" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/COBAcode"><img src="https://avatars3.githubusercontent.com/u/50960497?v=4" width="100px;" alt=""/><br /><sub><b>Corey B</b></sub></a><br /><a href="#ideas-COBAcode" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 

@@ -87,6 +87,15 @@
         "design",
         "ideas"
       ]
+    },
+    {
+      "login": "COBAcode",
+      "name": "Corey B",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/50960497?v=4",
+      "profile": "https://github.com/COBAcode",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7

@@ -307,6 +307,7 @@ const updateChart = (graph, node, link, label) => {
                     .attr('text-anchor', d =>
                         d.x0 < width / 2 ? 'start' : 'end'
                     )
+                    .text(d => formatNodeLabelLabel(d.name, currentThreshold))
                     .select('tspan')
                     .text(d => ` (${d.value.toLocaleString()})`),
             exit => exit.remove()

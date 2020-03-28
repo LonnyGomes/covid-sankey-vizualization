@@ -97,10 +97,18 @@ button {
     min-height: 100vh;
 }
 
+.header-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: $header-bg-clr;
+}
+
 .header {
     display: flex;
-    background-color: $header-bg-clr;
     justify-content: space-between;
+    max-width: $content-max-width;
+    width: 100%;
     align-items: center;
     flex-wrap: wrap;
 

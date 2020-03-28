@@ -1,5 +1,5 @@
 // derived from https://www.d3-graph-gallery.com/graph/sankey_basic.html
-import classes from './main.scss';
+import './main.scss';
 import * as d3 from 'd3';
 import { sankeyLinkHorizontal, sankey as sankeyInstance } from 'd3-sankey';
 import { parseWorld } from './process-data';
@@ -7,7 +7,6 @@ import rawData from './raw-data.json';
 import { GLOBALS } from './globals';
 
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
-const color = '#ccc';
 let currentThreshold = GLOBALS.THRESHOLD;
 
 const init = () => {
@@ -41,16 +40,16 @@ const init = () => {
 
         const graph = sankey(sankeyData);
         updateChart(graph, node, link, label);
-        //sankey.update(graph);
     };
 
     // configure country dropdown
     const dropdownEl = genCountryDropdown(countries);
     dropdownEl.addEventListener('change', onDropdownChange);
 
+    // configure methodology notes toggle
+    const fullNotes = document.getElementById('full-methodology-notes');
     const notesToggleBtn = document.getElementById('notes-toggle-btn');
     notesToggleBtn.innerHTML = GLOBALS.TOGGLE_BTN_SHOW_MORE;
-    const fullNotes = document.getElementById('full-methodology-notes');
     notesToggleBtn.addEventListener('click', evt => {
         fullNotes.classList.toggle('hidden');
         evt.target.innerHTML =
@@ -68,19 +67,6 @@ const init = () => {
     // generate chart
     const { link, label, node, sankey } = genChart(sankeyData);
     updateChart(sankey(sankeyData), node, link, label);
-
-    // try {
-    //     fetch(dataURL)
-    //         .then(response => response.json())
-    //         .then(results => {
-    //             console.log(results);
-    //         })
-    //         .catch(err => {
-    //             console.error(
-    //                 `Error encountered while retrieve data: ${err.message}`
-    //             );
-    //         });
-    // } catch (error) {}
 };
 
 const calcSize = () => {
@@ -109,6 +95,8 @@ const updateTimestamp = results => {
         .text(d => `Last Updated: ${d.timestamp} GMT`);
 };
 
+const mapLabelName = label => GLOBALS.DROPDOWN_MAPPING[label] || label;
+
 const formatNodeLabelLabel = (label, threshold = GLOBALS.THRESHOLD) => {
     const formatter = d3.format(',');
     const mappedLabel = mapLabelName(label);
@@ -118,8 +106,6 @@ const formatNodeLabelLabel = (label, threshold = GLOBALS.THRESHOLD) => {
         ? `< ${formatter(threshold)} cases`
         : upperFormatter(mappedLabel);
 };
-
-const mapLabelName = label => GLOBALS.DROPDOWN_MAPPING[label] || label;
 
 const genCountryDropdown = countries => {
     const dropdown = d3.select('#countries');
@@ -179,12 +165,9 @@ const genChart = data => {
     const svg = d3
         .select('#chart')
         .append('svg')
-        //.attr('width', width + margin.left + margin.right)
-        //.attr('height', height + margin.top + margin.bottom)
         .attr('viewBox', `0 0 ${width} ${height}`)
         .attr('preserveAspectRatio', 'xMidYMid meet')
         .append('g');
-    // .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
     const sortFunc = (a, b) => {
         if (a === b) {
@@ -194,13 +177,11 @@ const genChart = data => {
         return b.value > a.value ? 1 : -1;
     };
     const sankey = sankeyInstance()
-        //.size([width, height])
         .nodeId(d => d.name)
         .nodeWidth(20)
         .nodePadding(10)
         .linkSort(sortFunc)
         .nodeSort(sortFunc)
-        //.nodeAlign(sankeyLinkHorizontal)
         .extent([
             [10, 10],
             [width - 10, height - 10],
@@ -233,7 +214,6 @@ const updateChart = (graph, node, link, label) => {
     // nodes
     node.selectAll('rect')
         .data(graph.nodes, data => data.name)
-
         .join(
             enter => {
                 enter

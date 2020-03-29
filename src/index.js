@@ -42,6 +42,9 @@ const init = () => {
         );
         updateLeaderBoard(leaderBoard);
 
+        // update dynamic footnotes
+        updateFootnotes(country, currentThreshold);
+
         const graph = sankey(sankeyData);
         updateChart(graph, node, link, label);
     };
@@ -67,6 +70,9 @@ const init = () => {
 
     // generate leader board
     genLeaderBoard(leaderBoard);
+
+    // init dynamic footnote
+    updateFootnotes(null, currentThreshold);
 
     // generate chart
     const { link, label, node, sankey } = genChart(sankeyData);
@@ -97,6 +103,59 @@ const updateTimestamp = results => {
     d3.select('#timestamp-label')
         .data([results])
         .text(d => `Last Updated: ${d.timestamp} GMT`);
+};
+
+const updateFootnotes = (country, threshold) => {
+    const formatter = d3.format(',');
+    const regionName = country === GLOBALS.US_KEY ? 'states' : 'countries';
+    const groupNotes = {
+        index: 'other',
+        title: `Other ${regionName}*`,
+        description: `This category represents all ${regionName} with
+reported cases less than ${formatter(threshold)}`,
+    };
+
+    const footnotes = [
+        {
+            index: 'note',
+            title: 'NOTE',
+            description:
+                'Totals are based on official government reporting and do not indicate the actual number of infections',
+        },
+    ];
+
+    // only show group notes if country is worldwide (null) or US
+    if (!country || country === GLOBALS.US_KEY) {
+        footnotes.push(groupNotes);
+    }
+
+    // clear contents of notes
+    //TODO: this shouldn't be necessary, something is up w/ the d3 data joins
+    d3.select('#footnotes').text('');
+
+    const selection = d3
+        .select('#footnotes')
+        .selectAll('.footnote')
+        .data(footnotes, d => d.index);
+
+    selection
+        .text('')
+        .enter()
+        .append('div')
+        .attr('class', 'footnote');
+
+    const elements = d3.select('#footnotes').selectAll('.footnote');
+    elements
+        .append('span')
+        .attr('class', 'title')
+        .text(d => d.title);
+
+    elements
+        .append('span')
+        .attr('class', 'description')
+        .text(d => d.description);
+
+    elements.exit().remove();
 };
 
 const mapLabelName = label => GLOBALS.DROPDOWN_MAPPING[label] || label;

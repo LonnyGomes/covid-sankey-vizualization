@@ -274,6 +274,7 @@ button {
     display: block;
     box-sizing: border-box;
     max-width: $content-max-width;
+    width: 100%;
     background-color: $chart-bg-clr;
     align-self: center;
     color: $body-font-clr;
@@ -317,6 +318,27 @@ button {
         @media screen and (max-width: $breakpoints-leader-board-mobile) {
             font-size: 0.9rem;
         }
+    }
+}
+
+.footnote {
+    padding-top: 10px;
+    $footnote-font-size: 1.3rem;
+    font-size: $footnote-font-size;
+
+    @media screen and (max-width: $breakpoints-leader-board-mobile) {
+        $footnote-font-size: 1rem;
+    }
+
+    .title {
+        font-size: $footnote-font-size;
+        font-weight: bold;
+        font-style: italic;
+        padding-right: 5px;
+    }
+    .description {
+        font-style: italic;
+        font-size: $footnote-font-size - 0.1;
     }
 }
 

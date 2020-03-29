@@ -8,6 +8,7 @@ import { GLOBALS } from './globals';
 
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 let currentThreshold = GLOBALS.THRESHOLD;
+let isUSSelected = false;
 
 const init = () => {
     // retrieve data
@@ -25,6 +26,9 @@ const init = () => {
                 ? null
                 : dropdownEl.value;
 
+        // track if United States is currently selected
+        isUSSelected = country === GLOBALS.US_KEY ? true : false;
+
         currentThreshold =
             country === GLOBALS.US_KEY
                 ? GLOBALS.US_THRESHOLD
@@ -37,6 +41,9 @@ const init = () => {
             GLOBALS.US_THRESHOLD
         );
         updateLeaderBoard(leaderBoard);
+
+        // update dynamic footnotes
+        updateFootnotes(country, currentThreshold);
 
         const graph = sankey(sankeyData);
         updateChart(graph, node, link, label);
@@ -63,6 +70,9 @@ const init = () => {
 
     // generate leader board
     genLeaderBoard(leaderBoard);
+
+    // init dynamic footnote
+    updateFootnotes(null, currentThreshold);
 
     // generate chart
     const { link, label, node, sankey } = genChart(sankeyData);
@@ -95,15 +105,67 @@ const updateTimestamp = results => {
         .text(d => `Last Updated: ${d.timestamp} GMT`);
 };
 
+const updateFootnotes = (country, threshold) => {
+    const formatter = d3.format(',');
+    const regionName = country === GLOBALS.US_KEY ? 'states' : 'countries';
+    const groupNotes = {
+        index: 'other',
+        title: `Other ${regionName}*`,
+        description: `This category represents all ${regionName} with
+reported cases less than ${formatter(threshold)}`,
+    };
+
+    const footnotes = [
+        {
+            index: 'note',
+            title: 'NOTE',
+            description:
+                'Totals are based on official government reporting and do not indicate the actual number of infections',
+        },
+    ];
+
+    // only show group notes if country is worldwide (null) or US
+    if (!country || country === GLOBALS.US_KEY) {
+        footnotes.push(groupNotes);
+    }
+
+    // clear contents of notes
+    //TODO: this shouldn't be necessary, something is up w/ the d3 data joins
+    d3.select('#footnotes').text('');
+
+    const selection = d3
+        .select('#footnotes')
+        .selectAll('.footnote')
+        .data(footnotes, d => d.index);
+
+    selection
+        .text('')
+        .enter()
+        .append('div')
+        .attr('class', 'footnote');
+
+    const elements = d3.select('#footnotes').selectAll('.footnote');
+    elements
+        .append('span')
+        .attr('class', 'title')
+        .text(d => d.title);
+
+    elements
+        .append('span')
+        .attr('class', 'description')
+        .text(d => d.description);
+
+    elements.exit().remove();
+};
+
 const mapLabelName = label => GLOBALS.DROPDOWN_MAPPING[label] || label;
 
-const formatNodeLabelLabel = (label, threshold = GLOBALS.THRESHOLD) => {
-    const formatter = d3.format(',');
+const formatNodeLabelLabel = (label, isUS = false) => {
     const mappedLabel = mapLabelName(label);
     const upperFormatter = str => `${str[0].toUpperCase()}${str.slice(1)}`;
 
     return label === 'other'
-        ? `< ${formatter(threshold)} cases`
+        ? `Other ${isUS ? 'states' : 'countries'}*`
         : upperFormatter(mappedLabel);
 };
 
@@ -228,7 +290,7 @@ const updateChart = (graph, node, link, label) => {
                         d =>
                             `${formatNodeLabelLabel(
                                 d.name,
-                                currentThreshold
+                                isUSSelected
                             )}\n${d.value.toLocaleString()}`
                     );
             },
@@ -260,10 +322,10 @@ const updateChart = (graph, node, link, label) => {
                         d =>
                             `${formatNodeLabelLabel(
                                 d.source.name,
-                                currentThreshold
+                                isUSSelected
                             )} → ${formatNodeLabelLabel(
                                 d.target.name,
-                                currentThreshold
+                                isUSSelected
                             )}\n${d.value.toLocaleString()}`
                     );
             },
@@ -293,7 +355,7 @@ const updateChart = (graph, node, link, label) => {
                     .attr('text-anchor', d =>
                         d.x0 < width / 2 ? 'start' : 'end'
                     )
-                    .text(d => formatNodeLabelLabel(d.name, currentThreshold))
+                    .text(d => formatNodeLabelLabel(d.name, isUSSelected))
                     .append('tspan')
                     .attr('fill-opacity', 0.7)
                     .text(d => ` (${d.value.toLocaleString()})`);
@@ -307,6 +369,7 @@ const updateChart = (graph, node, link, label) => {
                     .attr('text-anchor', d =>
                         d.x0 < width / 2 ? 'start' : 'end'
                     )
+                    .text(d => formatNodeLabelLabel(d.name, isUSSelected))
                     .select('tspan')
                     .text(d => ` (${d.value.toLocaleString()})`),
             exit => exit.remove()

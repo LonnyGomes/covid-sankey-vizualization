@@ -21,6 +21,8 @@ $content-max-width: 1200px;
 $breakpoints-leader-board-portrait: 715px;
 $breakpoints-leader-board-mobile: 480px;
 
+$dropdown-min-width: 320px;
+
 h1,
 h2,
 h3,
@@ -133,6 +135,10 @@ button {
         color: #fff;
         font-size: 1.1rem;
     }
+
+    @media screen and (max-width: $breakpoints-leader-board-portrait) {
+        width: 100%;
+    }
 }
 
 .link {
@@ -191,6 +197,7 @@ button {
 #countries {
     font-family: $body-font-family;
     font-size: 18px;
+    min-width: $dropdown-min-width;
 }
 
 .leader-board-container {

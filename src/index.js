@@ -5,6 +5,7 @@ import { sankeyLinkHorizontal, sankey as sankeyInstance } from 'd3-sankey';
 import { parseWorld } from './process-data';
 import rawData from './raw-data.json';
 import { GLOBALS } from './globals';
+const moment = require('moment');
 
 const dataURL = 'https://pomber.github.io/covid19/timeseries.json';
 let currentThreshold = GLOBALS.THRESHOLD;
@@ -102,7 +103,7 @@ const calcSize = () => {
 const updateTimestamp = results => {
     d3.select('#timestamp-label')
         .data([results])
-        .text(d => `Last Updated: ${d.timestamp} GMT`);
+        .text(d => `Last Updated: ${moment(d.timestamp).fromNow()}`);
 };
 
 const updateFootnotes = (country, threshold) => {

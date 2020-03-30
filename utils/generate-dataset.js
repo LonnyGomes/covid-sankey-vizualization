@@ -1,11 +1,10 @@
 const allCountriesEndpoint = 'https://corona.lmao.ninja/v2/jhucsse';
 const axios = require('axios').default;
-const moment = require('moment');
+const moment = require('moment-timezone');
 const GLOBALS = {
     US_KEY: 'US',
 };
-const formatDate = dateStr =>
-    Number(moment(`${dateStr} GMT`, 'YYYY-MM-DD HH:mm:ss z').format('x'));
+const formatDate = dateStr => Number(moment.tz(dateStr, 'GMT').format('x'));
 
 const parseData = data => {
     const OBJECT_KEYS = ['confirmed', 'deaths', 'recovered'];

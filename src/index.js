@@ -111,7 +111,7 @@ const updateFootnotes = (country, threshold) => {
     const regionName = country === GLOBALS.US_KEY ? 'states' : 'countries';
     const groupNotes = {
         index: 'other',
-        title: `Other ${regionName}*`,
+        title: `Other*`,
         description: `This category represents all ${regionName} with
 reported cases less than ${formatter(threshold)}`,
     };
@@ -165,9 +165,7 @@ const formatNodeLabelLabel = (label, isUS = false) => {
     const mappedLabel = mapLabelName(label);
     const upperFormatter = str => `${str[0].toUpperCase()}${str.slice(1)}`;
 
-    return label === 'other'
-        ? `Other ${isUS ? 'states' : 'countries'}*`
-        : upperFormatter(mappedLabel);
+    return label === 'other' ? `Other*` : upperFormatter(mappedLabel);
 };
 
 const genCountryDropdown = countries => {
@@ -370,7 +368,8 @@ const updateChart = (graph, node, link, label) => {
                     .attr('text-anchor', d =>
                         d.x0 < width / 2 ? 'start' : 'end'
                     )
-                    .text(d => formatNodeLabelLabel(d.name, isUSSelected))
+                    // TODO: currently, this would overwrite the tspan
+                    //.text(d => formatNodeLabelLabel(d.name, isUSSelected))
                     .select('tspan')
                     .text(d => ` (${d.value.toLocaleString()})`),
             exit => exit.remove()

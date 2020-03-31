@@ -13,7 +13,7 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: '12.x'
-            - run: npm install
+            - run: npm ci
               env:
                   CI: true
             - run: node utils/generate-dataset.js > src/raw-data.json
@@ -22,7 +22,7 @@ jobs:
                   git config --local user.email "action@github.com"
                   git config --local user.name "GitHub Action"
                   git add .
-                  git diff-index --quiet HEAD || git commit -m "chore: update data file" -a
+                  git diff-index --quiet HEAD || git commit -m "chore: update covid data" -a
             - name: Push changes
               uses: ad-m/github-push-action@master
               with:

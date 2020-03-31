@@ -3,7 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/20041503-004f-4443-8d04-b0f60c4f3237/deploy-status)](https://app.netlify.com/sites/covid-sankey-viz/deploys)
+![Data Update](https://github.com/LonnyGomes/covid-sankey-vizualization/workflows/Data%20Update/badge.svg) [![Netlify Status](https://api.netlify.com/api/v1/badges/20041503-004f-4443-8d04-b0f60c4f3237/deploy-status)](https://app.netlify.com/sites/covid-sankey-viz/deploys)
 
 A responsive D3-based data visualization that leverages a <a href="https://www.data-to-viz.com/graph/sankey.html">Sankey diagram</a> to display the breakdown of the worldwide COVID-19 cases.
 

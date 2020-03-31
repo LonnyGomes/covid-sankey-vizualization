@@ -1,10 +1,12 @@
 const allCountriesEndpoint = 'https://corona.lmao.ninja/v2/jhucsse';
 const axios = require('axios').default;
+const moment = require('moment-timezone');
 const GLOBALS = {
     US_KEY: 'US',
 };
 
 const covid = require('novelcovid');
+const formatDate = dateStr => Number(moment.tz(dateStr, 'GMT').format('x'));
 
 const parseJHUeData = data => {
     const OBJECT_KEYS = ['confirmed', 'deaths', 'recovered'];
@@ -17,14 +19,14 @@ const parseJHUeData = data => {
             for (const curKey of OBJECT_KEYS) {
                 results[item.country][curKey] = 0;
             }
-            results[item.country]['date'] = item.updatedAt;
+            results[item.country]['date'] = formatDate(item.updatedAt);
         }
 
         // handle USA data
         if (item.country === GLOBALS.US_KEY) {
             usaResults[item.province] = [
                 {
-                    date: item.updatedAt,
+                    date: formatDate(item.updatedAt),
                 },
             ];
         }

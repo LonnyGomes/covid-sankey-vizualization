@@ -35,6 +35,8 @@
   "dependencies": {
     "d3": "^5.15.0",
     "d3-sankey": "^0.12.3",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.28",
     "novelcovid": "^1.0.7-b3"
   }
 }

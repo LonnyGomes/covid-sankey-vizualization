@@ -1,0 +1,29 @@
+name: Data Update
+
+on:
+    schedule:
+        - cron: '5/20 * * * *'
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - name: Use Node.js
+              uses: actions/setup-node@v1
+              with:
+                  node-version: '12.x'
+            - run: npm install
+              env:
+                  CI: true
+            - run: node utils/generate-dataset.js > src/raw-data.json
+            - name: Commit files
+              run: |
+                  git config --local user.email "action@github.com"
+                  git config --local user.name "GitHub Action"
+                  git add .
+                  git diff-index --quiet HEAD || git commit -m "chore: update data file" -a
+            - name: Push changes
+              uses: ad-m/github-push-action@master
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}

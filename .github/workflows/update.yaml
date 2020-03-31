@@ -2,7 +2,7 @@ name: Data Update
 
 on:
     schedule:
-        - cron: '5/20 * * * *'
+        - cron: '5/15 * * * *'
 jobs:
     build:
         runs-on: ubuntu-latest

@@ -4,9 +4,11 @@ const moment = require('moment-timezone');
 const GLOBALS = {
     US_KEY: 'US',
 };
+
+const covid = require('novelcovid');
 const formatDate = dateStr => Number(moment.tz(dateStr, 'GMT').format('x'));
 
-const parseData = data => {
+const parseJHUeData = data => {
     const OBJECT_KEYS = ['confirmed', 'deaths', 'recovered'];
     const results = {};
     const usaResults = {};
@@ -52,10 +54,53 @@ const parseData = data => {
     return { world: final, us: usaResults };
 };
 
-axios
-    .get(allCountriesEndpoint)
-    .then(response => response.data)
+const parseNovelData = data => {
+    const OBJECT_KEYS = ['confirmed', 'active', 'deaths', 'recovered'];
+    const results = {};
+
+    data.forEach(item => {
+        const primaryKey = item.country || item.state;
+
+        if (!results[primaryKey]) {
+            results[primaryKey] = {};
+            for (const curKey of OBJECT_KEYS) {
+                results[primaryKey][curKey] = 0;
+            }
+            results[primaryKey]['date'] = item.updated;
+        }
+
+        const countryObj = results[primaryKey];
+
+        for (const curKey of OBJECT_KEYS) {
+            const key = curKey === 'confirmed' ? 'cases' : curKey;
+            const curVal = item[key];
+            countryObj[curKey] += isNaN(curVal) ? 0 : Number(curVal);
+        }
+    });
+
+    const final = Object.keys(results).reduce((obj, curKey) => {
+        obj[curKey] = [results[curKey]];
+        return obj;
+    }, {});
+
+    return final;
+};
+
+Promise.all([
+    // retrieve latest up to date world data
+    covid.getCountry().then(parseNovelData),
+    // retrieve JHU data for the US
+    axios
+        .get(allCountriesEndpoint)
+        .then(response => response.data)
+        .then(parseJHUeData),
+])
     .then(data => {
-        const results = parseData(data);
-        console.log(JSON.stringify(results, null, 2));
+        const [world, { us }] = data;
+
+        const dataStr = JSON.stringify({ world, us }, null, 2);
+        console.log(dataStr);
+    })
+    .catch(err => {
+        console.error(err.message);
     });

@@ -35,13 +35,20 @@ const init = () => {
                 ? GLOBALS.US_THRESHOLD
                 : GLOBALS.THRESHOLD;
 
-        const { sankey: sankeyData, leaderBoard } = parseWorld(
+        const {
+            sankey: sankeyData,
+            leaderBoard,
+            totals: curTotals,
+        } = parseWorld(
             rawData,
             country,
             GLOBALS.THRESHOLD,
             GLOBALS.US_THRESHOLD
         );
         updateLeaderBoard(leaderBoard);
+
+        // update last updated with the current timestamp
+        updateTimestamp(curTotals);
 
         // update dynamic footnotes
         updateFootnotes(country, currentThreshold);

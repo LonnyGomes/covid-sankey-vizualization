@@ -216,6 +216,8 @@ button {
     background-color: #fff;
     border-collapse: collapse;
     border: 0px;
+    table-layout: fixed;
+    width: 100%;
 
     .leader-board-title {
         font-family: $header-font-family;
@@ -223,7 +225,6 @@ button {
         font-size: 1.1rem;
         color: $leader-title-txt-clr;
         background-color: $header-bg-clr;
-        width: 100%;
         text-align: center;
         padding: 5px 10px;
         @media screen and (max-width: $breakpoints-leader-board-portrait) {

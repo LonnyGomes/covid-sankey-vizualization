@@ -2,11 +2,11 @@
   "world": {
     "USA": [
       {
-        "confirmed": 188881,
-        "active": 177564,
-        "deaths": 4066,
-        "recovered": 7251,
-        "date": 1585749933037
+        "confirmed": 189886,
+        "active": 178512,
+        "deaths": 4100,
+        "recovered": 7274,
+        "date": 1585753533152
       }
     ],
     "Italy": [
@@ -15,7 +15,7 @@
         "active": 77635,
         "deaths": 12428,
         "recovered": 15729,
-        "date": 1585749933037
+        "date": 1585753533152
       }
     ],
     "Spain": [
@@ -24,7 +24,7 @@
         "active": 70436,
         "deaths": 9053,
         "recovered": 22647,
-        "date": 1585749933038
+        "date": 1585753533152
       }
     ],
     "Germany": [
@@ -33,7 +33,7 @@
         "active": 57587,
         "deaths": 821,
         "recovered": 16100,
-        "date": 1585749933038
+        "date": 1585753533152
       }
     ],
     "France": [
@@ -42,7 +42,7 @@
         "active": 39161,
         "deaths": 3523,
         "recovered": 9444,
-        "date": 1585749933038
+        "date": 1585753533152
       }
     ],
     "Iran": [
@@ -51,7 +51,7 @@
         "active": 29084,
         "deaths": 3036,
         "recovered": 15473,
-        "date": 1585749933038
+        "date": 1585753533152
       }
     ],
     "UK": [
@@ -60,7 +60,7 @@
         "active": 26987,
         "deaths": 2352,
         "recovered": 135,
-        "date": 1585749933038
+        "date": 1585753533153
       }
     ],
     "Switzerland": [
@@ -69,7 +69,7 @@
         "active": 13709,
         "deaths": 461,
         "recovered": 2967,
-        "date": 1585749933038
+        "date": 1585753533153
       }
     ],
     "Belgium": [
@@ -78,7 +78,7 @@
         "active": 11004,
         "deaths": 828,
         "recovered": 2132,
-        "date": 1585749933038
+        "date": 1585753533153
       }
     ],
     "Netherlands": [
@@ -87,7 +87,7 @@
         "active": 12191,
         "deaths": 1173,
         "recovered": 250,
-        "date": 1585749933038
+        "date": 1585753533153
       }
     ],
     "Turkey": [
@@ -96,16 +96,16 @@
         "active": 13074,
         "deaths": 214,
         "recovered": 243,
-        "date": 1585749933038
+        "date": 1585753533153
       }
     ],
     "Austria": [
       {
-        "confirmed": 10482,
-        "active": 8900,
+        "confirmed": 10553,
+        "active": 8971,
         "deaths": 146,
         "recovered": 1436,
-        "date": 1585749933038
+        "date": 1585753533153
       }
     ],
     "S. Korea": [
@@ -114,7 +114,7 @@
         "active": 4155,
         "deaths": 165,
         "recovered": 5567,
-        "date": 1585749933038
+        "date": 1585753533153
       }
     ],
     "Canada": [
@@ -123,7 +123,7 @@
         "active": 7269,
         "deaths": 101,
         "recovered": 1242,
-        "date": 1585749933038
+        "date": 1585753533153
       }
     ],
     "Portugal": [
@@ -132,25 +132,25 @@
         "active": 8021,
         "deaths": 187,
         "recovered": 43,
-        "date": 1585749933038
+        "date": 1585753533153
       }
     ],
     "Brazil": [
       {
-        "confirmed": 5861,
-        "active": 5531,
+        "confirmed": 5868,
+        "active": 5538,
         "deaths": 203,
         "recovered": 127,
-        "date": 1585749933038
+        "date": 1585753533153
       }
     ],
     "Israel": [
       {
         "confirmed": 5591,
-        "active": 5344,
-        "deaths": 21,
+        "active": 5342,
+        "deaths": 23,
         "recovered": 226,
-        "date": 1585749933039
+        "date": 1585753533153
       }
     ],
     "Sweden": [
@@ -159,7 +159,7 @@
         "active": 4692,
         "deaths": 239,
         "recovered": 16,
-        "date": 1585749933039
+        "date": 1585753533154
       }
     ],
     "Australia": [
@@ -168,7 +168,7 @@
         "active": 4498,
         "deaths": 21,
         "recovered": 345,
-        "date": 1585749933039
+        "date": 1585753533154
       }
     ],
     "Norway": [
@@ -177,7 +177,7 @@
         "active": 4772,
         "deaths": 43,
         "recovered": 13,
-        "date": 1585749933039
+        "date": 1585753533154
       }
     ],
     "Czechia": [
@@ -186,7 +186,7 @@
         "active": 3253,
         "deaths": 32,
         "recovered": 45,
-        "date": 1585749933039
+        "date": 1585753533154
       }
     ],
     "Ireland": [
@@ -195,7 +195,7 @@
         "active": 3159,
         "deaths": 71,
         "recovered": 5,
-        "date": 1585749933039
+        "date": 1585753533154
       }
     ],
     "Denmark": [
@@ -204,7 +204,7 @@
         "active": 2987,
         "deaths": 104,
         "recovered": 1,
-        "date": 1585749933039
+        "date": 1585753533154
       }
     ],
     "Chile": [
@@ -213,7 +213,7 @@
         "active": 2781,
         "deaths": 16,
         "recovered": 234,
-        "date": 1585749933039
+        "date": 1585753533154
       }
     ],
     "Malaysia": [
@@ -222,7 +222,7 @@
         "active": 2218,
         "deaths": 45,
         "recovered": 645,
-        "date": 1585749933039
+        "date": 1585753533154
       }
     ],
     "Russia": [
@@ -231,7 +231,7 @@
         "active": 2563,
         "deaths": 24,
         "recovered": 190,
-        "date": 1585749933039
+        "date": 1585753533154
       }
     ],
     "Romania": [
@@ -240,7 +240,7 @@
         "active": 2122,
         "deaths": 86,
         "recovered": 252,
-        "date": 1585749933039
+        "date": 1585753533154
       }
     ],
     "Poland": [
@@ -249,7 +249,7 @@
         "active": 2377,
         "deaths": 36,
         "recovered": 7,
-        "date": 1585749933039
+        "date": 1585753533154
       }
     ],
     "Philippines": [
@@ -258,7 +258,7 @@
         "active": 2165,
         "deaths": 96,
         "recovered": 50,
-        "date": 1585749933039
+        "date": 1585753533154
       }
     ],
     "Ecuador": [
@@ -267,7 +267,7 @@
         "active": 2165,
         "deaths": 79,
         "recovered": 58,
-        "date": 1585749933040
+        "date": 1585753533154
       }
     ],
     "Japan": [
@@ -276,7 +276,7 @@
         "active": 1649,
         "deaths": 57,
         "recovered": 472,
-        "date": 1585749933040
+        "date": 1585753533155
       }
     ],
     "Luxembourg": [
@@ -285,7 +285,7 @@
         "active": 2075,
         "deaths": 23,
         "recovered": 80,
-        "date": 1585749933040
+        "date": 1585753533155
       }
     ],
     "Pakistan": [
@@ -294,7 +294,7 @@
         "active": 1963,
         "deaths": 26,
         "recovered": 82,
-        "date": 1585749933040
+        "date": 1585753533155
       }
     ],
     "Thailand": [
@@ -303,7 +303,7 @@
         "active": 1343,
         "deaths": 12,
         "recovered": 416,
-        "date": 1585749933040
+        "date": 1585753533155
       }
     ],
     "Saudi Arabia": [
@@ -312,7 +312,7 @@
         "active": 1440,
         "deaths": 16,
         "recovered": 264,
-        "date": 1585749933040
+        "date": 1585753533155
       }
     ],
     "Indonesia": [
@@ -321,7 +321,7 @@
         "active": 1417,
         "deaths": 157,
         "recovered": 103,
-        "date": 1585749933040
+        "date": 1585753533155
       }
     ],
     "India": [
@@ -330,7 +330,7 @@
         "active": 1444,
         "deaths": 45,
         "recovered": 148,
-        "date": 1585749933040
+        "date": 1585753533155
       }
     ],
     "Finland": [
@@ -339,7 +339,7 @@
         "active": 1419,
         "deaths": 17,
         "recovered": 10,
-        "date": 1585749933040
+        "date": 1585753533155
       }
     ],
     "South Africa": [
@@ -348,7 +348,7 @@
         "active": 1298,
         "deaths": 5,
         "recovered": 50,
-        "date": 1585749933040
+        "date": 1585753533155
       }
     ],
     "Greece": [
@@ -357,7 +357,16 @@
         "active": 1213,
         "deaths": 49,
         "recovered": 52,
-        "date": 1585749933040
+        "date": 1585753533155
+      }
+    ],
+    "Dominican Republic": [
+      {
+        "confirmed": 1284,
+        "active": 1218,
+        "deaths": 57,
+        "recovered": 9,
+        "date": 1585753533155
       }
     ],
     "Iceland": [
@@ -366,7 +375,7 @@
         "active": 993,
         "deaths": 2,
         "recovered": 225,
-        "date": 1585749933040
+        "date": 1585753533155
       }
     ],
     "Mexico": [
@@ -375,7 +384,7 @@
         "active": 1151,
         "deaths": 29,
         "recovered": 35,
-        "date": 1585749933041
+        "date": 1585753533156
       }
     ],
     "Panama": [
@@ -384,16 +393,7 @@
         "active": 1142,
         "deaths": 30,
         "recovered": 9,
-        "date": 1585749933041
-      }
-    ],
-    "Dominican Republic": [
-      {
-        "confirmed": 1109,
-        "active": 1053,
-        "deaths": 51,
-        "recovered": 5,
-        "date": 1585749933041
+        "date": 1585753533156
       }
     ],
     "Peru": [
@@ -402,7 +402,7 @@
         "active": 641,
         "deaths": 30,
         "recovered": 394,
-        "date": 1585749933041
+        "date": 1585753533156
       }
     ],
     "Serbia": [
@@ -411,16 +411,16 @@
         "active": 990,
         "deaths": 28,
         "recovered": 42,
-        "date": 1585749933041
+        "date": 1585753533156
       }
     ],
     "Argentina": [
       {
         "confirmed": 1054,
-        "active": 787,
+        "active": 779,
         "deaths": 27,
-        "recovered": 240,
-        "date": 1585749933041
+        "recovered": 248,
+        "date": 1585753533156
       }
     ],
     "Singapore": [
@@ -429,7 +429,7 @@
         "active": 752,
         "deaths": 3,
         "recovered": 245,
-        "date": 1585749933041
+        "date": 1585753533160
       }
     ],
     "Croatia": [
@@ -438,7 +438,7 @@
         "active": 884,
         "deaths": 6,
         "recovered": 73,
-        "date": 1585749933041
+        "date": 1585753533160
       }
     ],
     "Colombia": [
@@ -447,7 +447,7 @@
         "active": 859,
         "deaths": 16,
         "recovered": 31,
-        "date": 1585749933041
+        "date": 1585753533160
       }
     ],
     "Slovenia": [
@@ -456,7 +456,7 @@
         "active": 816,
         "deaths": 15,
         "recovered": 10,
-        "date": 1585749933041
+        "date": 1585753533160
       }
     ],
     "Qatar": [
@@ -465,7 +465,7 @@
         "active": 717,
         "deaths": 2,
         "recovered": 62,
-        "date": 1585749933041
+        "date": 1585753533160
       }
     ],
     "Estonia": [
@@ -474,7 +474,7 @@
         "active": 741,
         "deaths": 5,
         "recovered": 33,
-        "date": 1585749933041
+        "date": 1585753533161
       }
     ],
     "Hong Kong": [
@@ -483,7 +483,7 @@
         "active": 614,
         "deaths": 4,
         "recovered": 147,
-        "date": 1585749933041
+        "date": 1585753533161
       }
     ],
     "Algeria": [
@@ -492,7 +492,7 @@
         "active": 626,
         "deaths": 44,
         "recovered": 46,
-        "date": 1585749933041
+        "date": 1585753533161
       }
     ],
     "Diamond Princess": [
@@ -501,7 +501,7 @@
         "active": 98,
         "deaths": 11,
         "recovered": 603,
-        "date": 1585749933042
+        "date": 1585753533161
       }
     ],
     "Egypt": [
@@ -510,7 +510,7 @@
         "active": 507,
         "deaths": 46,
         "recovered": 157,
-        "date": 1585749933042
+        "date": 1585753533161
       }
     ],
     "New Zealand": [
@@ -519,7 +519,7 @@
         "active": 624,
         "deaths": 1,
         "recovered": 83,
-        "date": 1585749933042
+        "date": 1585753533161
       }
     ],
     "Iraq": [
@@ -528,7 +528,7 @@
         "active": 474,
         "deaths": 50,
         "recovered": 170,
-        "date": 1585749933042
+        "date": 1585753533161
       }
     ],
     "Ukraine": [
@@ -537,7 +537,7 @@
         "active": 642,
         "deaths": 17,
         "recovered": 10,
-        "date": 1585749933042
+        "date": 1585753533161
       }
     ],
     "UAE": [
@@ -546,7 +546,7 @@
         "active": 597,
         "deaths": 6,
         "recovered": 61,
-        "date": 1585749933042
+        "date": 1585753533161
       }
     ],
     "Morocco": [
@@ -555,7 +555,7 @@
         "active": 575,
         "deaths": 37,
         "recovered": 26,
-        "date": 1585749933047
+        "date": 1585753533161
       }
     ],
     "Lithuania": [
@@ -564,7 +564,7 @@
         "active": 566,
         "deaths": 8,
         "recovered": 7,
-        "date": 1585749933047
+        "date": 1585753533161
       }
     ],
     "Armenia": [
@@ -573,7 +573,7 @@
         "active": 537,
         "deaths": 3,
         "recovered": 31,
-        "date": 1585749933047
+        "date": 1585753533162
       }
     ],
     "Bahrain": [
@@ -582,7 +582,7 @@
         "active": 247,
         "deaths": 4,
         "recovered": 316,
-        "date": 1585749933047
+        "date": 1585753533162
       }
     ],
     "Hungary": [
@@ -591,16 +591,16 @@
         "active": 465,
         "deaths": 20,
         "recovered": 40,
-        "date": 1585749933047
+        "date": 1585753533162
       }
     ],
     "Lebanon": [
       {
         "confirmed": 479,
-        "active": 430,
-        "deaths": 12,
-        "recovered": 37,
-        "date": 1585749933047
+        "active": 422,
+        "deaths": 14,
+        "recovered": 43,
+        "date": 1585753533162
       }
     ],
     "Bosnia and Herzegovina": [
@@ -609,7 +609,7 @@
         "active": 423,
         "deaths": 13,
         "recovered": 19,
-        "date": 1585749933047
+        "date": 1585753533162
       }
     ],
     "Latvia": [
@@ -618,7 +618,16 @@
         "active": 445,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933047
+        "date": 1585753533162
+      }
+    ],
+    "Moldova": [
+      {
+        "confirmed": 423,
+        "active": 397,
+        "deaths": 4,
+        "recovered": 22,
+        "date": 1585753533162
       }
     ],
     "Bulgaria": [
@@ -627,16 +636,16 @@
         "active": 393,
         "deaths": 9,
         "recovered": 20,
-        "date": 1585749933047
+        "date": 1585753533162
       }
     ],
     "Slovakia": [
       {
         "confirmed": 400,
-        "active": 397,
-        "deaths": 0,
+        "active": 396,
+        "deaths": 1,
         "recovered": 3,
-        "date": 1585749933048
+        "date": 1585753533162
       }
     ],
     "Tunisia": [
@@ -645,7 +654,7 @@
         "active": 381,
         "deaths": 10,
         "recovered": 3,
-        "date": 1585749933048
+        "date": 1585753533162
       }
     ],
     "Andorra": [
@@ -654,7 +663,7 @@
         "active": 366,
         "deaths": 14,
         "recovered": 10,
-        "date": 1585749933048
+        "date": 1585753533162
       }
     ],
     "Kazakhstan": [
@@ -663,7 +672,7 @@
         "active": 346,
         "deaths": 3,
         "recovered": 26,
-        "date": 1585749933048
+        "date": 1585753533162
       }
     ],
     "Azerbaijan": [
@@ -672,7 +681,7 @@
         "active": 328,
         "deaths": 5,
         "recovered": 26,
-        "date": 1585749933048
+        "date": 1585753533162
       }
     ],
     "North Macedonia": [
@@ -681,16 +690,7 @@
         "active": 333,
         "deaths": 9,
         "recovered": 12,
-        "date": 1585749933048
-      }
-    ],
-    "Moldova": [
-      {
-        "confirmed": 353,
-        "active": 327,
-        "deaths": 4,
-        "recovered": 22,
-        "date": 1585749933048
+        "date": 1585753533162
       }
     ],
     "Costa Rica": [
@@ -699,7 +699,7 @@
         "active": 341,
         "deaths": 2,
         "recovered": 4,
-        "date": 1585749933048
+        "date": 1585753533162
       }
     ],
     "Uruguay": [
@@ -708,7 +708,7 @@
         "active": 295,
         "deaths": 2,
         "recovered": 41,
-        "date": 1585749933048
+        "date": 1585753533163
       }
     ],
     "Taiwan": [
@@ -717,7 +717,7 @@
         "active": 279,
         "deaths": 5,
         "recovered": 45,
-        "date": 1585749933048
+        "date": 1585753533163
       }
     ],
     "Kuwait": [
@@ -726,7 +726,7 @@
         "active": 237,
         "deaths": 0,
         "recovered": 80,
-        "date": 1585749933048
+        "date": 1585753533163
       }
     ],
     "Jordan": [
@@ -735,7 +735,7 @@
         "active": 239,
         "deaths": 5,
         "recovered": 30,
-        "date": 1585749933048
+        "date": 1585753533163
       }
     ],
     "Cyprus": [
@@ -744,7 +744,7 @@
         "active": 231,
         "deaths": 8,
         "recovered": 23,
-        "date": 1585749933048
+        "date": 1585753533163
       }
     ],
     "Burkina Faso": [
@@ -753,7 +753,7 @@
         "active": 215,
         "deaths": 14,
         "recovered": 32,
-        "date": 1585749933049
+        "date": 1585753533163
       }
     ],
     "Albania": [
@@ -762,7 +762,7 @@
         "active": 177,
         "deaths": 15,
         "recovered": 67,
-        "date": 1585749933049
+        "date": 1585753533163
       }
     ],
     "Réunion": [
@@ -771,7 +771,7 @@
         "active": 246,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933049
+        "date": 1585753533163
       }
     ],
     "San Marino": [
@@ -780,7 +780,7 @@
         "active": 197,
         "deaths": 26,
         "recovered": 13,
-        "date": 1585749933049
+        "date": 1585753533163
       }
     ],
     "Cameroon": [
@@ -789,7 +789,7 @@
         "active": 217,
         "deaths": 6,
         "recovered": 10,
-        "date": 1585749933049
+        "date": 1585753533163
       }
     ],
     "Vietnam": [
@@ -798,7 +798,7 @@
         "active": 155,
         "deaths": 0,
         "recovered": 63,
-        "date": 1585749933049
+        "date": 1585753533163
       }
     ],
     "Oman": [
@@ -807,7 +807,7 @@
         "active": 175,
         "deaths": 1,
         "recovered": 34,
-        "date": 1585749933049
+        "date": 1585753533163
       }
     ],
     "Afghanistan": [
@@ -816,7 +816,7 @@
         "active": 187,
         "deaths": 4,
         "recovered": 5,
-        "date": 1585749933049
+        "date": 1585753533163
       }
     ],
     "Ghana": [
@@ -825,7 +825,7 @@
         "active": 159,
         "deaths": 5,
         "recovered": 31,
-        "date": 1585749933049
+        "date": 1585753533163
       }
     ],
     "Senegal": [
@@ -834,7 +834,7 @@
         "active": 144,
         "deaths": 1,
         "recovered": 45,
-        "date": 1585749933049
+        "date": 1585753533164
       }
     ],
     "Malta": [
@@ -843,7 +843,7 @@
         "active": 186,
         "deaths": 0,
         "recovered": 2,
-        "date": 1585749933049
+        "date": 1585753533164
       }
     ],
     "Cuba": [
@@ -852,7 +852,7 @@
         "active": 172,
         "deaths": 6,
         "recovered": 8,
-        "date": 1585749933049
+        "date": 1585753533164
       }
     ],
     "Ivory Coast": [
@@ -861,7 +861,7 @@
         "active": 171,
         "deaths": 1,
         "recovered": 7,
-        "date": 1585749933049
+        "date": 1585753533164
       }
     ],
     "Uzbekistan": [
@@ -870,7 +870,7 @@
         "active": 159,
         "deaths": 2,
         "recovered": 12,
-        "date": 1585749933050
+        "date": 1585753533164
       }
     ],
     "Faeroe Islands": [
@@ -879,7 +879,7 @@
         "active": 98,
         "deaths": 0,
         "recovered": 75,
-        "date": 1585749933050
+        "date": 1585753533164
       }
     ],
     "Honduras": [
@@ -888,7 +888,7 @@
         "active": 159,
         "deaths": 10,
         "recovered": 3,
-        "date": 1585749933050
+        "date": 1585753533164
       }
     ],
     "Channel Islands": [
@@ -897,7 +897,7 @@
         "active": 169,
         "deaths": 3,
         "recovered": 0,
-        "date": 1585749933050
+        "date": 1585753533164
       }
     ],
     "Belarus": [
@@ -906,7 +906,16 @@
         "active": 108,
         "deaths": 2,
         "recovered": 53,
-        "date": 1585749933050
+        "date": 1585753533164
+      }
+    ],
+    "Mauritius": [
+      {
+        "confirmed": 154,
+        "active": 149,
+        "deaths": 5,
+        "recovered": 0,
+        "date": 1585753533164
       }
     ],
     "Nigeria": [
@@ -915,16 +924,7 @@
         "active": 140,
         "deaths": 2,
         "recovered": 9,
-        "date": 1585749933050
-      }
-    ],
-    "Mauritius": [
-      {
-        "confirmed": 147,
-        "active": 142,
-        "deaths": 5,
-        "recovered": 0,
-        "date": 1585749933050
+        "date": 1585753533164
       }
     ],
     "Sri Lanka": [
@@ -933,7 +933,7 @@
         "active": 123,
         "deaths": 2,
         "recovered": 21,
-        "date": 1585749933050
+        "date": 1585753533165
       }
     ],
     "Venezuela": [
@@ -942,7 +942,7 @@
         "active": 99,
         "deaths": 3,
         "recovered": 41,
-        "date": 1585749933050
+        "date": 1585753533165
       }
     ],
     "Palestine": [
@@ -951,7 +951,7 @@
         "active": 115,
         "deaths": 1,
         "recovered": 18,
-        "date": 1585749933050
+        "date": 1585753533165
       }
     ],
     "Brunei": [
@@ -960,7 +960,7 @@
         "active": 78,
         "deaths": 1,
         "recovered": 52,
-        "date": 1585749933050
+        "date": 1585753533165
       }
     ],
     "Martinique": [
@@ -969,7 +969,7 @@
         "active": 98,
         "deaths": 3,
         "recovered": 27,
-        "date": 1585749933050
+        "date": 1585753533165
       }
     ],
     "Montenegro": [
@@ -978,7 +978,7 @@
         "active": 118,
         "deaths": 2,
         "recovered": 0,
-        "date": 1585749933050
+        "date": 1585753533165
       }
     ],
     "Bolivia": [
@@ -987,7 +987,7 @@
         "active": 107,
         "deaths": 7,
         "recovered": 1,
-        "date": 1585749933050
+        "date": 1585753533165
       }
     ],
     "Georgia": [
@@ -996,7 +996,7 @@
         "active": 92,
         "deaths": 0,
         "recovered": 23,
-        "date": 1585749933051
+        "date": 1585753533165
       }
     ],
     "Guadeloupe": [
@@ -1005,7 +1005,7 @@
         "active": 88,
         "deaths": 4,
         "recovered": 22,
-        "date": 1585749933051
+        "date": 1585753533165
       }
     ],
     "Kyrgyzstan": [
@@ -1014,7 +1014,7 @@
         "active": 108,
         "deaths": 0,
         "recovered": 3,
-        "date": 1585749933051
+        "date": 1585753533165
       }
     ],
     "DRC": [
@@ -1023,7 +1023,7 @@
         "active": 97,
         "deaths": 9,
         "recovered": 3,
-        "date": 1585749933051
+        "date": 1585753533165
       }
     ],
     "Cambodia": [
@@ -1032,7 +1032,7 @@
         "active": 84,
         "deaths": 0,
         "recovered": 25,
-        "date": 1585749933051
+        "date": 1585753533165
       }
     ],
     "Mayotte": [
@@ -1041,16 +1041,16 @@
         "active": 83,
         "deaths": 1,
         "recovered": 10,
-        "date": 1585749933051
+        "date": 1585753533165
       }
     ],
     "Trinidad and Tobago": [
       {
         "confirmed": 89,
-        "active": 84,
-        "deaths": 4,
+        "active": 83,
+        "deaths": 5,
         "recovered": 1,
-        "date": 1585749933051
+        "date": 1585753533166
       }
     ],
     "Kenya": [
@@ -1059,7 +1059,7 @@
         "active": 77,
         "deaths": 1,
         "recovered": 3,
-        "date": 1585749933051
+        "date": 1585753533166
       }
     ],
     "Rwanda": [
@@ -1068,7 +1068,7 @@
         "active": 75,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933051
+        "date": 1585753533166
       }
     ],
     "Paraguay": [
@@ -1077,7 +1077,7 @@
         "active": 65,
         "deaths": 3,
         "recovered": 1,
-        "date": 1585749933051
+        "date": 1585753533166
       }
     ],
     "Gibraltar": [
@@ -1086,7 +1086,7 @@
         "active": 35,
         "deaths": 0,
         "recovered": 34,
-        "date": 1585749933051
+        "date": 1585753533166
       }
     ],
     "Liechtenstein": [
@@ -1095,7 +1095,7 @@
         "active": 68,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933051
+        "date": 1585753533166
       }
     ],
     "Isle of Man": [
@@ -1104,7 +1104,7 @@
         "active": 65,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933051
+        "date": 1585753533166
       }
     ],
     "Madagascar": [
@@ -1113,7 +1113,7 @@
         "active": 57,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933052
+        "date": 1585753533166
       }
     ],
     "Aruba": [
@@ -1122,7 +1122,7 @@
         "active": 54,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933052
+        "date": 1585753533166
       }
     ],
     "Bangladesh": [
@@ -1131,7 +1131,7 @@
         "active": 23,
         "deaths": 6,
         "recovered": 25,
-        "date": 1585749933052
+        "date": 1585753533166
       }
     ],
     "Monaco": [
@@ -1140,7 +1140,7 @@
         "active": 49,
         "deaths": 1,
         "recovered": 2,
-        "date": 1585749933052
+        "date": 1585753533166
       }
     ],
     "French Guiana": [
@@ -1149,7 +1149,7 @@
         "active": 36,
         "deaths": 0,
         "recovered": 15,
-        "date": 1585749933052
+        "date": 1585753533166
       }
     ],
     "Uganda": [
@@ -1158,7 +1158,7 @@
         "active": 44,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933052
+        "date": 1585753533167
       }
     ],
     "Macao": [
@@ -1167,7 +1167,7 @@
         "active": 31,
         "deaths": 0,
         "recovered": 10,
-        "date": 1585749933052
+        "date": 1585753533167
       }
     ],
     "Guatemala": [
@@ -1176,7 +1176,7 @@
         "active": 26,
         "deaths": 1,
         "recovered": 12,
-        "date": 1585749933052
+        "date": 1585753533167
       }
     ],
     "Jamaica": [
@@ -1185,7 +1185,7 @@
         "active": 34,
         "deaths": 2,
         "recovered": 2,
-        "date": 1585749933052
+        "date": 1585753533167
       }
     ],
     "French Polynesia": [
@@ -1194,7 +1194,7 @@
         "active": 37,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933052
+        "date": 1585753533167
       }
     ],
     "Togo": [
@@ -1203,7 +1203,7 @@
         "active": 24,
         "deaths": 2,
         "recovered": 10,
-        "date": 1585749933052
+        "date": 1585753533167
       }
     ],
     "Zambia": [
@@ -1212,7 +1212,7 @@
         "active": 36,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933052
+        "date": 1585753533167
       }
     ],
     "Niger": [
@@ -1221,7 +1221,7 @@
         "active": 31,
         "deaths": 3,
         "recovered": 0,
-        "date": 1585749933052
+        "date": 1585753533167
       }
     ],
     "Barbados": [
@@ -1230,7 +1230,16 @@
         "active": 34,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933052
+        "date": 1585753533167
+      }
+    ],
+    "Djibouti": [
+      {
+        "confirmed": 33,
+        "active": 33,
+        "deaths": 0,
+        "recovered": 0,
+        "date": 1585753533167
       }
     ],
     "El Salvador": [
@@ -1239,7 +1248,7 @@
         "active": 31,
         "deaths": 1,
         "recovered": 0,
-        "date": 1585749933053
+        "date": 1585753533167
       }
     ],
     "Bermuda": [
@@ -1248,7 +1257,7 @@
         "active": 22,
         "deaths": 0,
         "recovered": 10,
-        "date": 1585749933053
+        "date": 1585753533167
       }
     ],
     "Mali": [
@@ -1257,16 +1266,7 @@
         "active": 28,
         "deaths": 3,
         "recovered": 0,
-        "date": 1585749933053
-      }
-    ],
-    "Djibouti": [
-      {
-        "confirmed": 30,
-        "active": 30,
-        "deaths": 0,
-        "recovered": 0,
-        "date": 1585749933053
+        "date": 1585753533168
       }
     ],
     "Guinea": [
@@ -1275,7 +1275,7 @@
         "active": 30,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933053
+        "date": 1585753533168
       }
     ],
     "Ethiopia": [
@@ -1284,7 +1284,7 @@
         "active": 27,
         "deaths": 0,
         "recovered": 2,
-        "date": 1585749933053
+        "date": 1585753533168
       }
     ],
     "Tanzania": [
@@ -1293,7 +1293,7 @@
         "active": 18,
         "deaths": 1,
         "recovered": 1,
-        "date": 1585749933053
+        "date": 1585753533168
       }
     ],
     "Congo": [
@@ -1302,7 +1302,7 @@
         "active": 19,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933053
+        "date": 1585753533168
       }
     ],
     "Maldives": [
@@ -1311,7 +1311,7 @@
         "active": 6,
         "deaths": 0,
         "recovered": 13,
-        "date": 1585749933053
+        "date": 1585753533168
       }
     ],
     "Gabon": [
@@ -1320,7 +1320,7 @@
         "active": 17,
         "deaths": 1,
         "recovered": 0,
-        "date": 1585749933053
+        "date": 1585753533168
       }
     ],
     "Sint Maarten": [
@@ -1329,7 +1329,7 @@
         "active": 9,
         "deaths": 1,
         "recovered": 6,
-        "date": 1585749933053
+        "date": 1585753533168
       }
     ],
     "Haiti": [
@@ -1338,7 +1338,7 @@
         "active": 15,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933053
+        "date": 1585753533168
       }
     ],
     "New Caledonia": [
@@ -1347,7 +1347,7 @@
         "active": 16,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933053
+        "date": 1585753533168
       }
     ],
     "Myanmar": [
@@ -1356,7 +1356,7 @@
         "active": 14,
         "deaths": 1,
         "recovered": 0,
-        "date": 1585749933053
+        "date": 1585753533168
       }
     ],
     "Saint Martin": [
@@ -1365,7 +1365,7 @@
         "active": 12,
         "deaths": 1,
         "recovered": 2,
-        "date": 1585749933054
+        "date": 1585753533168
       }
     ],
     "Bahamas": [
@@ -1374,7 +1374,7 @@
         "active": 14,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933054
+        "date": 1585753533168
       }
     ],
     "Equatorial Guinea": [
@@ -1383,7 +1383,7 @@
         "active": 14,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933054
+        "date": 1585753533169
       }
     ],
     "Eritrea": [
@@ -1392,7 +1392,7 @@
         "active": 15,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933054
+        "date": 1585753533169
       }
     ],
     "Cayman Islands": [
@@ -1401,7 +1401,7 @@
         "active": 13,
         "deaths": 1,
         "recovered": 0,
-        "date": 1585749933054
+        "date": 1585753533169
       }
     ],
     "Mongolia": [
@@ -1410,7 +1410,7 @@
         "active": 12,
         "deaths": 0,
         "recovered": 2,
-        "date": 1585749933054
+        "date": 1585753533169
       }
     ],
     "Namibia": [
@@ -1419,7 +1419,7 @@
         "active": 12,
         "deaths": 0,
         "recovered": 2,
-        "date": 1585749933054
+        "date": 1585753533169
       }
     ],
     "Saint Lucia": [
@@ -1428,7 +1428,7 @@
         "active": 12,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933054
+        "date": 1585753533169
       }
     ],
     "Guyana": [
@@ -1437,7 +1437,7 @@
         "active": 10,
         "deaths": 2,
         "recovered": 0,
-        "date": 1585749933054
+        "date": 1585753533169
       }
     ],
     "Dominica": [
@@ -1446,7 +1446,7 @@
         "active": 12,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933054
+        "date": 1585753533169
       }
     ],
     "Curaçao": [
@@ -1455,7 +1455,7 @@
         "active": 7,
         "deaths": 1,
         "recovered": 3,
-        "date": 1585749933054
+        "date": 1585753533169
       }
     ],
     "Syria": [
@@ -1464,7 +1464,7 @@
         "active": 8,
         "deaths": 2,
         "recovered": 0,
-        "date": 1585749933054
+        "date": 1585753533169
       }
     ],
     "Greenland": [
@@ -1473,7 +1473,7 @@
         "active": 8,
         "deaths": 0,
         "recovered": 2,
-        "date": 1585749933054
+        "date": 1585753533169
       }
     ],
     "Laos": [
@@ -1482,7 +1482,7 @@
         "active": 10,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933055
+        "date": 1585753533169
       }
     ],
     "Libya": [
@@ -1491,7 +1491,16 @@
         "active": 9,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933055
+        "date": 1585753533169
+      }
+    ],
+    "Mozambique": [
+      {
+        "confirmed": 10,
+        "active": 10,
+        "deaths": 0,
+        "recovered": 0,
+        "date": 1585753533170
       }
     ],
     "Seychelles": [
@@ -1500,7 +1509,7 @@
         "active": 10,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933055
+        "date": 1585753533170
       }
     ],
     "Suriname": [
@@ -1509,7 +1518,7 @@
         "active": 10,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933055
+        "date": 1585753533170
       }
     ],
     "Benin": [
@@ -1518,7 +1527,7 @@
         "active": 8,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933055
+        "date": 1585753533170
       }
     ],
     "Grenada": [
@@ -1527,7 +1536,7 @@
         "active": 9,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933055
+        "date": 1585753533170
       }
     ],
     "Eswatini": [
@@ -1536,7 +1545,7 @@
         "active": 9,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933055
+        "date": 1585753533170
       }
     ],
     "Zimbabwe": [
@@ -1545,7 +1554,7 @@
         "active": 7,
         "deaths": 1,
         "recovered": 0,
-        "date": 1585749933055
+        "date": 1585753533170
       }
     ],
     "Guinea-Bissau": [
@@ -1554,16 +1563,7 @@
         "active": 8,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933055
-      }
-    ],
-    "Mozambique": [
-      {
-        "confirmed": 8,
-        "active": 8,
-        "deaths": 0,
-        "recovered": 0,
-        "date": 1585749933055
+        "date": 1585753533170
       }
     ],
     "Saint Kitts and Nevis": [
@@ -1572,7 +1572,7 @@
         "active": 8,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933055
+        "date": 1585753533170
       }
     ],
     "Angola": [
@@ -1581,7 +1581,7 @@
         "active": 4,
         "deaths": 2,
         "recovered": 1,
-        "date": 1585749933055
+        "date": 1585753533170
       }
     ],
     "Sudan": [
@@ -1590,7 +1590,7 @@
         "active": 4,
         "deaths": 2,
         "recovered": 1,
-        "date": 1585749933056
+        "date": 1585753533170
       }
     ],
     "Antigua and Barbuda": [
@@ -1599,7 +1599,7 @@
         "active": 7,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933056
+        "date": 1585753533170
       }
     ],
     "Chad": [
@@ -1608,7 +1608,7 @@
         "active": 7,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933056
+        "date": 1585753533170
       }
     ],
     "Cabo Verde": [
@@ -1617,7 +1617,7 @@
         "active": 5,
         "deaths": 1,
         "recovered": 0,
-        "date": 1585749933056
+        "date": 1585753533171
       }
     ],
     "Mauritania": [
@@ -1626,7 +1626,7 @@
         "active": 3,
         "deaths": 1,
         "recovered": 2,
-        "date": 1585749933056
+        "date": 1585753533171
       }
     ],
     "Vatican City": [
@@ -1635,7 +1635,7 @@
         "active": 6,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933056
+        "date": 1585753533171
       }
     ],
     "Liberia": [
@@ -1644,7 +1644,7 @@
         "active": 6,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933056
+        "date": 1585753533171
       }
     ],
     "St. Barth": [
@@ -1653,7 +1653,7 @@
         "active": 5,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933056
+        "date": 1585753533171
       }
     ],
     "Turks and Caicos": [
@@ -1662,7 +1662,7 @@
         "active": 6,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933056
+        "date": 1585753533171
       }
     ],
     "Nicaragua": [
@@ -1671,7 +1671,7 @@
         "active": 4,
         "deaths": 1,
         "recovered": 0,
-        "date": 1585749933056
+        "date": 1585753533171
       }
     ],
     "Nepal": [
@@ -1680,7 +1680,7 @@
         "active": 4,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933056
+        "date": 1585753533171
       }
     ],
     "Fiji": [
@@ -1689,7 +1689,7 @@
         "active": 5,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933056
+        "date": 1585753533171
       }
     ],
     "Montserrat": [
@@ -1698,7 +1698,7 @@
         "active": 5,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933056
+        "date": 1585753533171
       }
     ],
     "Somalia": [
@@ -1707,7 +1707,7 @@
         "active": 4,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "Botswana": [
@@ -1716,7 +1716,7 @@
         "active": 3,
         "deaths": 1,
         "recovered": 0,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "Gambia": [
@@ -1725,7 +1725,7 @@
         "active": 3,
         "deaths": 1,
         "recovered": 0,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "Bhutan": [
@@ -1734,7 +1734,7 @@
         "active": 4,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "Belize": [
@@ -1743,7 +1743,7 @@
         "active": 3,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "British Virgin Islands": [
@@ -1752,7 +1752,7 @@
         "active": 3,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "CAR": [
@@ -1761,7 +1761,7 @@
         "active": 3,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "MS Zaandam": [
@@ -1770,7 +1770,7 @@
         "active": 2,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "Anguilla": [
@@ -1779,7 +1779,7 @@
         "active": 2,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "Burundi": [
@@ -1788,7 +1788,7 @@
         "active": 2,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "Caribbean Netherlands": [
@@ -1797,7 +1797,7 @@
         "active": 2,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "Papua New Guinea": [
@@ -1806,7 +1806,7 @@
         "active": 1,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "St. Vincent Grenadines": [
@@ -1815,7 +1815,7 @@
         "active": 0,
         "deaths": 0,
         "recovered": 1,
-        "date": 1585749933057
+        "date": 1585753533172
       }
     ],
     "Sierra Leone": [
@@ -1824,7 +1824,7 @@
         "active": 1,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933058
+        "date": 1585753533172
       }
     ],
     "Timor-Leste": [
@@ -1833,7 +1833,7 @@
         "active": 1,
         "deaths": 0,
         "recovered": 0,
-        "date": 1585749933058
+        "date": 1585753533173
       }
     ],
     "China": [
@@ -1842,7 +1842,7 @@
         "active": 2004,
         "deaths": 3312,
         "recovered": 76238,
-        "date": 1585749933058
+        "date": 1585753533173
       }
     ]
   },

@@ -1,5 +1,5 @@
 {
-  "timestamp": 1585807440120,
+  "timestamp": 1585810890944,
   "world": {
     "USA": [
       {
@@ -1661,9 +1661,9 @@
     ],
     "California": [
       {
-        "confirmed": 9892,
-        "active": 8829,
-        "deaths": 213,
+        "confirmed": 9936,
+        "active": 8871,
+        "deaths": 215,
         "recovered": 850
       }
     ],

@@ -1,10 +1,10 @@
 {
-  "timestamp": 1585800240164,
+  "timestamp": 1585803840028,
   "world": {
     "USA": [
       {
-        "confirmed": 215215,
-        "active": 201227,
+        "confirmed": 215300,
+        "active": 201312,
         "deaths": 5110,
         "recovered": 8878
       }
@@ -139,8 +139,8 @@
     ],
     "Australia": [
       {
-        "confirmed": 5105,
-        "active": 4737,
+        "confirmed": 5106,
+        "active": 4738,
         "deaths": 23,
         "recovered": 345
       }
@@ -259,9 +259,9 @@
     ],
     "Pakistan": [
       {
-        "confirmed": 2118,
-        "active": 1997,
-        "deaths": 27,
+        "confirmed": 2238,
+        "active": 2113,
+        "deaths": 31,
         "recovered": 94
       }
     ],
@@ -300,9 +300,9 @@
     "Finland": [
       {
         "confirmed": 1446,
-        "active": 1419,
+        "active": 1129,
         "deaths": 17,
-        "recovered": 10
+        "recovered": 300
       }
     ],
     "Greece": [
@@ -889,20 +889,20 @@
         "recovered": 23
       }
     ],
+    "Kyrgyzstan": [
+      {
+        "confirmed": 116,
+        "active": 111,
+        "deaths": 0,
+        "recovered": 5
+      }
+    ],
     "Bolivia": [
       {
         "confirmed": 115,
         "active": 107,
         "deaths": 7,
         "recovered": 1
-      }
-    ],
-    "Kyrgyzstan": [
-      {
-        "confirmed": 111,
-        "active": 108,
-        "deaths": 0,
-        "recovered": 3
       }
     ],
     "Cambodia": [
@@ -1441,6 +1441,14 @@
         "recovered": 0
       }
     ],
+    "Fiji": [
+      {
+        "confirmed": 7,
+        "active": 7,
+        "deaths": 0,
+        "recovered": 0
+      }
+    ],
     "Cabo Verde": [
       {
         "confirmed": 6,
@@ -1511,14 +1519,6 @@
         "active": 4,
         "deaths": 0,
         "recovered": 1
-      }
-    ],
-    "Fiji": [
-      {
-        "confirmed": 5,
-        "active": 5,
-        "deaths": 0,
-        "recovered": 0
       }
     ],
     "Montserrat": [
@@ -1661,8 +1661,8 @@
     ],
     "California": [
       {
-        "confirmed": 9807,
-        "active": 8744,
+        "confirmed": 9892,
+        "active": 8829,
         "deaths": 213,
         "recovered": 850
       }

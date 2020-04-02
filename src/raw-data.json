@@ -1,5 +1,5 @@
 {
-  "timestamp": 1585821691042,
+  "timestamp": 1585825291213,
   "world": {
     "USA": [
       {
@@ -2069,9 +2069,9 @@
     ],
     "Puerto Rico": [
       {
-        "confirmed": 303,
-        "active": 288,
-        "deaths": 11,
+        "confirmed": 316,
+        "active": 300,
+        "deaths": 12,
         "recovered": 4
       }
     ],

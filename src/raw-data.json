@@ -1,11 +1,11 @@
 {
-  "timestamp": 1585793019007,
+  "timestamp": 1585796640518,
   "world": {
     "USA": [
       {
-        "confirmed": 215081,
-        "active": 201094,
-        "deaths": 5109,
+        "confirmed": 215215,
+        "active": 201227,
+        "deaths": 5110,
         "recovered": 8878
       }
     ],
@@ -321,11 +321,19 @@
         "recovered": 50
       }
     ],
+    "Mexico": [
+      {
+        "confirmed": 1378,
+        "active": 1306,
+        "deaths": 37,
+        "recovered": 35
+      }
+    ],
     "Peru": [
       {
         "confirmed": 1323,
-        "active": 891,
-        "deaths": 38,
+        "active": 882,
+        "deaths": 47,
         "recovered": 394
       }
     ],
@@ -351,14 +359,6 @@
         "active": 982,
         "deaths": 2,
         "recovered": 236
-      }
-    ],
-    "Mexico": [
-      {
-        "confirmed": 1215,
-        "active": 1151,
-        "deaths": 29,
-        "recovered": 35
       }
     ],
     "Argentina": [
@@ -484,9 +484,9 @@
     "Diamond Princess": [
       {
         "confirmed": 712,
-        "active": 98,
+        "active": 82,
         "deaths": 11,
-        "recovered": 603
+        "recovered": 619
       }
     ],
     "Morocco": [
@@ -577,6 +577,14 @@
         "recovered": 20
       }
     ],
+    "Kazakhstan": [
+      {
+        "confirmed": 402,
+        "active": 373,
+        "deaths": 3,
+        "recovered": 26
+      }
+    ],
     "Slovakia": [
       {
         "confirmed": 400,
@@ -591,14 +599,6 @@
         "active": 366,
         "deaths": 14,
         "recovered": 10
-      }
-    ],
-    "Kazakhstan": [
-      {
-        "confirmed": 380,
-        "active": 351,
-        "deaths": 3,
-        "recovered": 26
       }
     ],
     "Costa Rica": [
@@ -721,6 +721,14 @@
         "recovered": 63
       }
     ],
+    "Honduras": [
+      {
+        "confirmed": 219,
+        "active": 202,
+        "deaths": 14,
+        "recovered": 3
+      }
+    ],
     "Cuba": [
       {
         "confirmed": 212,
@@ -791,14 +799,6 @@
         "active": 98,
         "deaths": 0,
         "recovered": 75
-      }
-    ],
-    "Honduras": [
-      {
-        "confirmed": 172,
-        "active": 159,
-        "deaths": 10,
-        "recovered": 3
       }
     ],
     "Channel Islands": [
@@ -905,20 +905,20 @@
         "recovered": 3
       }
     ],
+    "Cambodia": [
+      {
+        "confirmed": 110,
+        "active": 76,
+        "deaths": 0,
+        "recovered": 34
+      }
+    ],
     "DRC": [
       {
         "confirmed": 109,
         "active": 97,
         "deaths": 9,
         "recovered": 3
-      }
-    ],
-    "Cambodia": [
-      {
-        "confirmed": 109,
-        "active": 84,
-        "deaths": 0,
-        "recovered": 25
       }
     ],
     "Mayotte": [
@@ -1065,6 +1065,14 @@
         "recovered": 0
       }
     ],
+    "El Salvador": [
+      {
+        "confirmed": 41,
+        "active": 39,
+        "deaths": 2,
+        "recovered": 0
+      }
+    ],
     "Macao": [
       {
         "confirmed": 41,
@@ -1094,14 +1102,6 @@
         "confirmed": 36,
         "active": 36,
         "deaths": 0,
-        "recovered": 0
-      }
-    ],
-    "El Salvador": [
-      {
-        "confirmed": 33,
-        "active": 31,
-        "deaths": 2,
         "recovered": 0
       }
     ],
@@ -1505,6 +1505,14 @@
         "recovered": 1
       }
     ],
+    "Bhutan": [
+      {
+        "confirmed": 5,
+        "active": 4,
+        "deaths": 0,
+        "recovered": 1
+      }
+    ],
     "Fiji": [
       {
         "confirmed": 5,
@@ -1543,14 +1551,6 @@
         "active": 1,
         "deaths": 1,
         "recovered": 2
-      }
-    ],
-    "Bhutan": [
-      {
-        "confirmed": 4,
-        "active": 4,
-        "deaths": 0,
-        "recovered": 0
       }
     ],
     "Belize": [
@@ -1717,8 +1717,8 @@
     ],
     "Washington": [
       {
-        "confirmed": 5895,
-        "active": 5078,
+        "confirmed": 5984,
+        "active": 5167,
         "deaths": 254,
         "recovered": 563
       }
@@ -1907,20 +1907,20 @@
         "recovered": 0
       }
     ],
+    "Arkansas": [
+      {
+        "confirmed": 624,
+        "active": 572,
+        "deaths": 10,
+        "recovered": 42
+      }
+    ],
     "District Of Columbia": [
       {
         "confirmed": 586,
         "active": 433,
         "deaths": 11,
         "recovered": 142
-      }
-    ],
-    "Arkansas": [
-      {
-        "confirmed": 584,
-        "active": 532,
-        "deaths": 10,
-        "recovered": 42
       }
     ],
     "Rhode Island": [
@@ -1941,9 +1941,9 @@
     ],
     "Kansas": [
       {
-        "confirmed": 482,
-        "active": 472,
-        "deaths": 10,
+        "confirmed": 487,
+        "active": 476,
+        "deaths": 11,
         "recovered": 0
       }
     ],

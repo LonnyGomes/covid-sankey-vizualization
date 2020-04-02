@@ -1,11 +1,11 @@
 {
-  "timestamp": 1585861674921,
+  "timestamp": 1585864674369,
   "world": {
     "USA": [
       {
-        "confirmed": 240395,
-        "active": 224222,
-        "deaths": 5808,
+        "confirmed": 240529,
+        "active": 224354,
+        "deaths": 5810,
         "recovered": 10365
       }
     ],
@@ -145,20 +145,20 @@
         "recovered": 103
       }
     ],
-    "Norway": [
-      {
-        "confirmed": 5142,
-        "active": 5060,
-        "deaths": 50,
-        "recovered": 32
-      }
-    ],
     "Australia": [
       {
-        "confirmed": 5139,
-        "active": 4527,
+        "confirmed": 5230,
+        "active": 4618,
         "deaths": 27,
         "recovered": 585
+      }
+    ],
+    "Norway": [
+      {
+        "confirmed": 5144,
+        "active": 5062,
+        "deaths": 50,
+        "recovered": 32
       }
     ],
     "Ireland": [
@@ -243,8 +243,8 @@
     ],
     "India": [
       {
-        "confirmed": 2536,
-        "active": 2273,
+        "confirmed": 2543,
+        "active": 2280,
         "deaths": 72,
         "recovered": 191
       }
@@ -259,10 +259,10 @@
     ],
     "Pakistan": [
       {
-        "confirmed": 2386,
-        "active": 2245,
+        "confirmed": 2421,
+        "active": 2262,
         "deaths": 34,
-        "recovered": 107
+        "recovered": 125
       }
     ],
     "Japan": [
@@ -531,8 +531,8 @@
     ],
     "Bosnia and Herzegovina": [
       {
-        "confirmed": 532,
-        "active": 496,
+        "confirmed": 533,
+        "active": 497,
         "deaths": 16,
         "recovered": 20
       }
@@ -700,9 +700,9 @@
     "Albania": [
       {
         "confirmed": 277,
-        "active": 194,
+        "active": 185,
         "deaths": 16,
-        "recovered": 67
+        "recovered": 76
       }
     ],
     "Afghanistan": [
@@ -1041,6 +1041,14 @@
         "recovered": 15
       }
     ],
+    "Jamaica": [
+      {
+        "confirmed": 47,
+        "active": 42,
+        "deaths": 3,
+        "recovered": 2
+      }
+    ],
     "Guatemala": [
       {
         "confirmed": 47,
@@ -1063,14 +1071,6 @@
         "active": 45,
         "deaths": 0,
         "recovered": 0
-      }
-    ],
-    "Jamaica": [
-      {
-        "confirmed": 44,
-        "active": 39,
-        "deaths": 3,
-        "recovered": 2
       }
     ],
     "El Salvador": [
@@ -1132,9 +1132,9 @@
     "Bermuda": [
       {
         "confirmed": 35,
-        "active": 25,
+        "active": 24,
         "deaths": 0,
-        "recovered": 10
+        "recovered": 11
       }
     ],
     "Ethiopia": [
@@ -1225,6 +1225,14 @@
         "recovered": 13
       }
     ],
+    "Sint Maarten": [
+      {
+        "confirmed": 18,
+        "active": 11,
+        "deaths": 1,
+        "recovered": 6
+      }
+    ],
     "New Caledonia": [
       {
         "confirmed": 18,
@@ -1239,14 +1247,6 @@
         "active": 14,
         "deaths": 2,
         "recovered": 0
-      }
-    ],
-    "Sint Maarten": [
-      {
-        "confirmed": 16,
-        "active": 9,
-        "deaths": 1,
-        "recovered": 6
       }
     ],
     "Haiti": [
@@ -1276,9 +1276,9 @@
     "Namibia": [
       {
         "confirmed": 14,
-        "active": 12,
+        "active": 11,
         "deaths": 0,
-        "recovered": 2
+        "recovered": 3
       }
     ],
     "Benin": [
@@ -1853,8 +1853,8 @@
     ],
     "Alabama": [
       {
-        "confirmed": 1233,
-        "active": 1201,
+        "confirmed": 1251,
+        "active": 1219,
         "deaths": 32,
         "recovered": 0
       }
@@ -1883,20 +1883,20 @@
         "recovered": 1
       }
     ],
+    "Oregon": [
+      {
+        "confirmed": 826,
+        "active": 805,
+        "deaths": 21,
+        "recovered": 0
+      }
+    ],
     "Minnesota": [
       {
         "confirmed": 742,
         "active": 436,
         "deaths": 18,
         "recovered": 288
-      }
-    ],
-    "Oregon": [
-      {
-        "confirmed": 736,
-        "active": 717,
-        "deaths": 19,
-        "recovered": 0
       }
     ],
     "Kentucky": [
@@ -2021,8 +2021,8 @@
     ],
     "West Virginia": [
       {
-        "confirmed": 191,
-        "active": 189,
+        "confirmed": 217,
+        "active": 215,
         "deaths": 2,
         "recovered": 0
       }

@@ -24,14 +24,14 @@ export const parseWorld = (
     threshold = 5000,
     us_threshold = 1000
 ) => {
-    const { world: worldData, us: usData } = data;
+    const { world: worldData, us: usData, timestamp } = data;
     const totals = {
         confirmed: 0,
         deaths: 0,
         recovered: 0,
         active: 0,
         rate: 0,
-        timestamp: null,
+        timestamp,
     };
 
     const otherTotals = {
@@ -95,9 +95,6 @@ export const parseWorld = (
         totals.active += latestStats.active;
         totals.rate = `${Math.round((totals.deaths / totals.confirmed) * 1000) /
             10}%`;
-        if (!totals.timestamp) {
-            totals.timestamp = latestStats.date;
-        }
 
         if (latestStats.confirmed <= curThreshold && shouldGroup) {
             otherTotals.confirmed += latestStats.confirmed;

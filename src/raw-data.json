@@ -1,5 +1,5 @@
 {
-  "timestamp": 1585803840028,
+  "timestamp": 1585807440120,
   "world": {
     "USA": [
       {
@@ -267,8 +267,8 @@
     ],
     "India": [
       {
-        "confirmed": 1998,
-        "active": 1792,
+        "confirmed": 2032,
+        "active": 1826,
         "deaths": 58,
         "recovered": 148
       }

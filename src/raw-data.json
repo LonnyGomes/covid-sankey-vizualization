@@ -1,5 +1,5 @@
 {
-  "timestamp": 1585791818952,
+  "timestamp": 1585793019007,
   "world": {
     "USA": [
       {
@@ -364,8 +364,8 @@
     "Argentina": [
       {
         "confirmed": 1133,
-        "active": 853,
-        "deaths": 32,
+        "active": 852,
+        "deaths": 33,
         "recovered": 248
       }
     ],

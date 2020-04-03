@@ -1,10 +1,10 @@
 {
-  "timestamp": 1585886447578,
+  "timestamp": 1585890047441,
   "world": {
     "USA": [
       {
-        "confirmed": 245184,
-        "active": 228693,
+        "confirmed": 245193,
+        "active": 228702,
         "deaths": 6088,
         "recovered": 10403
       }
@@ -148,8 +148,8 @@
     "Australia": [
       {
         "confirmed": 5314,
-        "active": 4703,
-        "deaths": 26,
+        "active": 4702,
+        "deaths": 27,
         "recovered": 585
       }
     ],
@@ -579,10 +579,10 @@
     ],
     "Kazakhstan": [
       {
-        "confirmed": 435,
-        "active": 405,
+        "confirmed": 444,
+        "active": 413,
         "deaths": 3,
-        "recovered": 27
+        "recovered": 28
       }
     ],
     "Andorra": [
@@ -905,20 +905,20 @@
         "recovered": 24
       }
     ],
+    "Kyrgyzstan": [
+      {
+        "confirmed": 125,
+        "active": 119,
+        "deaths": 1,
+        "recovered": 5
+      }
+    ],
     "Mayotte": [
       {
         "confirmed": 116,
         "active": 105,
         "deaths": 1,
         "recovered": 10
-      }
-    ],
-    "Kyrgyzstan": [
-      {
-        "confirmed": 116,
-        "active": 111,
-        "deaths": 0,
-        "recovered": 5
       }
     ],
     "Cambodia": [
@@ -1188,9 +1188,9 @@
     "Gabon": [
       {
         "confirmed": 21,
-        "active": 20,
+        "active": 19,
         "deaths": 1,
-        "recovered": 0
+        "recovered": 1
       }
     ],
     "Myanmar": [
@@ -1853,8 +1853,8 @@
     ],
     "Alabama": [
       {
-        "confirmed": 1261,
-        "active": 1229,
+        "confirmed": 1270,
+        "active": 1238,
         "deaths": 32,
         "recovered": 0
       }

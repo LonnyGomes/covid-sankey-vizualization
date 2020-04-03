@@ -1,10 +1,10 @@
 {
-  "timestamp": 1585879044415,
+  "timestamp": 1585882872791,
   "world": {
     "USA": [
       {
-        "confirmed": 245066,
-        "active": 228588,
+        "confirmed": 245080,
+        "active": 228602,
         "deaths": 6075,
         "recovered": 10403
       }
@@ -123,9 +123,9 @@
     ],
     "Brazil": [
       {
-        "confirmed": 8044,
-        "active": 7593,
-        "deaths": 324,
+        "confirmed": 8066,
+        "active": 7612,
+        "deaths": 327,
         "recovered": 127
       }
     ],
@@ -148,8 +148,8 @@
     "Australia": [
       {
         "confirmed": 5314,
-        "active": 4704,
-        "deaths": 25,
+        "active": 4703,
+        "deaths": 26,
         "recovered": 585
       }
     ],
@@ -241,20 +241,20 @@
         "recovered": 51
       }
     ],
+    "Japan": [
+      {
+        "confirmed": 2617,
+        "active": 2082,
+        "deaths": 63,
+        "recovered": 472
+      }
+    ],
     "India": [
       {
         "confirmed": 2543,
         "active": 2280,
         "deaths": 72,
         "recovered": 191
-      }
-    ],
-    "Japan": [
-      {
-        "confirmed": 2495,
-        "active": 1961,
-        "deaths": 62,
-        "recovered": 472
       }
     ],
     "Luxembourg": [
@@ -316,9 +316,9 @@
     "Mexico": [
       {
         "confirmed": 1510,
-        "active": 1425,
+        "active": 827,
         "deaths": 50,
-        "recovered": 35
+        "recovered": 633
       }
     ],
     "Panama": [
@@ -921,20 +921,20 @@
         "recovered": 5
       }
     ],
+    "Cambodia": [
+      {
+        "confirmed": 114,
+        "active": 79,
+        "deaths": 0,
+        "recovered": 35
+      }
+    ],
     "Kenya": [
       {
         "confirmed": 110,
         "active": 103,
         "deaths": 3,
         "recovered": 4
-      }
-    ],
-    "Cambodia": [
-      {
-        "confirmed": 110,
-        "active": 76,
-        "deaths": 0,
-        "recovered": 34
       }
     ],
     "Niger": [
@@ -945,20 +945,20 @@
         "recovered": 0
       }
     ],
+    "Trinidad and Tobago": [
+      {
+        "confirmed": 97,
+        "active": 90,
+        "deaths": 6,
+        "recovered": 1
+      }
+    ],
     "Isle of Man": [
       {
         "confirmed": 95,
         "active": 94,
         "deaths": 1,
         "recovered": 0
-      }
-    ],
-    "Trinidad and Tobago": [
-      {
-        "confirmed": 94,
-        "active": 88,
-        "deaths": 5,
-        "recovered": 1
       }
     ],
     "Paraguay": [
@@ -1057,6 +1057,14 @@
         "recovered": 12
       }
     ],
+    "El Salvador": [
+      {
+        "confirmed": 46,
+        "active": 44,
+        "deaths": 2,
+        "recovered": 0
+      }
+    ],
     "Barbados": [
       {
         "confirmed": 46,
@@ -1070,14 +1078,6 @@
         "confirmed": 45,
         "active": 45,
         "deaths": 0,
-        "recovered": 0
-      }
-    ],
-    "El Salvador": [
-      {
-        "confirmed": 41,
-        "active": 39,
-        "deaths": 2,
         "recovered": 0
       }
     ],
@@ -1643,10 +1643,10 @@
     ],
     "China": [
       {
-        "confirmed": 81589,
-        "active": 1863,
-        "deaths": 3318,
-        "recovered": 76408
+        "confirmed": 81620,
+        "active": 1727,
+        "deaths": 3322,
+        "recovered": 76571
       }
     ]
   },
@@ -2013,8 +2013,8 @@
     ],
     "Montana": [
       {
-        "confirmed": 227,
-        "active": 221,
+        "confirmed": 241,
+        "active": 235,
         "deaths": 6,
         "recovered": 0
       }

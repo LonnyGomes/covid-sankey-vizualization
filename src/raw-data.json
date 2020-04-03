@@ -1,11 +1,11 @@
 {
-  "timestamp": 1585882872791,
+  "timestamp": 1585886447578,
   "world": {
     "USA": [
       {
-        "confirmed": 245080,
-        "active": 228602,
-        "deaths": 6075,
+        "confirmed": 245184,
+        "active": 228693,
+        "deaths": 6088,
         "recovered": 10403
       }
     ],
@@ -155,8 +155,8 @@
     ],
     "Norway": [
       {
-        "confirmed": 5147,
-        "active": 5065,
+        "confirmed": 5218,
+        "active": 5136,
         "deaths": 50,
         "recovered": 32
       }
@@ -364,8 +364,8 @@
     "Argentina": [
       {
         "confirmed": 1265,
-        "active": 973,
-        "deaths": 36,
+        "active": 972,
+        "deaths": 37,
         "recovered": 256
       }
     ],
@@ -388,8 +388,8 @@
     "Singapore": [
       {
         "confirmed": 1049,
-        "active": 779,
-        "deaths": 4,
+        "active": 778,
+        "deaths": 5,
         "recovered": 266
       }
     ],
@@ -747,9 +747,9 @@
     ],
     "Honduras": [
       {
-        "confirmed": 219,
-        "active": 202,
-        "deaths": 14,
+        "confirmed": 222,
+        "active": 204,
+        "deaths": 15,
         "recovered": 3
       }
     ],
@@ -1433,6 +1433,14 @@
         "recovered": 2
       }
     ],
+    "Central African Republic": [
+      {
+        "confirmed": 8,
+        "active": 8,
+        "deaths": 0,
+        "recovered": 0
+      }
+    ],
     "Chad": [
       {
         "confirmed": 8,
@@ -1585,14 +1593,6 @@
         "recovered": 0
       }
     ],
-    "Central African Republic": [
-      {
-        "confirmed": 3,
-        "active": 3,
-        "deaths": 0,
-        "recovered": 0
-      }
-    ],
     "Malawi": [
       {
         "confirmed": 3,
@@ -1733,9 +1733,9 @@
     ],
     "Georgia": [
       {
-        "confirmed": 5348,
-        "active": 5185,
-        "deaths": 163,
+        "confirmed": 5444,
+        "active": 5268,
+        "deaths": 176,
         "recovered": 0
       }
     ],
@@ -2043,20 +2043,20 @@
         "recovered": 43
       }
     ],
+    "Alaska": [
+      {
+        "confirmed": 151,
+        "active": 148,
+        "deaths": 3,
+        "recovered": 0
+      }
+    ],
     "Wyoming": [
       {
         "confirmed": 150,
         "active": 124,
         "deaths": 0,
         "recovered": 26
-      }
-    ],
-    "Alaska": [
-      {
-        "confirmed": 143,
-        "active": 140,
-        "deaths": 3,
-        "recovered": 0
       }
     ],
     "Guam": [

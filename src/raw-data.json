@@ -1,11 +1,11 @@
 {
-  "timestamp": 1585875494659,
+  "timestamp": 1585879044415,
   "world": {
     "USA": [
       {
-        "confirmed": 244877,
-        "active": 228404,
-        "deaths": 6070,
+        "confirmed": 245066,
+        "active": 228588,
+        "deaths": 6075,
         "recovered": 10403
       }
     ],
@@ -107,10 +107,10 @@
     ],
     "S. Korea": [
       {
-        "confirmed": 9976,
-        "active": 3979,
-        "deaths": 169,
-        "recovered": 5828
+        "confirmed": 10062,
+        "active": 3867,
+        "deaths": 174,
+        "recovered": 6021
       }
     ],
     "Portugal": [
@@ -313,6 +313,14 @@
         "recovered": 300
       }
     ],
+    "Mexico": [
+      {
+        "confirmed": 1510,
+        "active": 1425,
+        "deaths": 50,
+        "recovered": 35
+      }
+    ],
     "Panama": [
       {
         "confirmed": 1475,
@@ -343,14 +351,6 @@
         "active": 1304,
         "deaths": 60,
         "recovered": 16
-      }
-    ],
-    "Mexico": [
-      {
-        "confirmed": 1378,
-        "active": 1306,
-        "deaths": 37,
-        "recovered": 35
       }
     ],
     "Iceland": [
@@ -889,20 +889,20 @@
         "recovered": 56
       }
     ],
+    "Bolivia": [
+      {
+        "confirmed": 132,
+        "active": 122,
+        "deaths": 9,
+        "recovered": 1
+      }
+    ],
     "Guadeloupe": [
       {
         "confirmed": 128,
         "active": 98,
         "deaths": 6,
         "recovered": 24
-      }
-    ],
-    "Bolivia": [
-      {
-        "confirmed": 123,
-        "active": 114,
-        "deaths": 8,
-        "recovered": 1
       }
     ],
     "Mayotte": [
@@ -964,9 +964,9 @@
     "Paraguay": [
       {
         "confirmed": 92,
-        "active": 87,
+        "active": 86,
         "deaths": 3,
-        "recovered": 2
+        "recovered": 3
       }
     ],
     "Gibraltar": [
@@ -1233,6 +1233,14 @@
         "recovered": 6
       }
     ],
+    "Haiti": [
+      {
+        "confirmed": 18,
+        "active": 17,
+        "deaths": 0,
+        "recovered": 1
+      }
+    ],
     "New Caledonia": [
       {
         "confirmed": 18,
@@ -1247,14 +1255,6 @@
         "active": 14,
         "deaths": 2,
         "recovered": 0
-      }
-    ],
-    "Haiti": [
-      {
-        "confirmed": 16,
-        "active": 15,
-        "deaths": 0,
-        "recovered": 1
       }
     ],
     "Equatorial Guinea": [
@@ -1669,9 +1669,9 @@
     ],
     "California": [
       {
-        "confirmed": 10838,
-        "active": 9754,
-        "deaths": 234,
+        "confirmed": 11027,
+        "active": 9938,
+        "deaths": 239,
         "recovered": 850
       }
     ],

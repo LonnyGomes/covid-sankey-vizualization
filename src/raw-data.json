@@ -1,5 +1,5 @@
 {
-  "timestamp": 1585897247364,
+  "timestamp": 1585900847305,
   "world": {
     "USA": [
       {
@@ -99,8 +99,8 @@
     ],
     "Austria": [
       {
-        "confirmed": 11171,
-        "active": 9264,
+        "confirmed": 11199,
+        "active": 9292,
         "deaths": 158,
         "recovered": 1749
       }
@@ -131,8 +131,8 @@
     ],
     "Israel": [
       {
-        "confirmed": 6857,
-        "active": 6483,
+        "confirmed": 7030,
+        "active": 6656,
         "deaths": 36,
         "recovered": 338
       }
@@ -147,8 +147,8 @@
     ],
     "Australia": [
       {
-        "confirmed": 5314,
-        "active": 4701,
+        "confirmed": 5350,
+        "active": 4737,
         "deaths": 28,
         "recovered": 585
       }
@@ -159,6 +159,14 @@
         "active": 5136,
         "deaths": 50,
         "recovered": 32
+      }
+    ],
+    "Russia": [
+      {
+        "confirmed": 4149,
+        "active": 3834,
+        "deaths": 34,
+        "recovered": 281
       }
     ],
     "Czechia": [
@@ -175,14 +183,6 @@
         "active": 3746,
         "deaths": 98,
         "recovered": 5
-      }
-    ],
-    "Russia": [
-      {
-        "confirmed": 3548,
-        "active": 3283,
-        "deaths": 30,
-        "recovered": 235
       }
     ],
     "Chile": [
@@ -427,9 +427,9 @@
     ],
     "Ukraine": [
       {
-        "confirmed": 897,
-        "active": 856,
-        "deaths": 22,
+        "confirmed": 942,
+        "active": 900,
+        "deaths": 23,
         "recovered": 19
       }
     ],
@@ -481,6 +481,22 @@
         "recovered": 202
       }
     ],
+    "Armenia": [
+      {
+        "confirmed": 736,
+        "active": 686,
+        "deaths": 7,
+        "recovered": 43
+      }
+    ],
+    "Morocco": [
+      {
+        "confirmed": 735,
+        "active": 654,
+        "deaths": 47,
+        "recovered": 34
+      }
+    ],
     "Diamond Princess": [
       {
         "confirmed": 712,
@@ -489,28 +505,12 @@
         "recovered": 619
       }
     ],
-    "Morocco": [
-      {
-        "confirmed": 708,
-        "active": 633,
-        "deaths": 44,
-        "recovered": 31
-      }
-    ],
     "Lithuania": [
       {
         "confirmed": 696,
         "active": 680,
         "deaths": 9,
         "recovered": 7
-      }
-    ],
-    "Armenia": [
-      {
-        "confirmed": 663,
-        "active": 623,
-        "deaths": 7,
-        "recovered": 33
       }
     ],
     "Bahrain": [
@@ -532,9 +532,9 @@
     "Bosnia": [
       {
         "confirmed": 543,
-        "active": 507,
+        "active": 500,
         "deaths": 16,
-        "recovered": 20
+        "recovered": 27
       }
     ],
     "Moldova, Republic of": [
@@ -833,6 +833,14 @@
         "recovered": 18
       }
     ],
+    "Montenegro": [
+      {
+        "confirmed": 160,
+        "active": 158,
+        "deaths": 2,
+        "recovered": 0
+      }
+    ],
     "Sri Lanka": [
       {
         "confirmed": 151,
@@ -855,14 +863,6 @@
         "active": 98,
         "deaths": 5,
         "recovered": 43
-      }
-    ],
-    "Montenegro": [
-      {
-        "confirmed": 144,
-        "active": 142,
-        "deaths": 2,
-        "recovered": 0
       }
     ],
     "Martinique": [

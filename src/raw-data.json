@@ -1,12 +1,12 @@
 {
-  "timestamp": 1585939731099,
+  "timestamp": 1585943972554,
   "world": {
     "USA": [
       {
-        "confirmed": 266279,
-        "active": 247493,
-        "deaths": 6803,
-        "recovered": 11983
+        "confirmed": 270062,
+        "active": 251120,
+        "deaths": 6927,
+        "recovered": 12015
       }
     ],
     "Italy": [
@@ -20,15 +20,15 @@
     "Spain": [
       {
         "confirmed": 117710,
-        "active": 76262,
-        "deaths": 10935,
+        "active": 76188,
+        "deaths": 11009,
         "recovered": 30513
       }
     ],
     "Germany": [
       {
-        "confirmed": 89838,
-        "active": 64029,
+        "confirmed": 90964,
+        "active": 65155,
         "deaths": 1234,
         "recovered": 24575
       }
@@ -92,9 +92,9 @@
     "Canada": [
       {
         "confirmed": 12375,
-        "active": 10218,
-        "deaths": 178,
-        "recovered": 1979
+        "active": 9981,
+        "deaths": 208,
+        "recovered": 2186
       }
     ],
     "Austria": [
@@ -123,9 +123,9 @@
     ],
     "Brazil": [
       {
-        "confirmed": 8229,
-        "active": 7759,
-        "deaths": 343,
+        "confirmed": 8261,
+        "active": 7790,
+        "deaths": 344,
         "recovered": 127
       }
     ],
@@ -145,20 +145,20 @@
         "recovered": 205
       }
     ],
+    "Norway": [
+      {
+        "confirmed": 5370,
+        "active": 5279,
+        "deaths": 59,
+        "recovered": 32
+      }
+    ],
     "Australia": [
       {
         "confirmed": 5350,
         "active": 4737,
         "deaths": 28,
         "recovered": 585
-      }
-    ],
-    "Norway": [
-      {
-        "confirmed": 5296,
-        "active": 5205,
-        "deaths": 59,
-        "recovered": 32
       }
     ],
     "Ireland": [
@@ -243,8 +243,8 @@
     ],
     "Pakistan": [
       {
-        "confirmed": 2637,
-        "active": 2471,
+        "confirmed": 2684,
+        "active": 2518,
         "deaths": 40,
         "recovered": 126
       }
@@ -308,16 +308,16 @@
     "Greece": [
       {
         "confirmed": 1613,
-        "active": 1476,
-        "deaths": 59,
+        "active": 1473,
+        "deaths": 62,
         "recovered": 78
       }
     ],
     "Peru": [
       {
         "confirmed": 1595,
-        "active": 1003,
-        "deaths": 55,
+        "active": 997,
+        "deaths": 61,
         "recovered": 537
       }
     ],
@@ -425,6 +425,14 @@
         "recovered": 93
       }
     ],
+    "Ukraine": [
+      {
+        "confirmed": 1072,
+        "active": 1023,
+        "deaths": 27,
+        "recovered": 22
+      }
+    ],
     "Egypt": [
       {
         "confirmed": 985,
@@ -439,14 +447,6 @@
         "active": 901,
         "deaths": 12,
         "recovered": 48
-      }
-    ],
-    "Ukraine": [
-      {
-        "confirmed": 942,
-        "active": 900,
-        "deaths": 23,
-        "recovered": 19
       }
     ],
     "Slovenia": [
@@ -545,6 +545,14 @@
         "recovered": 27
       }
     ],
+    "Cameroon": [
+      {
+        "confirmed": 509,
+        "active": 484,
+        "deaths": 8,
+        "recovered": 17
+      }
+    ],
     "Lebanon": [
       {
         "confirmed": 508,
@@ -625,20 +633,20 @@
         "recovered": 82
       }
     ],
+    "Costa Rica": [
+      {
+        "confirmed": 416,
+        "active": 403,
+        "deaths": 2,
+        "recovered": 11
+      }
+    ],
     "Cyprus": [
       {
         "confirmed": 396,
         "active": 357,
         "deaths": 11,
         "recovered": 28
-      }
-    ],
-    "Costa Rica": [
-      {
-        "confirmed": 396,
-        "active": 388,
-        "deaths": 2,
-        "recovered": 6
       }
     ],
     "Uruguay": [
@@ -679,14 +687,6 @@
         "active": 247,
         "deaths": 5,
         "recovered": 58
-      }
-    ],
-    "Cameroon": [
-      {
-        "confirmed": 306,
-        "active": 289,
-        "deaths": 7,
-        "recovered": 10
       }
     ],
     "Albania": [
@@ -1065,6 +1065,14 @@
         "recovered": 8
       }
     ],
+    "Uganda": [
+      {
+        "confirmed": 48,
+        "active": 48,
+        "deaths": 0,
+        "recovered": 0
+      }
+    ],
     "Jamaica": [
       {
         "confirmed": 47,
@@ -1078,14 +1086,6 @@
         "confirmed": 46,
         "active": 44,
         "deaths": 2,
-        "recovered": 0
-      }
-    ],
-    "Uganda": [
-      {
-        "confirmed": 45,
-        "active": 45,
-        "deaths": 0,
         "recovered": 0
       }
     ],
@@ -1161,6 +1161,14 @@
         "recovered": 1
       }
     ],
+    "Guyana": [
+      {
+        "confirmed": 23,
+        "active": 19,
+        "deaths": 4,
+        "recovered": 0
+      }
+    ],
     "Sint Maarten": [
       {
         "confirmed": 23,
@@ -1215,14 +1223,6 @@
         "active": 16,
         "deaths": 1,
         "recovered": 3
-      }
-    ],
-    "Guyana": [
-      {
-        "confirmed": 19,
-        "active": 15,
-        "deaths": 4,
-        "recovered": 0
       }
     ],
     "Maldives": [
@@ -1667,20 +1667,20 @@
         "recovered": 0
       }
     ],
+    "Michigan": [
+      {
+        "confirmed": 12744,
+        "active": 12260,
+        "deaths": 479,
+        "recovered": 5
+      }
+    ],
     "California": [
       {
         "confirmed": 11207,
         "active": 10111,
         "deaths": 246,
         "recovered": 850
-      }
-    ],
-    "Michigan": [
-      {
-        "confirmed": 10791,
-        "active": 10369,
-        "deaths": 417,
-        "recovered": 5
       }
     ],
     "Louisiana": [
@@ -1707,20 +1707,20 @@
         "recovered": 10
       }
     ],
+    "Illinois": [
+      {
+        "confirmed": 8904,
+        "active": 8692,
+        "deaths": 210,
+        "recovered": 2
+      }
+    ],
     "Pennsylvania": [
       {
         "confirmed": 8420,
         "active": 8280,
         "deaths": 102,
         "recovered": 38
-      }
-    ],
-    "Illinois": [
-      {
-        "confirmed": 7695,
-        "active": 7536,
-        "deaths": 157,
-        "recovered": 2
       }
     ],
     "Washington": [
@@ -1782,8 +1782,8 @@
     "Tennessee": [
       {
         "confirmed": 3194,
-        "active": 2942,
-        "deaths": 32,
+        "active": 2937,
+        "deaths": 37,
         "recovered": 220
       }
     ],
@@ -1793,6 +1793,14 @@
         "active": 2557,
         "deaths": 42,
         "recovered": 159
+      }
+    ],
+    "Missouri": [
+      {
+        "confirmed": 2113,
+        "active": 2092,
+        "deaths": 19,
+        "recovered": 2
       }
     ],
     "North Carolina": [
@@ -1816,14 +1824,6 @@
         "confirmed": 1912,
         "active": 1869,
         "deaths": 41,
-        "recovered": 2
-      }
-    ],
-    "Missouri": [
-      {
-        "confirmed": 1834,
-        "active": 1813,
-        "deaths": 19,
         "recovered": 2
       }
     ],
@@ -1853,9 +1853,9 @@
     ],
     "Alabama": [
       {
-        "confirmed": 1414,
-        "active": 1380,
-        "deaths": 34,
+        "confirmed": 1432,
+        "active": 1397,
+        "deaths": 35,
         "recovered": 0
       }
     ],
@@ -1869,8 +1869,8 @@
     ],
     "Utah": [
       {
-        "confirmed": 1074,
-        "active": 1067,
+        "confirmed": 1246,
+        "active": 1239,
         "deaths": 7,
         "recovered": 0
       }
@@ -1923,28 +1923,28 @@
         "recovered": 173
       }
     ],
+    "Rhode Island": [
+      {
+        "confirmed": 711,
+        "active": 697,
+        "deaths": 14,
+        "recovered": 0
+      }
+    ],
+    "Arkansas": [
+      {
+        "confirmed": 704,
+        "active": 632,
+        "deaths": 12,
+        "recovered": 60
+      }
+    ],
     "Iowa": [
       {
         "confirmed": 699,
         "active": 670,
         "deaths": 11,
         "recovered": 18
-      }
-    ],
-    "Arkansas": [
-      {
-        "confirmed": 683,
-        "active": 621,
-        "deaths": 12,
-        "recovered": 50
-      }
-    ],
-    "Rhode Island": [
-      {
-        "confirmed": 657,
-        "active": 645,
-        "deaths": 12,
-        "recovered": 0
       }
     ],
     "Kansas": [
@@ -1963,6 +1963,14 @@
         "recovered": 91
       }
     ],
+    "Delaware": [
+      {
+        "confirmed": 450,
+        "active": 366,
+        "deaths": 13,
+        "recovered": 71
+      }
+    ],
     "Maine": [
       {
         "confirmed": 432,
@@ -1977,14 +1985,6 @@
         "active": 396,
         "deaths": 7,
         "recovered": 0
-      }
-    ],
-    "Delaware": [
-      {
-        "confirmed": 393,
-        "active": 332,
-        "deaths": 12,
-        "recovered": 49
       }
     ],
     "Vermont": [
@@ -2021,8 +2021,8 @@
     ],
     "West Virginia": [
       {
-        "confirmed": 217,
-        "active": 215,
+        "confirmed": 237,
+        "active": 235,
         "deaths": 2,
         "recovered": 0
       }

@@ -82,6 +82,16 @@ const init = () => {
     // init dynamic footnote
     updateFootnotes(null, currentThreshold);
 
+    // update the worldwide totals in the body copy
+    d3.select('#totals-worldwide')
+        .data([GLOBALS.THRESHOLD])
+        .text(d => d.toLocaleString());
+
+    // update the united states totals in the body copy
+    d3.select('#totals-united-states')
+        .data([GLOBALS.US_THRESHOLD])
+        .text(d => d.toLocaleString());
+
     // generate chart
     const { link, label, node, sankey } = genChart(sankeyData);
     updateChart(sankey(sankeyData), node, link, label);

@@ -1,5 +1,5 @@
 {
-  "timestamp": 1585918847772,
+  "timestamp": 1585922447840,
   "world": {
     "USA": [
       {
@@ -27,10 +27,10 @@
     ],
     "Germany": [
       {
-        "confirmed": 85903,
-        "active": 62341,
-        "deaths": 1122,
-        "recovered": 22440
+        "confirmed": 87244,
+        "active": 61531,
+        "deaths": 1138,
+        "recovered": 24575
       }
     ],
     "France": [
@@ -51,9 +51,9 @@
     ],
     "UK": [
       {
-        "confirmed": 33718,
-        "active": 30662,
-        "deaths": 2921,
+        "confirmed": 38168,
+        "active": 34428,
+        "deaths": 3605,
         "recovered": 135
       }
     ],
@@ -91,8 +91,8 @@
     ],
     "Austria": [
       {
-        "confirmed": 11350,
-        "active": 9160,
+        "confirmed": 11383,
+        "active": 9193,
         "deaths": 168,
         "recovered": 2022
       }
@@ -124,8 +124,8 @@
     "Brazil": [
       {
         "confirmed": 8076,
-        "active": 7622,
-        "deaths": 327,
+        "active": 7620,
+        "deaths": 329,
         "recovered": 127
       }
     ],
@@ -156,8 +156,8 @@
     "Norway": [
       {
         "confirmed": 5296,
-        "active": 5210,
-        "deaths": 54,
+        "active": 5208,
+        "deaths": 56,
         "recovered": 32
       }
     ],
@@ -273,6 +273,14 @@
         "recovered": 126
       }
     ],
+    "Saudi Arabia": [
+      {
+        "confirmed": 2039,
+        "active": 1663,
+        "deaths": 25,
+        "recovered": 351
+      }
+    ],
     "Indonesia": [
       {
         "confirmed": 1986,
@@ -289,19 +297,11 @@
         "recovered": 581
       }
     ],
-    "Saudi Arabia": [
-      {
-        "confirmed": 1885,
-        "active": 1536,
-        "deaths": 21,
-        "recovered": 328
-      }
-    ],
     "Finland": [
       {
         "confirmed": 1615,
-        "active": 1294,
-        "deaths": 21,
+        "active": 1295,
+        "deaths": 20,
         "recovered": 300
       }
     ],
@@ -319,6 +319,14 @@
         "active": 827,
         "deaths": 50,
         "recovered": 633
+      }
+    ],
+    "Serbia": [
+      {
+        "confirmed": 1476,
+        "active": 1395,
+        "deaths": 39,
+        "recovered": 42
       }
     ],
     "Panama": [
@@ -355,26 +363,18 @@
     ],
     "Iceland": [
       {
-        "confirmed": 1319,
-        "active": 1031,
+        "confirmed": 1364,
+        "active": 1051,
         "deaths": 4,
-        "recovered": 284
+        "recovered": 309
       }
     ],
     "Argentina": [
       {
         "confirmed": 1265,
-        "active": 972,
-        "deaths": 37,
+        "active": 970,
+        "deaths": 39,
         "recovered": 256
-      }
-    ],
-    "Serbia": [
-      {
-        "confirmed": 1171,
-        "active": 1098,
-        "deaths": 31,
-        "recovered": 42
       }
     ],
     "Colombia": [
@@ -388,9 +388,9 @@
     "Singapore": [
       {
         "confirmed": 1114,
-        "active": 843,
+        "active": 827,
         "deaths": 5,
-        "recovered": 266
+        "recovered": 282
       }
     ],
     "Croatia": [
@@ -548,16 +548,16 @@
     "Moldova, Republic of": [
       {
         "confirmed": 505,
-        "active": 476,
+        "active": 473,
         "deaths": 6,
-        "recovered": 23
+        "recovered": 26
       }
     ],
     "Latvia": [
       {
         "confirmed": 493,
-        "active": 491,
-        "deaths": 1,
+        "active": 492,
+        "deaths": 0,
         "recovered": 1
       }
     ],
@@ -764,9 +764,9 @@
     "Channel Islands": [
       {
         "confirmed": 210,
-        "active": 206,
+        "active": 193,
         "deaths": 4,
-        "recovered": 0
+        "recovered": 13
       }
     ],
     "Senegal": [
@@ -1601,20 +1601,20 @@
         "recovered": 0
       }
     ],
+    "Saint Vincent and the Grenadines": [
+      {
+        "confirmed": 3,
+        "active": 2,
+        "deaths": 0,
+        "recovered": 1
+      }
+    ],
     "Caribbean Netherlands": [
       {
         "confirmed": 2,
         "active": 2,
         "deaths": 0,
         "recovered": 0
-      }
-    ],
-    "Saint Vincent and the Grenadines": [
-      {
-        "confirmed": 2,
-        "active": 1,
-        "deaths": 0,
-        "recovered": 1
       }
     ],
     "Sierra Leone": [

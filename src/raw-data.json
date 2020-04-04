@@ -1,19 +1,19 @@
 {
-  "timestamp": 1585980169567,
+  "timestamp": 1585983769644,
   "world": {
     "World": [
       {
-        "confirmed": 1117928,
-        "active": 829727,
-        "deaths": 59201,
-        "recovered": 229000
+        "confirmed": 1118221,
+        "active": 829844,
+        "deaths": 59220,
+        "recovered": 229157
       }
     ],
     "USA": [
       {
-        "confirmed": 277475,
-        "active": 257790,
-        "deaths": 7402,
+        "confirmed": 277522,
+        "active": 257836,
+        "deaths": 7403,
         "recovered": 12283
       }
     ],
@@ -75,9 +75,9 @@
     ],
     "Switzerland": [
       {
-        "confirmed": 19606,
-        "active": 14169,
-        "deaths": 591,
+        "confirmed": 19702,
+        "active": 14252,
+        "deaths": 604,
         "recovered": 4846
       }
     ],
@@ -100,15 +100,15 @@
     "Canada": [
       {
         "confirmed": 12549,
-        "active": 10155,
+        "active": 10019,
         "deaths": 208,
-        "recovered": 2186
+        "recovered": 2322
       }
     ],
     "Austria": [
       {
-        "confirmed": 11524,
-        "active": 9334,
+        "confirmed": 11544,
+        "active": 9354,
         "deaths": 168,
         "recovered": 2022
       }
@@ -155,8 +155,8 @@
     ],
     "Australia": [
       {
-        "confirmed": 5454,
-        "active": 4839,
+        "confirmed": 5550,
+        "active": 4935,
         "deaths": 30,
         "recovered": 585
       }
@@ -179,10 +179,10 @@
     ],
     "Czechia": [
       {
-        "confirmed": 4190,
-        "active": 4065,
-        "deaths": 53,
-        "recovered": 72
+        "confirmed": 4194,
+        "active": 4064,
+        "deaths": 56,
+        "recovered": 74
       }
     ],
     "Russia": [
@@ -531,10 +531,10 @@
     ],
     "Bahrain": [
       {
-        "confirmed": 672,
-        "active": 286,
+        "confirmed": 673,
+        "active": 281,
         "deaths": 4,
-        "recovered": 382
+        "recovered": 388
       }
     ],
     "Moldova, Republic of": [
@@ -577,6 +577,14 @@
         "recovered": 35
       }
     ],
+    "Bulgaria": [
+      {
+        "confirmed": 498,
+        "active": 450,
+        "deaths": 14,
+        "recovered": 34
+      }
+    ],
     "Tunisia": [
       {
         "confirmed": 495,
@@ -591,14 +599,6 @@
         "active": 491,
         "deaths": 1,
         "recovered": 1
-      }
-    ],
-    "Bulgaria": [
-      {
-        "confirmed": 485,
-        "active": 441,
-        "deaths": 14,
-        "recovered": 30
       }
     ],
     "Slovakia": [
@@ -665,20 +665,20 @@
         "recovered": 86
       }
     ],
+    "Taiwan": [
+      {
+        "confirmed": 355,
+        "active": 300,
+        "deaths": 5,
+        "recovered": 50
+      }
+    ],
     "Belarus": [
       {
         "confirmed": 351,
         "active": 294,
         "deaths": 4,
         "recovered": 53
-      }
-    ],
-    "Taiwan": [
-      {
-        "confirmed": 348,
-        "active": 293,
-        "deaths": 5,
-        "recovered": 50
       }
     ],
     "Réunion": [
@@ -756,9 +756,9 @@
     "Vietnam": [
       {
         "confirmed": 239,
-        "active": 154,
+        "active": 149,
         "deaths": 0,
-        "recovered": 85
+        "recovered": 90
       }
     ],
     "Channel Islands": [
@@ -1009,6 +1009,14 @@
         "recovered": 2
       }
     ],
+    "Bangladesh": [
+      {
+        "confirmed": 70,
+        "active": 32,
+        "deaths": 8,
+        "recovered": 30
+      }
+    ],
     "Madagascar": [
       {
         "confirmed": 70,
@@ -1031,14 +1039,6 @@
         "active": 61,
         "deaths": 0,
         "recovered": 1
-      }
-    ],
-    "Bangladesh": [
-      {
-        "confirmed": 61,
-        "active": 29,
-        "deaths": 6,
-        "recovered": 26
       }
     ],
     "French Guiana": [
@@ -1813,9 +1813,9 @@
     ],
     "North Carolina": [
       {
-        "confirmed": 2287,
-        "active": 2240,
-        "deaths": 27,
+        "confirmed": 2328,
+        "active": 2280,
+        "deaths": 28,
         "recovered": 20
       }
     ],
@@ -2069,8 +2069,8 @@
     ],
     "Alaska": [
       {
-        "confirmed": 151,
-        "active": 148,
+        "confirmed": 157,
+        "active": 154,
         "deaths": 3,
         "recovered": 0
       }

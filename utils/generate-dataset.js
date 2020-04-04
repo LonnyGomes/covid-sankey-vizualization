@@ -1,15 +1,6 @@
-const allCountriesEndpoint = 'https://corona.lmao.ninja/v2/jhucsse';
-const axios = require('axios').default;
-const moment = require('moment-timezone');
-const GLOBALS = {
-    US_KEY: 'US',
-};
-
 const covid = require('novelcovid');
-const formatDate = dateStr => Number(moment.tz(dateStr, 'GMT').format('x'));
 
-const parseNovelCountryData = data => {
-    const OBJECT_KEYS = ['confirmed', 'active', 'deaths', 'recovered'];
+const mapData = (data, objectKeys, updateFunc = null) => {
     const results = {};
 
     data.forEach(item => {
@@ -17,17 +8,21 @@ const parseNovelCountryData = data => {
 
         if (!results[primaryKey]) {
             results[primaryKey] = {};
-            for (const curKey of OBJECT_KEYS) {
+            for (const curKey of objectKeys) {
                 results[primaryKey][curKey] = 0;
             }
         }
 
         const countryObj = results[primaryKey];
 
-        for (const curKey of OBJECT_KEYS) {
+        for (const curKey of objectKeys) {
             const key = curKey === 'confirmed' ? 'cases' : curKey;
             const curVal = item[key];
             countryObj[curKey] += isNaN(curVal) ? 0 : Number(curVal);
+        }
+
+        if (updateFunc) {
+            updateFunc(countryObj);
         }
     });
 
@@ -39,39 +34,17 @@ const parseNovelCountryData = data => {
     return final;
 };
 
-const parseNovelStateData = data => {
-    const OBJECT_KEYS = ['confirmed', 'active', 'deaths'];
-    const results = {};
-    data.forEach(item => {
-        const primaryKey = item.country || item.state;
+const parseNovelCountryData = data =>
+    mapData(data, ['confirmed', 'active', 'deaths', 'recovered']);
 
-        if (!results[primaryKey]) {
-            results[primaryKey] = {};
-            for (const curKey of OBJECT_KEYS) {
-                results[primaryKey][curKey] = 0;
-            }
-        }
-
-        const countryObj = results[primaryKey];
-
-        for (const curKey of OBJECT_KEYS) {
-            const key = curKey === 'confirmed' ? 'cases' : curKey;
-            const curVal = item[key];
-            countryObj[curKey] += isNaN(curVal) ? 0 : Number(curVal);
-        }
-
+const parseNovelStateData = data =>
+    mapData(data, ['confirmed', 'active', 'deaths'], countryObj => {
         // calculate the recovered value given the active and deaths of all cases
         countryObj.recovered =
             countryObj.confirmed - countryObj.active - countryObj.deaths;
+
+        return countryObj;
     });
-
-    const final = Object.keys(results).reduce((obj, curKey) => {
-        obj[curKey] = [results[curKey]];
-        return obj;
-    }, {});
-
-    return final;
-};
 
 Promise.all([
     // retrieve the timestamp information

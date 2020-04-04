@@ -1,11 +1,11 @@
 {
-  "timestamp": 1586023443362,
+  "timestamp": 1586027107960,
   "world": {
     "USA": [
       {
-        "confirmed": 300625,
-        "active": 277950,
-        "deaths": 8157,
+        "confirmed": 302641,
+        "active": 279891,
+        "deaths": 8232,
         "recovered": 14518
       }
     ],
@@ -27,9 +27,9 @@
     ],
     "Germany": [
       {
-        "confirmed": 92150,
-        "active": 64420,
-        "deaths": 1330,
+        "confirmed": 95637,
+        "active": 67842,
+        "deaths": 1395,
         "recovered": 26400
       }
     ],
@@ -91,10 +91,10 @@
     ],
     "Canada": [
       {
-        "confirmed": 12956,
-        "active": 10420,
-        "deaths": 214,
-        "recovered": 2322
+        "confirmed": 13860,
+        "active": 11073,
+        "deaths": 228,
+        "recovered": 2559
       }
     ],
     "Austria": [
@@ -131,8 +131,8 @@
     ],
     "Israel": [
       {
-        "confirmed": 7589,
-        "active": 7118,
+        "confirmed": 7851,
+        "active": 7380,
         "deaths": 44,
         "recovered": 427
       }
@@ -228,9 +228,9 @@
     "Ecuador": [
       {
         "confirmed": 3465,
-        "active": 3228,
+        "active": 3193,
         "deaths": 172,
-        "recovered": 65
+        "recovered": 100
       }
     ],
     "Philippines": [
@@ -308,9 +308,9 @@
     "Peru": [
       {
         "confirmed": 1746,
-        "active": 886,
+        "active": 771,
         "deaths": 61,
-        "recovered": 799
+        "recovered": 914
       }
     ],
     "Mexico": [
@@ -409,6 +409,14 @@
         "recovered": 90
       }
     ],
+    "Ukraine": [
+      {
+        "confirmed": 1225,
+        "active": 1168,
+        "deaths": 32,
+        "recovered": 25
+      }
+    ],
     "Singapore": [
       {
         "confirmed": 1189,
@@ -423,14 +431,6 @@
         "active": 995,
         "deaths": 12,
         "recovered": 119
-      }
-    ],
-    "Ukraine": [
-      {
-        "confirmed": 1115,
-        "active": 1064,
-        "deaths": 28,
-        "recovered": 23
       }
     ],
     "Egypt": [
@@ -492,8 +492,8 @@
     "Lithuania": [
       {
         "confirmed": 771,
-        "active": 754,
-        "deaths": 10,
+        "active": 753,
+        "deaths": 11,
         "recovered": 7
       }
     ],
@@ -539,10 +539,10 @@
     ],
     "Bosnia": [
       {
-        "confirmed": 617,
-        "active": 570,
-        "deaths": 19,
-        "recovered": 28
+        "confirmed": 623,
+        "active": 571,
+        "deaths": 21,
+        "recovered": 31
       }
     ],
     "Tunisia": [
@@ -555,8 +555,8 @@
     ],
     "Kazakhstan": [
       {
-        "confirmed": 525,
-        "active": 484,
+        "confirmed": 531,
+        "active": 490,
         "deaths": 5,
         "recovered": 36
       }
@@ -641,20 +641,20 @@
         "recovered": 53
       }
     ],
+    "Costa Rica": [
+      {
+        "confirmed": 435,
+        "active": 420,
+        "deaths": 2,
+        "recovered": 13
+      }
+    ],
     "Cyprus": [
       {
         "confirmed": 426,
         "active": 382,
         "deaths": 11,
         "recovered": 33
-      }
-    ],
-    "Costa Rica": [
-      {
-        "confirmed": 416,
-        "active": 403,
-        "deaths": 2,
-        "recovered": 11
       }
     ],
     "Uruguay": [
@@ -851,10 +851,10 @@
     ],
     "Georgia": [
       {
-        "confirmed": 159,
-        "active": 127,
+        "confirmed": 162,
+        "active": 125,
         "deaths": 1,
-        "recovered": 31
+        "recovered": 36
       }
     ],
     "Venezuela": [
@@ -905,20 +905,20 @@
         "recovered": 66
       }
     ],
+    "Guadeloupe": [
+      {
+        "confirmed": 134,
+        "active": 103,
+        "deaths": 7,
+        "recovered": 24
+      }
+    ],
     "Mayotte": [
       {
         "confirmed": 134,
         "active": 118,
         "deaths": 2,
         "recovered": 14
-      }
-    ],
-    "Guadeloupe": [
-      {
-        "confirmed": 130,
-        "active": 99,
-        "deaths": 7,
-        "recovered": 24
       }
     ],
     "Kenya": [
@@ -1241,6 +1241,14 @@
         "recovered": 13
       }
     ],
+    "Guinea-Bissau": [
+      {
+        "confirmed": 18,
+        "active": 18,
+        "deaths": 0,
+        "recovered": 0
+      }
+    ],
     "New Caledonia": [
       {
         "confirmed": 18,
@@ -1282,14 +1290,6 @@
       }
     ],
     "Antigua and Barbuda": [
-      {
-        "confirmed": 15,
-        "active": 15,
-        "deaths": 0,
-        "recovered": 0
-      }
-    ],
-    "Guinea-Bissau": [
       {
         "confirmed": 15,
         "active": 15,
@@ -1361,6 +1361,14 @@
         "recovered": 3
       }
     ],
+    "Angola": [
+      {
+        "confirmed": 10,
+        "active": 6,
+        "deaths": 2,
+        "recovered": 2
+      }
+    ],
     "Sudan": [
       {
         "confirmed": 10,
@@ -1372,9 +1380,9 @@
     "Liberia": [
       {
         "confirmed": 10,
-        "active": 9,
+        "active": 6,
         "deaths": 1,
-        "recovered": 0
+        "recovered": 3
       }
     ],
     "Suriname": [
@@ -1455,14 +1463,6 @@
         "active": 9,
         "deaths": 0,
         "recovered": 0
-      }
-    ],
-    "Angola": [
-      {
-        "confirmed": 8,
-        "active": 5,
-        "deaths": 2,
-        "recovered": 1
       }
     ],
     "Central African Republic": [
@@ -1677,9 +1677,9 @@
     ],
     "Michigan": [
       {
-        "confirmed": 12744,
-        "active": 12258,
-        "deaths": 481,
+        "confirmed": 14225,
+        "active": 13680,
+        "deaths": 540,
         "recovered": 5
       }
     ],
@@ -1781,9 +1781,9 @@
     ],
     "Ohio": [
       {
-        "confirmed": 3312,
-        "active": 3221,
-        "deaths": 91,
+        "confirmed": 3739,
+        "active": 3637,
+        "deaths": 102,
         "recovered": 0
       }
     ],
@@ -1861,8 +1861,8 @@
     ],
     "Alabama": [
       {
-        "confirmed": 1556,
-        "active": 1513,
+        "confirmed": 1569,
+        "active": 1526,
         "deaths": 43,
         "recovered": 0
       }
@@ -1918,8 +1918,8 @@
     "Minnesota": [
       {
         "confirmed": 865,
-        "active": 433,
-        "deaths": 22,
+        "active": 431,
+        "deaths": 24,
         "recovered": 410
       }
     ],
@@ -1929,6 +1929,14 @@
         "active": 730,
         "deaths": 37,
         "recovered": 64
+      }
+    ],
+    "Rhode Island": [
+      {
+        "confirmed": 806,
+        "active": 789,
+        "deaths": 17,
+        "recovered": 0
       }
     ],
     "Iowa": [
@@ -1945,14 +1953,6 @@
         "active": 652,
         "deaths": 12,
         "recovered": 79
-      }
-    ],
-    "Rhode Island": [
-      {
-        "confirmed": 711,
-        "active": 697,
-        "deaths": 14,
-        "recovered": 0
       }
     ],
     "Kansas": [

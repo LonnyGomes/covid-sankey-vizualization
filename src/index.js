@@ -11,12 +11,11 @@ const moment = require('moment');
 
 let currentThreshold = GLOBALS.THRESHOLD;
 let isUSSelected = false;
-let latestData = null;
 
-const init = () => {
+const init = (covidData) => {
     // retrieve data
     const { sankey: sankeyData, countries, totals, leaderBoard } = parseWorld(
-        latestData,
+        covidData,
         null,
         GLOBALS.THRESHOLD,
         GLOBALS.US_THRESHOLD
@@ -42,7 +41,7 @@ const init = () => {
             leaderBoard,
             totals: curTotals,
         } = parseWorld(
-            latestData,
+            covidData,
             country,
             GLOBALS.THRESHOLD,
             GLOBALS.US_THRESHOLD
@@ -390,14 +389,10 @@ const dataFallback = new Promise((resolve) =>
 );
 
 Promise.race([generateData(), dataFallback])
-    .then((data) => {
-        latestData = data;
-        init();
-    })
+    .then((data) => init(data))
     .catch((err) => {
         console.error(
             `Failed to retrieve latest data, using stale copy: ${err.message}`
         );
-        latestData = rawData;
-        init();
+        init(rawData);
     });

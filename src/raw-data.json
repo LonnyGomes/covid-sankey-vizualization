@@ -1,12 +1,12 @@
 {
-  "timestamp": 1586001928157,
+  "timestamp": 1586005527383,
   "world": {
     "World": [
       {
-        "confirmed": 1133455,
-        "active": 837074,
-        "deaths": 60381,
-        "recovered": 236000
+        "confirmed": 1134421,
+        "active": 837898,
+        "deaths": 60428,
+        "recovered": 236095
       }
     ],
     "USA": [
@@ -35,9 +35,9 @@
     ],
     "Germany": [
       {
-        "confirmed": 91159,
-        "active": 65309,
-        "deaths": 1275,
+        "confirmed": 91589,
+        "active": 65721,
+        "deaths": 1293,
         "recovered": 24575
       }
     ],
@@ -140,16 +140,16 @@
     "Israel": [
       {
         "confirmed": 7589,
-        "active": 7119,
-        "deaths": 43,
+        "active": 7118,
+        "deaths": 44,
         "recovered": 427
       }
     ],
     "Sweden": [
       {
-        "confirmed": 6131,
-        "active": 5568,
-        "deaths": 358,
+        "confirmed": 6443,
+        "active": 5865,
+        "deaths": 373,
         "recovered": 205
       }
     ],
@@ -281,6 +281,14 @@
         "recovered": 500
       }
     ],
+    "Saudi Arabia": [
+      {
+        "confirmed": 2179,
+        "active": 1730,
+        "deaths": 29,
+        "recovered": 420
+      }
+    ],
     "Indonesia": [
       {
         "confirmed": 2092,
@@ -297,19 +305,11 @@
         "recovered": 612
       }
     ],
-    "Saudi Arabia": [
-      {
-        "confirmed": 2039,
-        "active": 1663,
-        "deaths": 25,
-        "recovered": 351
-      }
-    ],
     "Finland": [
       {
         "confirmed": 1882,
-        "active": 1562,
-        "deaths": 20,
+        "active": 1557,
+        "deaths": 25,
         "recovered": 300
       }
     ],
@@ -460,9 +460,9 @@
     "Slovenia": [
       {
         "confirmed": 977,
-        "active": 885,
+        "active": 876,
         "deaths": 22,
-        "recovered": 70
+        "recovered": 79
       }
     ],
     "New Zealand": [
@@ -483,10 +483,10 @@
     ],
     "Morocco": [
       {
-        "confirmed": 844,
-        "active": 735,
+        "confirmed": 858,
+        "active": 746,
         "deaths": 50,
-        "recovered": 59
+        "recovered": 62
       }
     ],
     "Iraq": [
@@ -627,10 +627,10 @@
     ],
     "Andorra": [
       {
-        "confirmed": 439,
-        "active": 407,
-        "deaths": 16,
-        "recovered": 16
+        "confirmed": 466,
+        "active": 428,
+        "deaths": 17,
+        "recovered": 21
       }
     ],
     "Macedonia": [
@@ -745,20 +745,20 @@
         "recovered": 3
       }
     ],
+    "Uzbekistan": [
+      {
+        "confirmed": 263,
+        "active": 236,
+        "deaths": 2,
+        "recovered": 25
+      }
+    ],
     "San Marino": [
       {
         "confirmed": 251,
         "active": 193,
         "deaths": 32,
         "recovered": 26
-      }
-    ],
-    "Uzbekistan": [
-      {
-        "confirmed": 241,
-        "active": 214,
-        "deaths": 2,
-        "recovered": 25
       }
     ],
     "Vietnam": [
@@ -775,6 +775,14 @@
         "active": 214,
         "deaths": 5,
         "recovered": 13
+      }
+    ],
+    "Senegal": [
+      {
+        "confirmed": 219,
+        "active": 145,
+        "deaths": 2,
+        "recovered": 72
       }
     ],
     "Côte d'Ivoire": [
@@ -799,14 +807,6 @@
         "active": 181,
         "deaths": 4,
         "recovered": 25
-      }
-    ],
-    "Senegal": [
-      {
-        "confirmed": 207,
-        "active": 140,
-        "deaths": 1,
-        "recovered": 66
       }
     ],
     "Ghana": [
@@ -931,8 +931,8 @@
     ],
     "Kenya": [
       {
-        "confirmed": 122,
-        "active": 114,
+        "confirmed": 126,
+        "active": 118,
         "deaths": 4,
         "recovered": 4
       }
@@ -1169,6 +1169,14 @@
         "recovered": 0
       }
     ],
+    "Saint Martin": [
+      {
+        "confirmed": 24,
+        "active": 17,
+        "deaths": 2,
+        "recovered": 5
+      }
+    ],
     "Guyana": [
       {
         "confirmed": 23,
@@ -1190,14 +1198,6 @@
         "confirmed": 22,
         "active": 18,
         "deaths": 2,
-        "recovered": 2
-      }
-    ],
-    "Saint Martin": [
-      {
-        "confirmed": 22,
-        "active": 19,
-        "deaths": 1,
         "recovered": 2
       }
     ],
@@ -1369,6 +1369,14 @@
         "recovered": 2
       }
     ],
+    "Liberia": [
+      {
+        "confirmed": 10,
+        "active": 9,
+        "deaths": 1,
+        "recovered": 0
+      }
+    ],
     "Suriname": [
       {
         "confirmed": 10,
@@ -1482,14 +1490,6 @@
       }
     ],
     "Holy See (Vatican City State)": [
-      {
-        "confirmed": 7,
-        "active": 7,
-        "deaths": 0,
-        "recovered": 0
-      }
-    ],
-    "Liberia": [
       {
         "confirmed": 7,
         "active": 7,

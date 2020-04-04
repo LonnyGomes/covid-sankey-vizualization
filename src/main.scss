@@ -93,6 +93,12 @@ button {
     }
 }
 
+.loading-txt {
+    color: $header-bg-clr;
+    padding: 30px;
+    text-align: center;
+}
+
 .content {
     display: flex;
     flex-direction: column;

@@ -239,6 +239,7 @@ const genChart = (data) => {
     const { width, height } = calcSize();
     const svg = d3
         .select('#chart')
+        .text('')
         .append('svg')
         .attr('viewBox', `0 0 ${width} ${height}`)
         .attr('preserveAspectRatio', 'xMidYMid meet')

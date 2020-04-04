@@ -1,5 +1,5 @@
 {
-  "timestamp": 1585965692239,
+  "timestamp": 1585969292368,
   "world": {
     "USA": [
       {
@@ -123,9 +123,9 @@
     ],
     "Brazil": [
       {
-        "confirmed": 9194,
-        "active": 8704,
-        "deaths": 363,
+        "confirmed": 9216,
+        "active": 8724,
+        "deaths": 365,
         "recovered": 127
       }
     ],
@@ -721,6 +721,14 @@
         "recovered": 15
       }
     ],
+    "Honduras": [
+      {
+        "confirmed": 264,
+        "active": 246,
+        "deaths": 15,
+        "recovered": 3
+      }
+    ],
     "Oman": [
       {
         "confirmed": 252,
@@ -759,14 +767,6 @@
         "active": 200,
         "deaths": 2,
         "recovered": 25
-      }
-    ],
-    "Honduras": [
-      {
-        "confirmed": 222,
-        "active": 204,
-        "deaths": 15,
-        "recovered": 3
       }
     ],
     "Côte d'Ivoire": [
@@ -844,8 +844,8 @@
     "Sri Lanka": [
       {
         "confirmed": 159,
-        "active": 131,
-        "deaths": 4,
+        "active": 130,
+        "deaths": 5,
         "recovered": 24
       }
     ],
@@ -955,8 +955,8 @@
     ],
     "Trinidad and Tobago": [
       {
-        "confirmed": 98,
-        "active": 91,
+        "confirmed": 100,
+        "active": 93,
         "deaths": 6,
         "recovered": 1
       }

@@ -1,10 +1,18 @@
 {
-  "timestamp": 1585972892388,
+  "timestamp": 1585976569721,
   "world": {
+    "World": [
+      {
+        "confirmed": 1099711,
+        "active": 811540,
+        "deaths": 59196,
+        "recovered": 228975
+      }
+    ],
     "USA": [
       {
-        "confirmed": 277467,
-        "active": 257782,
+        "confirmed": 277475,
+        "active": 257790,
         "deaths": 7402,
         "recovered": 12283
       }
@@ -148,8 +156,8 @@
     "Australia": [
       {
         "confirmed": 5454,
-        "active": 4841,
-        "deaths": 28,
+        "active": 4839,
+        "deaths": 30,
         "recovered": 585
       }
     ],
@@ -233,12 +241,28 @@
         "recovered": 283
       }
     ],
+    "India": [
+      {
+        "confirmed": 3082,
+        "active": 2767,
+        "deaths": 86,
+        "recovered": 229
+      }
+    ],
     "Philippines": [
       {
         "confirmed": 3018,
         "active": 2830,
         "deaths": 136,
         "recovered": 52
+      }
+    ],
+    "Japan": [
+      {
+        "confirmed": 2935,
+        "active": 2352,
+        "deaths": 69,
+        "recovered": 514
       }
     ],
     "Pakistan": [
@@ -249,14 +273,6 @@
         "recovered": 126
       }
     ],
-    "Japan": [
-      {
-        "confirmed": 2617,
-        "active": 2040,
-        "deaths": 63,
-        "recovered": 514
-      }
-    ],
     "Luxembourg": [
       {
         "confirmed": 2612,
@@ -265,12 +281,12 @@
         "recovered": 500
       }
     ],
-    "India": [
+    "Thailand": [
       {
-        "confirmed": 2567,
-        "active": 2303,
-        "deaths": 72,
-        "recovered": 192
+        "confirmed": 2067,
+        "active": 1435,
+        "deaths": 20,
+        "recovered": 612
       }
     ],
     "Saudi Arabia": [
@@ -287,14 +303,6 @@
         "active": 1671,
         "deaths": 181,
         "recovered": 134
-      }
-    ],
-    "Thailand": [
-      {
-        "confirmed": 1978,
-        "active": 1347,
-        "deaths": 19,
-        "recovered": 612
       }
     ],
     "Mexico": [
@@ -404,8 +412,8 @@
     "Singapore": [
       {
         "confirmed": 1114,
-        "active": 827,
-        "deaths": 5,
+        "active": 826,
+        "deaths": 6,
         "recovered": 282
       }
     ],
@@ -873,6 +881,14 @@
         "recovered": 3
       }
     ],
+    "Kyrgyzstan": [
+      {
+        "confirmed": 144,
+        "active": 137,
+        "deaths": 1,
+        "recovered": 6
+      }
+    ],
     "Martinique": [
       {
         "confirmed": 143,
@@ -903,14 +919,6 @@
         "active": 99,
         "deaths": 7,
         "recovered": 24
-      }
-    ],
-    "Kyrgyzstan": [
-      {
-        "confirmed": 130,
-        "active": 123,
-        "deaths": 1,
-        "recovered": 6
       }
     ],
     "Mayotte": [
@@ -948,9 +956,9 @@
     "Cambodia": [
       {
         "confirmed": 114,
-        "active": 79,
+        "active": 64,
         "deaths": 0,
-        "recovered": 35
+        "recovered": 50
       }
     ],
     "Trinidad and Tobago": [
@@ -1329,6 +1337,14 @@
         "recovered": 1
       }
     ],
+    "Fiji": [
+      {
+        "confirmed": 12,
+        "active": 12,
+        "deaths": 0,
+        "recovered": 0
+      }
+    ],
     "Grenada": [
       {
         "confirmed": 12,
@@ -1445,14 +1461,6 @@
       {
         "confirmed": 8,
         "active": 8,
-        "deaths": 0,
-        "recovered": 0
-      }
-    ],
-    "Fiji": [
-      {
-        "confirmed": 7,
-        "active": 7,
         "deaths": 0,
         "recovered": 0
       }
@@ -1685,8 +1693,8 @@
     ],
     "California": [
       {
-        "confirmed": 12573,
-        "active": 11438,
+        "confirmed": 12581,
+        "active": 11446,
         "deaths": 285,
         "recovered": 850
       }

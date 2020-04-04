@@ -1,11 +1,11 @@
 {
-  "timestamp": 1585959092231,
+  "timestamp": 1585962092232,
   "world": {
     "USA": [
       {
-        "confirmed": 276965,
-        "active": 257291,
-        "deaths": 7391,
+        "confirmed": 277161,
+        "active": 257486,
+        "deaths": 7392,
         "recovered": 12283
       }
     ],
@@ -1733,8 +1733,8 @@
     ],
     "Washington": [
       {
-        "confirmed": 6896,
-        "active": 6042,
+        "confirmed": 6966,
+        "active": 6112,
         "deaths": 291,
         "recovered": 563
       }
@@ -1883,6 +1883,14 @@
         "recovered": 0
       }
     ],
+    "Idaho": [
+      {
+        "confirmed": 1013,
+        "active": 1003,
+        "deaths": 10,
+        "recovered": 0
+      }
+    ],
     "Oklahoma": [
       {
         "confirmed": 988,
@@ -1896,14 +1904,6 @@
         "confirmed": 899,
         "active": 877,
         "deaths": 22,
-        "recovered": 0
-      }
-    ],
-    "Idaho": [
-      {
-        "confirmed": 891,
-        "active": 882,
-        "deaths": 9,
         "recovered": 0
       }
     ],
@@ -2053,8 +2053,8 @@
     ],
     "Wyoming": [
       {
-        "confirmed": 162,
-        "active": 136,
+        "confirmed": 166,
+        "active": 140,
         "deaths": 0,
         "recovered": 26
       }

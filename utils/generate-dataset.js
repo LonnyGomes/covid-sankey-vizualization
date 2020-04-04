@@ -3,7 +3,7 @@ const covid = require('novelcovid');
 const mapData = (data, objectKeys, updateFunc = null) => {
     const results = {};
 
-    data.forEach(item => {
+    data.forEach((item) => {
         const primaryKey = item.country || item.state;
 
         if (!results[primaryKey]) {
@@ -34,11 +34,11 @@ const mapData = (data, objectKeys, updateFunc = null) => {
     return final;
 };
 
-const parseNovelCountryData = data =>
+const parseNovelCountryData = (data) =>
     mapData(data, ['confirmed', 'active', 'deaths', 'recovered']);
 
-const parseNovelStateData = data =>
-    mapData(data, ['confirmed', 'active', 'deaths'], countryObj => {
+const parseNovelStateData = (data) =>
+    mapData(data, ['confirmed', 'active', 'deaths'], (countryObj) => {
         // calculate the recovered value given the active and deaths of all cases
         countryObj.recovered =
             countryObj.confirmed - countryObj.active - countryObj.deaths;
@@ -46,20 +46,22 @@ const parseNovelStateData = data =>
         return countryObj;
     });
 
-Promise.all([
-    // retrieve the timestamp information
-    covid.getAll().then(results => results.updated),
-    // retrieve latest up to date world data
-    covid.getCountry().then(parseNovelCountryData),
-    // latest up to date world data
-    covid.getState().then(parseNovelStateData),
-])
-    .then(data => {
-        const [timestamp, world, us] = data;
+module.exports = () => {
+    return Promise.all([
+        // retrieve the timestamp information
+        covid.getAll().then((results) => results.updated),
+        // retrieve latest up to date world data
+        covid.getCountry().then(parseNovelCountryData),
+        // latest up to date world data
+        covid.getState().then(parseNovelStateData),
+    ])
+        .then((data) => {
+            const [timestamp, world, us] = data;
 
-        const dataStr = JSON.stringify({ timestamp, world, us }, null, 2);
-        console.log(dataStr);
-    })
-    .catch(err => {
-        console.error('error', err.message);
-    });
+            return { timestamp, world, us };
+        })
+        .catch((err) => {
+            console.error('error', err.message);
+            throw new Error(err.message);
+        });
+};

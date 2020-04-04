@@ -16,7 +16,7 @@ jobs:
             - run: npm ci
               env:
                   CI: true
-            - run: node utils/save-dataset.js src/raw-data.json
+            - run: npm run data:update
             - name: Commit files
               run: |
                   git config --local user.email "action@github.com"

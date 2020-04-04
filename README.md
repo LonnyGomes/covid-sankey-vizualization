@@ -20,6 +20,14 @@ npm install
 npm start
 ```
 
+## Data Updates
+
+The data is dynamically queried and periodically generated locally for a static fallback. You can generate the data locally with the following command:
+
+```bash
+npm run data:update
+```
+
 ## Contributing
 
 Pull request and feedback is welcome and requested.

@@ -6,6 +6,7 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
+    "data:update": "node utils/save-dataset.js src/raw-data.json",
     "test": "echo \"Error: no test specified\" && exit 1",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"

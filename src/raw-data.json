@@ -1,12 +1,12 @@
 {
-  "timestamp": 1585976569721,
+  "timestamp": 1585980169567,
   "world": {
     "World": [
       {
-        "confirmed": 1099711,
-        "active": 811540,
-        "deaths": 59196,
-        "recovered": 228975
+        "confirmed": 1117928,
+        "active": 829727,
+        "deaths": 59201,
+        "recovered": 229000
       }
     ],
     "USA": [
@@ -43,8 +43,8 @@
     ],
     "France": [
       {
-        "confirmed": 64338,
-        "active": 43823,
+        "confirmed": 82165,
+        "active": 61650,
         "deaths": 6507,
         "recovered": 14008
       }
@@ -99,8 +99,8 @@
     ],
     "Canada": [
       {
-        "confirmed": 12375,
-        "active": 9981,
+        "confirmed": 12549,
+        "active": 10155,
         "deaths": 208,
         "recovered": 2186
       }
@@ -267,10 +267,10 @@
     ],
     "Pakistan": [
       {
-        "confirmed": 2686,
-        "active": 2520,
+        "confirmed": 2708,
+        "active": 2538,
         "deaths": 40,
-        "recovered": 126
+        "recovered": 130
       }
     ],
     "Luxembourg": [
@@ -497,6 +497,14 @@
         "recovered": 57
       }
     ],
+    "Lithuania": [
+      {
+        "confirmed": 771,
+        "active": 755,
+        "deaths": 9,
+        "recovered": 7
+      }
+    ],
     "Armenia": [
       {
         "confirmed": 736,
@@ -513,12 +521,12 @@
         "recovered": 619
       }
     ],
-    "Lithuania": [
+    "Hungary": [
       {
-        "confirmed": 696,
-        "active": 680,
-        "deaths": 9,
-        "recovered": 7
+        "confirmed": 678,
+        "active": 588,
+        "deaths": 32,
+        "recovered": 58
       }
     ],
     "Bahrain": [
@@ -527,14 +535,6 @@
         "active": 286,
         "deaths": 4,
         "recovered": 382
-      }
-    ],
-    "Hungary": [
-      {
-        "confirmed": 623,
-        "active": 554,
-        "deaths": 26,
-        "recovered": 43
       }
     ],
     "Moldova, Republic of": [
@@ -569,6 +569,14 @@
         "recovered": 50
       }
     ],
+    "Kazakhstan": [
+      {
+        "confirmed": 500,
+        "active": 461,
+        "deaths": 4,
+        "recovered": 35
+      }
+    ],
     "Tunisia": [
       {
         "confirmed": 495,
@@ -591,14 +599,6 @@
         "active": 441,
         "deaths": 14,
         "recovered": 30
-      }
-    ],
-    "Kazakhstan": [
-      {
-        "confirmed": 464,
-        "active": 429,
-        "deaths": 6,
-        "recovered": 29
       }
     ],
     "Slovakia": [
@@ -636,8 +636,8 @@
     "Kuwait": [
       {
         "confirmed": 417,
-        "active": 335,
-        "deaths": 0,
+        "active": 334,
+        "deaths": 1,
         "recovered": 82
       }
     ],
@@ -715,8 +715,8 @@
     ],
     "Afghanistan": [
       {
-        "confirmed": 281,
-        "active": 265,
+        "confirmed": 299,
+        "active": 283,
         "deaths": 6,
         "recovered": 10
       }
@@ -1049,6 +1049,14 @@
         "recovered": 22
       }
     ],
+    "El Salvador": [
+      {
+        "confirmed": 56,
+        "active": 53,
+        "deaths": 3,
+        "recovered": 0
+      }
+    ],
     "Jamaica": [
       {
         "confirmed": 53,
@@ -1086,14 +1094,6 @@
         "confirmed": 48,
         "active": 48,
         "deaths": 0,
-        "recovered": 0
-      }
-    ],
-    "El Salvador": [
-      {
-        "confirmed": 46,
-        "active": 43,
-        "deaths": 3,
         "recovered": 0
       }
     ],

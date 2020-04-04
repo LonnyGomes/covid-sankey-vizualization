@@ -1,5 +1,5 @@
 {
-  "timestamp": 1585962092232,
+  "timestamp": 1585965692239,
   "world": {
     "USA": [
       {
@@ -107,10 +107,10 @@
     ],
     "S. Korea": [
       {
-        "confirmed": 10062,
-        "active": 3867,
-        "deaths": 174,
-        "recovered": 6021
+        "confirmed": 10156,
+        "active": 3654,
+        "deaths": 177,
+        "recovered": 6325
       }
     ],
     "Portugal": [
@@ -297,6 +297,14 @@
         "recovered": 612
       }
     ],
+    "Mexico": [
+      {
+        "confirmed": 1688,
+        "active": 995,
+        "deaths": 60,
+        "recovered": 633
+      }
+    ],
     "Panama": [
       {
         "confirmed": 1673,
@@ -327,14 +335,6 @@
         "active": 997,
         "deaths": 61,
         "recovered": 537
-      }
-    ],
-    "Mexico": [
-      {
-        "confirmed": 1510,
-        "active": 827,
-        "deaths": 50,
-        "recovered": 633
       }
     ],
     "South Africa": [
@@ -449,20 +449,20 @@
         "recovered": 48
       }
     ],
+    "New Zealand": [
+      {
+        "confirmed": 950,
+        "active": 822,
+        "deaths": 1,
+        "recovered": 127
+      }
+    ],
     "Slovenia": [
       {
         "confirmed": 934,
         "active": 844,
         "deaths": 20,
         "recovered": 70
-      }
-    ],
-    "New Zealand": [
-      {
-        "confirmed": 868,
-        "active": 764,
-        "deaths": 1,
-        "recovered": 103
       }
     ],
     "Hong Kong": [
@@ -881,20 +881,20 @@
         "recovered": 27
       }
     ],
+    "Bolivia": [
+      {
+        "confirmed": 139,
+        "active": 128,
+        "deaths": 10,
+        "recovered": 1
+      }
+    ],
     "Brunei": [
       {
         "confirmed": 134,
         "active": 68,
         "deaths": 1,
         "recovered": 65
-      }
-    ],
-    "Bolivia": [
-      {
-        "confirmed": 132,
-        "active": 122,
-        "deaths": 9,
-        "recovered": 1
       }
     ],
     "Guadeloupe": [
@@ -961,20 +961,20 @@
         "recovered": 1
       }
     ],
+    "Paraguay": [
+      {
+        "confirmed": 96,
+        "active": 81,
+        "deaths": 3,
+        "recovered": 12
+      }
+    ],
     "Gibraltar": [
       {
         "confirmed": 95,
         "active": 49,
         "deaths": 0,
         "recovered": 46
-      }
-    ],
-    "Paraguay": [
-      {
-        "confirmed": 92,
-        "active": 83,
-        "deaths": 3,
-        "recovered": 6
       }
     ],
     "Rwanda": [
@@ -1651,10 +1651,10 @@
     ],
     "China": [
       {
-        "confirmed": 81620,
-        "active": 1727,
-        "deaths": 3322,
-        "recovered": 76571
+        "confirmed": 81639,
+        "active": 1558,
+        "deaths": 3326,
+        "recovered": 76755
       }
     ]
   },

@@ -1,6 +1,6 @@
 {
-    "short_name": "COVID-19 Cases",
-    "name": "Visualization of COVID-19 cases",
+    "short_name": "COVID Cases",
+    "name": "Global COVID-19 cases",
     "icons": [
         {
             "src": "assets/images/icon.png",

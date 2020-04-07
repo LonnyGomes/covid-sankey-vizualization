@@ -1,8 +1,41 @@
-// Set this to true for production
-var doCache = true;
-
 // Name our cache
 var CACHE_NAME = 'covid-19-app-v1';
+
+// URLs we want to fetch
+const WHITELIST_URLS = [
+    'https://corona.lmao.ninja/all',
+    'https://corona.lmao.ninja/states',
+    'https://corona.lmao.ninja/countries',
+];
+
+// retrieves a request and caches the response for later use
+const fetchAndCache = (request) =>
+    fetch(request).then((response) =>
+        caches.open(CACHE_NAME).then((cache) => {
+            console.log(
+                '[Service Worker] Caching new resource: ' + request.url
+            );
+            cache.put(request, response.clone());
+
+            return response;
+        })
+    );
+
+// follows a network-first approach to retrieve whitelisted URLS
+const hydrateWhitelist = (request, response) => {
+    // if we already have a response and it is in the whitelist
+    // try to fetch the latest data from the network
+    if (response && WHITELIST_URLS.includes(request.url)) {
+        return (
+            fetchAndCache(request)
+                // if the request fails/we are offline use the cached response
+                .catch(() => response)
+        );
+    }
+
+    // if it's not part of the whitelist, just pass through the response
+    return response;
+};
 
 // Delete old caches that are not our current one!
 self.addEventListener('activate', (event) => {
@@ -29,27 +62,19 @@ self.addEventListener('install', function (event) {
 // When the webpage goes to fetch files, we intercept that request and serve up the matching files
 // if we have them
 self.addEventListener('fetch', function (event) {
-    if (doCache) {
-        // Reference: https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Offline_Service_workers
-        event.respondWith(
-            caches.match(event.request).then((r) => {
+    // Reference documentation: https://mzl.la/2RhHLrv
+
+    event.respondWith(
+        caches
+            .match(event.request)
+            .then((r) => hydrateWhitelist(event.request, r))
+            .then((r) => {
                 console.log(
-                    '[Service Worker] Fetching resource: ' + event.request.url
+                    `[Service Worker] Fetching resource: ${event.request.url}`
                 );
-                return (
-                    r ||
-                    fetch(event.request).then((response) =>
-                        caches.open(CACHE_NAME).then((cache) => {
-                            console.log(
-                                '[Service Worker] Caching new resource: ' +
-                                    event.request.url
-                            );
-                            cache.put(event.request, response.clone());
-                            return response;
-                        })
-                    )
-                );
+
+                // return cached response or fetch and cache
+                return r || fetchAndCache(event.request);
             })
-        );
-    }
+    );
 });

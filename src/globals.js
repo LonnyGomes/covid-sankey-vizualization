@@ -13,4 +13,5 @@ export const GLOBALS = {
         US: 'United States',
     },
     DATA_TIMEOUT: 2500,
+    REFRESH_INTERVAL: 60000,
 };

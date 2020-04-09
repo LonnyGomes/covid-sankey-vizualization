@@ -389,11 +389,12 @@ const dataFallback = new Promise((resolve) =>
     setTimeout(resolve, GLOBALS.DATA_TIMEOUT, rawData)
 );
 
-Promise.race([generateData(), dataFallback])
-    .then((data) => init(data))
-    .catch((err) => {
+const retrieveData = () =>
+    Promise.race([generateData(), dataFallback]).catch((err) => {
         console.error(
             `Failed to retrieve latest data, using stale copy: ${err.message}`
         );
-        init(rawData);
+        return rawData;
     });
+
+retrieveData().then((data) => init(data));

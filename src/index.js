@@ -12,7 +12,9 @@ const moment = require('moment');
 let currentThreshold = GLOBALS.THRESHOLD;
 let isUSSelected = false;
 
-const init = (covidData) => {
+const init = (initialData) => {
+    let country = null;
+    let covidData = initialData;
     // retrieve data
     const { sankey: sankeyData, countries, totals, leaderBoard } = parseWorld(
         covidData,
@@ -23,7 +25,7 @@ const init = (covidData) => {
 
     // event handler for dropdown change
     const onDropdownChange = () => {
-        const country =
+        country =
             dropdownEl.value === GLOBALS.ALL_COUNTRIES
                 ? null
                 : dropdownEl.value;
@@ -31,28 +33,7 @@ const init = (covidData) => {
         // track if United States is currently selected
         isUSSelected = country === GLOBALS.US_KEY ? true : false;
 
-        currentThreshold =
-            country === GLOBALS.US_KEY
-                ? GLOBALS.US_THRESHOLD
-                : GLOBALS.THRESHOLD;
-
-        const {
-            sankey: sankeyData,
-            leaderBoard,
-            totals: curTotals,
-        } = parseWorld(
-            covidData,
-            country,
-            GLOBALS.THRESHOLD,
-            GLOBALS.US_THRESHOLD
-        );
-        updateLeaderBoard(leaderBoard);
-
-        // update last updated with the current timestamp
-        updateTimestamp(curTotals);
-
-        // update dynamic footnotes
-        updateFootnotes(country, currentThreshold);
+        const sankeyData = updateView(country, covidData);
 
         const graph = sankey(sankeyData);
         updateChart(graph, node, link, label);
@@ -96,6 +77,42 @@ const init = (covidData) => {
     // generate chart
     const { link, label, node, sankey } = genChart(sankeyData);
     updateChart(sankey(sankeyData), node, link, label);
+
+    // update data periodically
+    setInterval(() => {
+        retrieveData().then((updatedData) => {
+            // update the data we reference
+            covidData = updatedData;
+
+            const updatedSankeyData = updateView(country, updatedData);
+            const graph = sankey(updatedSankeyData);
+            updateChart(graph, node, link, label);
+        });
+    }, GLOBALS.REFRESH_INTERVAL);
+};
+
+const updateView = (country, covidData) => {
+    // track if United States is currently selected
+    const threshold =
+        country === GLOBALS.US_KEY ? GLOBALS.US_THRESHOLD : GLOBALS.THRESHOLD;
+
+    const { sankey: sankeyData, leaderBoard, totals: curTotals } = parseWorld(
+        covidData,
+        country,
+        GLOBALS.THRESHOLD,
+        GLOBALS.US_THRESHOLD
+    );
+
+    // update leader board with latest totals
+    updateLeaderBoard(leaderBoard);
+
+    // update last updated with the current timestamp
+    updateTimestamp(curTotals);
+
+    // update dynamic footnotes
+    updateFootnotes(country, threshold);
+
+    return sankeyData;
 };
 
 const calcSize = () => {
@@ -384,17 +401,18 @@ const updateChart = (graph, node, link, label) => {
         );
 };
 
-// if data takes too long to retrieve, use the fallback dataset instead
-const dataFallback = new Promise((resolve) =>
-    setTimeout(resolve, GLOBALS.DATA_TIMEOUT, rawData)
-);
+const retrieveData = () => {
+    // if data takes too long to retrieve, use the fallback dataset instead
+    const dataFallback = new Promise((resolve) =>
+        setTimeout(resolve, GLOBALS.DATA_TIMEOUT, rawData)
+    );
 
-const retrieveData = () =>
-    Promise.race([generateData(), dataFallback]).catch((err) => {
+    return Promise.race([generateData(), dataFallback]).catch((err) => {
         console.error(
             `Failed to retrieve latest data, using stale copy: ${err.message}`
         );
         return rawData;
     });
+};
 
 retrieveData().then((data) => init(data));

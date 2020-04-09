@@ -15,12 +15,10 @@ let isUSSelected = false;
 const init = (initialData) => {
     let country = null;
     let covidData = initialData;
-    // retrieve data
-    const { sankey: sankeyData, countries, totals, leaderBoard } = parseWorld(
-        covidData,
-        null,
-        GLOBALS.THRESHOLD,
-        GLOBALS.US_THRESHOLD
+
+    const { countries, sankeyData, leaderBoard } = updateView(
+        country,
+        covidData
     );
 
     // event handler for dropdown change
@@ -33,7 +31,7 @@ const init = (initialData) => {
         // track if United States is currently selected
         isUSSelected = country === GLOBALS.US_KEY ? true : false;
 
-        const sankeyData = updateView(country, covidData);
+        const { sankeyData } = updateView(country, covidData);
 
         const graph = sankey(sankeyData);
         updateChart(graph, node, link, label);
@@ -55,14 +53,8 @@ const init = (initialData) => {
                 : GLOBALS.TOGGLE_BTN_SHOW_MORE;
     });
 
-    // set last updated timestamp
-    updateTimestamp(totals);
-
     // generate leader board
     genLeaderBoard(leaderBoard);
-
-    // init dynamic footnote
-    updateFootnotes(null, currentThreshold);
 
     // update the worldwide totals in the body copy
     d3.select('#totals-worldwide')
@@ -84,7 +76,10 @@ const init = (initialData) => {
             // update the data we reference
             covidData = updatedData;
 
-            const updatedSankeyData = updateView(country, updatedData);
+            const { sankeyData: updatedSankeyData } = updateView(
+                country,
+                updatedData
+            );
             const graph = sankey(updatedSankeyData);
             updateChart(graph, node, link, label);
         });
@@ -96,12 +91,12 @@ const updateView = (country, covidData) => {
     const threshold =
         country === GLOBALS.US_KEY ? GLOBALS.US_THRESHOLD : GLOBALS.THRESHOLD;
 
-    const { sankey: sankeyData, leaderBoard, totals: curTotals } = parseWorld(
-        covidData,
-        country,
-        GLOBALS.THRESHOLD,
-        GLOBALS.US_THRESHOLD
-    );
+    const {
+        sankey: sankeyData,
+        leaderBoard,
+        totals: curTotals,
+        countries,
+    } = parseWorld(covidData, country, GLOBALS.THRESHOLD, GLOBALS.US_THRESHOLD);
 
     // update leader board with latest totals
     updateLeaderBoard(leaderBoard);
@@ -112,7 +107,7 @@ const updateView = (country, covidData) => {
     // update dynamic footnotes
     updateFootnotes(country, threshold);
 
-    return sankeyData;
+    return { sankeyData, countries, leaderBoard };
 };
 
 const calcSize = () => {

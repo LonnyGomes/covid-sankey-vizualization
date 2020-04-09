@@ -6,6 +6,8 @@ const WHITELIST_URLS = [
     'https://corona.lmao.ninja/all',
     'https://corona.lmao.ninja/states',
     'https://corona.lmao.ninja/countries',
+    'https://covid.lonnygomes.com/',
+    'http://localhost:1234/',
 ];
 
 // retrieves a request and caches the response for later use

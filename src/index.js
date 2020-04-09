@@ -21,8 +21,9 @@ const init = (initialData) => {
         covidData
     );
 
-    // event handler for dropdown change
-    const onDropdownChange = () => {
+    // configure country dropdown
+    genCountryDropdown(countries, (dropdownEl) => {
+        // event handler for dropdown change
         country =
             dropdownEl.value === GLOBALS.ALL_COUNTRIES
                 ? null
@@ -35,11 +36,7 @@ const init = (initialData) => {
 
         const graph = sankey(sankeyData);
         updateChart(graph, node, link, label);
-    };
-
-    // configure country dropdown
-    const dropdownEl = genCountryDropdown(countries);
-    dropdownEl.addEventListener('change', onDropdownChange);
+    });
 
     // configure methodology notes toggle
     const fullNotes = document.getElementById('full-methodology-notes');
@@ -194,7 +191,7 @@ const formatNodeLabelLabel = (label, isUS = false) => {
     return label === 'other' ? `Other*` : upperFormatter(mappedLabel);
 };
 
-const genCountryDropdown = (countries) => {
+const genCountryDropdown = (countries, callback = null) => {
     const dropdown = d3.select('#countries');
     const filteredCountries = countries.filter(
         (country) => country !== GLOBALS.US_KEY
@@ -209,6 +206,12 @@ const genCountryDropdown = (countries) => {
         .append('option')
         .text((data) => mapLabelName(data))
         .attr('value', (data) => data);
+
+    dropdown.on('change', (evt) => {
+        if (callback) {
+            callback(dropdown.node());
+        }
+    });
 
     return dropdown.node();
 };

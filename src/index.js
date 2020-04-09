@@ -9,7 +9,6 @@ import generateData from '../utils/generate-dataset';
 
 const moment = require('moment');
 
-let currentThreshold = GLOBALS.THRESHOLD;
 let isUSSelected = false;
 
 const init = (initialData) => {
@@ -39,29 +38,13 @@ const init = (initialData) => {
     });
 
     // configure methodology notes toggle
-    const fullNotes = document.getElementById('full-methodology-notes');
-    const notesToggleBtn = document.getElementById('notes-toggle-btn');
-    notesToggleBtn.innerHTML = GLOBALS.TOGGLE_BTN_SHOW_MORE;
-    notesToggleBtn.addEventListener('click', (evt) => {
-        fullNotes.classList.toggle('hidden');
-        evt.target.innerHTML =
-            evt.target.innerHTML === GLOBALS.TOGGLE_BTN_SHOW_MORE
-                ? GLOBALS.TOGGLE_BTN_HIDE
-                : GLOBALS.TOGGLE_BTN_SHOW_MORE;
-    });
+    initMethodologyToggle();
 
     // generate leader board
     genLeaderBoard(leaderBoard);
 
-    // update the worldwide totals in the body copy
-    d3.select('#totals-worldwide')
-        .data([GLOBALS.THRESHOLD])
-        .text((d) => d.toLocaleString());
-
-    // update the united states totals in the body copy
-    d3.select('#totals-united-states')
-        .data([GLOBALS.US_THRESHOLD])
-        .text((d) => d.toLocaleString());
+    // populate body copy for totals
+    populateBodyCopy();
 
     // generate chart
     const { link, label, node, sankey } = genChart(sankeyData);
@@ -248,6 +231,31 @@ const updateLeaderBoard = (leaderBoard) => {
         .selectAll('.leader-board-value')
         .data(leaderBoard)
         .text((d) => (isNaN(d.value) ? d.value : formatter(d.value)));
+};
+
+const initMethodologyToggle = () => {
+    const fullNotes = document.getElementById('full-methodology-notes');
+    const notesToggleBtn = document.getElementById('notes-toggle-btn');
+    notesToggleBtn.innerHTML = GLOBALS.TOGGLE_BTN_SHOW_MORE;
+    notesToggleBtn.addEventListener('click', (evt) => {
+        fullNotes.classList.toggle('hidden');
+        evt.target.innerHTML =
+            evt.target.innerHTML === GLOBALS.TOGGLE_BTN_SHOW_MORE
+                ? GLOBALS.TOGGLE_BTN_HIDE
+                : GLOBALS.TOGGLE_BTN_SHOW_MORE;
+    });
+};
+
+const populateBodyCopy = () => {
+    // update the worldwide totals in the body copy
+    d3.select('#totals-worldwide')
+        .data([GLOBALS.THRESHOLD])
+        .text((d) => d.toLocaleString());
+
+    // update the united states totals in the body copy
+    d3.select('#totals-united-states')
+        .data([GLOBALS.US_THRESHOLD])
+        .text((d) => d.toLocaleString());
 };
 
 const genChart = (data) => {

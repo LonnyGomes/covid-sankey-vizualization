@@ -1,7 +1,7 @@
 // Name our cache
-var CACHE_NAME = 'covid-19-app-v1';
+const CACHE_NAME = 'covid-19-app-v1';
 
-// URLs we want to fetch
+// URLs we want to fetch before using the cached version
 const WHITELIST_URLS = [
     'https://corona.lmao.ninja/all',
     'https://corona.lmao.ninja/states',
@@ -30,7 +30,8 @@ const hydrateWhitelist = (request, response) => {
     if (response && WHITELIST_URLS.includes(request.url)) {
         return (
             fetchAndCache(request)
-                // if the request fails/we are offline use the cached response
+                // if the request fails, we prob are offline
+                // so use the cached response
                 .catch(() => response)
         );
     }
@@ -61,21 +62,22 @@ self.addEventListener('install', function (event) {
     console.log(`[Service Worker] Cache installed: ${CACHE_NAME}`);
 });
 
-// When the webpage goes to fetch files, we intercept that request and serve up the matching files
-// if we have them
+// When the webpage goes to fetch files, we intercept that request and
+// serve up the matching files if we have them
 self.addEventListener('fetch', function (event) {
     // Reference documentation: https://mzl.la/2RhHLrv
 
     event.respondWith(
         caches
             .match(event.request)
+            // attempt to update the cache of whitelisted URLs
             .then((r) => hydrateWhitelist(event.request, r))
+            // return cached response or fetch and cache
             .then((r) => {
                 console.log(
                     `[Service Worker] Fetching resource: ${event.request.url}`
                 );
 
-                // return cached response or fetch and cache
                 return r || fetchAndCache(event.request);
             })
     );

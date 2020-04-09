@@ -9,7 +9,6 @@ import generateData from '../utils/generate-dataset';
 
 const moment = require('moment');
 
-let currentThreshold = GLOBALS.THRESHOLD;
 let isUSSelected = false;
 
 const initServiceWorker = () => {
@@ -42,20 +41,22 @@ const initServiceWorker = () => {
     }
 };
 
-const init = (covidData) => {
+const init = (initialData) => {
+    let country = null;
+    let covidData = initialData;
+
     initServiceWorker();
 
     // retrieve data
-    const { sankey: sankeyData, countries, totals, leaderBoard } = parseWorld(
-        covidData,
-        null,
-        GLOBALS.THRESHOLD,
-        GLOBALS.US_THRESHOLD
+    const { countries, sankeyData, leaderBoard } = updateView(
+        country,
+        covidData
     );
 
-    // event handler for dropdown change
-    const onDropdownChange = () => {
-        const country =
+    // configure country dropdown
+    genCountryDropdown(countries, (dropdownEl) => {
+        // event handler for dropdown change
+        country =
             dropdownEl.value === GLOBALS.ALL_COUNTRIES
                 ? null
                 : dropdownEl.value;
@@ -63,71 +64,63 @@ const init = (covidData) => {
         // track if United States is currently selected
         isUSSelected = country === GLOBALS.US_KEY ? true : false;
 
-        currentThreshold =
-            country === GLOBALS.US_KEY
-                ? GLOBALS.US_THRESHOLD
-                : GLOBALS.THRESHOLD;
-
-        const {
-            sankey: sankeyData,
-            leaderBoard,
-            totals: curTotals,
-        } = parseWorld(
-            covidData,
-            country,
-            GLOBALS.THRESHOLD,
-            GLOBALS.US_THRESHOLD
-        );
-        updateLeaderBoard(leaderBoard);
-
-        // update last updated with the current timestamp
-        updateTimestamp(curTotals);
-
-        // update dynamic footnotes
-        updateFootnotes(country, currentThreshold);
+        const { sankeyData } = updateView(country, covidData);
 
         const graph = sankey(sankeyData);
         updateChart(graph, node, link, label);
-    };
-
-    // configure country dropdown
-    const dropdownEl = genCountryDropdown(countries);
-    dropdownEl.addEventListener('change', onDropdownChange);
-
-    // configure methodology notes toggle
-    const fullNotes = document.getElementById('full-methodology-notes');
-    const notesToggleBtn = document.getElementById('notes-toggle-btn');
-    notesToggleBtn.innerHTML = GLOBALS.TOGGLE_BTN_SHOW_MORE;
-    notesToggleBtn.addEventListener('click', (evt) => {
-        fullNotes.classList.toggle('hidden');
-        evt.target.innerHTML =
-            evt.target.innerHTML === GLOBALS.TOGGLE_BTN_SHOW_MORE
-                ? GLOBALS.TOGGLE_BTN_HIDE
-                : GLOBALS.TOGGLE_BTN_SHOW_MORE;
     });
 
-    // set last updated timestamp
-    updateTimestamp(totals);
+    // configure methodology notes toggle
+    initMethodologyToggle();
 
     // generate leader board
     genLeaderBoard(leaderBoard);
 
-    // init dynamic footnote
-    updateFootnotes(null, currentThreshold);
-
-    // update the worldwide totals in the body copy
-    d3.select('#totals-worldwide')
-        .data([GLOBALS.THRESHOLD])
-        .text((d) => d.toLocaleString());
-
-    // update the united states totals in the body copy
-    d3.select('#totals-united-states')
-        .data([GLOBALS.US_THRESHOLD])
-        .text((d) => d.toLocaleString());
+    // populate body copy for totals
+    populateBodyCopy();
 
     // generate chart
     const { link, label, node, sankey } = genChart(sankeyData);
     updateChart(sankey(sankeyData), node, link, label);
+
+    // update data periodically
+    setInterval(() => {
+        retrieveData().then((updatedData) => {
+            // update the data we reference
+            covidData = updatedData;
+
+            const { sankeyData: updatedSankeyData } = updateView(
+                country,
+                updatedData
+            );
+            const graph = sankey(updatedSankeyData);
+            updateChart(graph, node, link, label);
+        });
+    }, GLOBALS.REFRESH_INTERVAL);
+};
+
+const updateView = (country, covidData) => {
+    // track if United States is currently selected
+    const threshold =
+        country === GLOBALS.US_KEY ? GLOBALS.US_THRESHOLD : GLOBALS.THRESHOLD;
+
+    const {
+        sankey: sankeyData,
+        leaderBoard,
+        totals: curTotals,
+        countries,
+    } = parseWorld(covidData, country, GLOBALS.THRESHOLD, GLOBALS.US_THRESHOLD);
+
+    // update leader board with latest totals
+    updateLeaderBoard(leaderBoard);
+
+    // update last updated with the current timestamp
+    updateTimestamp(curTotals);
+
+    // update dynamic footnotes
+    updateFootnotes(country, threshold);
+
+    return { sankeyData, countries, leaderBoard };
 };
 
 const calcSize = () => {
@@ -214,7 +207,7 @@ const formatNodeLabelLabel = (label, isUS = false) => {
     return label === 'other' ? `Other*` : upperFormatter(mappedLabel);
 };
 
-const genCountryDropdown = (countries) => {
+const genCountryDropdown = (countries, callback = null) => {
     const dropdown = d3.select('#countries');
     const filteredCountries = countries.filter(
         (country) => country !== GLOBALS.US_KEY
@@ -229,6 +222,12 @@ const genCountryDropdown = (countries) => {
         .append('option')
         .text((data) => mapLabelName(data))
         .attr('value', (data) => data);
+
+    dropdown.on('change', (evt) => {
+        if (callback) {
+            callback(dropdown.node());
+        }
+    });
 
     return dropdown.node();
 };
@@ -265,6 +264,31 @@ const updateLeaderBoard = (leaderBoard) => {
         .selectAll('.leader-board-value')
         .data(leaderBoard)
         .text((d) => (isNaN(d.value) ? d.value : formatter(d.value)));
+};
+
+const initMethodologyToggle = () => {
+    const fullNotes = document.getElementById('full-methodology-notes');
+    const notesToggleBtn = document.getElementById('notes-toggle-btn');
+    notesToggleBtn.innerHTML = GLOBALS.TOGGLE_BTN_SHOW_MORE;
+    notesToggleBtn.addEventListener('click', (evt) => {
+        fullNotes.classList.toggle('hidden');
+        evt.target.innerHTML =
+            evt.target.innerHTML === GLOBALS.TOGGLE_BTN_SHOW_MORE
+                ? GLOBALS.TOGGLE_BTN_HIDE
+                : GLOBALS.TOGGLE_BTN_SHOW_MORE;
+    });
+};
+
+const populateBodyCopy = () => {
+    // update the worldwide totals in the body copy
+    d3.select('#totals-worldwide')
+        .data([GLOBALS.THRESHOLD])
+        .text((d) => d.toLocaleString());
+
+    // update the united states totals in the body copy
+    d3.select('#totals-united-states')
+        .data([GLOBALS.US_THRESHOLD])
+        .text((d) => d.toLocaleString());
 };
 
 const genChart = (data) => {
@@ -416,16 +440,18 @@ const updateChart = (graph, node, link, label) => {
         );
 };
 
-// if data takes too long to retrieve, use the fallback dataset instead
-const dataFallback = new Promise((resolve) =>
-    setTimeout(resolve, GLOBALS.DATA_TIMEOUT, rawData)
-);
+const retrieveData = () => {
+    // if data takes too long to retrieve, use the fallback dataset instead
+    const dataFallback = new Promise((resolve) =>
+        setTimeout(resolve, GLOBALS.DATA_TIMEOUT, rawData)
+    );
 
-Promise.race([generateData(), dataFallback])
-    .then((data) => init(data))
-    .catch((err) => {
+    return Promise.race([generateData(), dataFallback]).catch((err) => {
         console.error(
             `Failed to retrieve latest data, using stale copy: ${err.message}`
         );
-        init(rawData);
+        return rawData;
     });
+};
+
+retrieveData().then((data) => init(data));

@@ -5,7 +5,7 @@ export const GLOBALS = {
     PORTRAIT_WIDTH: 450,
     PORTRAIT_HEIGHT: 500,
     THRESHOLD: 10000,
-    US_THRESHOLD: 3000,
+    US_THRESHOLD: 5000,
     US_KEY: 'US',
     TOGGLE_BTN_SHOW_MORE: 'Show Details',
     TOGGLE_BTN_HIDE: 'Hide Details',

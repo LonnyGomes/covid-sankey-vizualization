@@ -1,11 +1,11 @@
 // Name our cache
-const CACHE_NAME = 'covid-19-app-v1.0.1';
+const CACHE_NAME = 'covid-19-app-v1.0.2';
 
 // URLs we want to fetch before using the cached version
 const WHITELIST_URLS = [
-    'https://corona.lmao.ninja/all',
-    'https://corona.lmao.ninja/states',
-    'https://corona.lmao.ninja/countries',
+    'https://corona.lmao.ninja/v2/all',
+    'https://corona.lmao.ninja/v2/states',
+    'https://corona.lmao.ninja/v2/countries',
     'https://covid.lonnygomes.com/',
     'http://localhost:1234/',
 ];

@@ -1,4 +1,20 @@
-const covid = require('novelcovid');
+const axios = require('axios').default;
+
+// temp api stand in for the novelcovid library
+const covid = {
+    all: () =>
+        axios
+            .get('https://corona.lmao.ninja/v2/all')
+            .then((response) => response.data),
+    countries: () =>
+        axios
+            .get('https://corona.lmao.ninja/v2/countries')
+            .then((response) => response.data),
+    states: () =>
+        axios
+            .get('https://corona.lmao.ninja/v2/states')
+            .then((response) => response.data),
+};
 
 const mapData = (data, objectKeys, updateFunc = null) => {
     const results = {};
@@ -49,11 +65,11 @@ const parseNovelStateData = (data) =>
 module.exports = () => {
     return Promise.all([
         // retrieve the timestamp information
-        covid.getAll().then((results) => results.updated),
+        covid.all().then((results) => results.updated),
         // retrieve latest up to date world data
-        covid.getCountry().then(parseNovelCountryData),
+        covid.countries().then(parseNovelCountryData),
         // latest up to date world data
-        covid.getState().then(parseNovelStateData),
+        covid.states().then(parseNovelStateData),
     ])
         .then((data) => {
             const [timestamp, world, us] = data;

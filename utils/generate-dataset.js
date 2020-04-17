@@ -1,4 +1,6 @@
-const covid = require('novelcovid');
+import { NovelCovid } from 'novelcovid';
+
+const covid = new NovelCovid();
 
 const mapData = (data, objectKeys, updateFunc = null) => {
     const results = {};
@@ -49,11 +51,11 @@ const parseNovelStateData = (data) =>
 module.exports = () => {
     return Promise.all([
         // retrieve the timestamp information
-        covid.getAll().then((results) => results.updated),
+        covid.all().then((results) => results.updated),
         // retrieve latest up to date world data
-        covid.getCountry().then(parseNovelCountryData),
+        covid.countries().then(parseNovelCountryData),
         // latest up to date world data
-        covid.getState().then(parseNovelStateData),
+        covid.states().then(parseNovelStateData),
     ])
         .then((data) => {
             const [timestamp, world, us] = data;

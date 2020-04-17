@@ -1,6 +1,20 @@
-import { NovelCovid } from 'novelcovid';
+const axios = require('axios').default;
 
-const covid = new NovelCovid();
+// temp api stand in for the novelcovid library
+const covid = {
+    all: () =>
+        axios
+            .get('https://corona.lmao.ninja/v2/all')
+            .then((response) => response.data),
+    countries: () =>
+        axios
+            .get('https://corona.lmao.ninja/v2/countries')
+            .then((response) => response.data),
+    states: () =>
+        axios
+            .get('https://corona.lmao.ninja/v2/states')
+            .then((response) => response.data),
+};
 
 const mapData = (data, objectKeys, updateFunc = null) => {
     const results = {};

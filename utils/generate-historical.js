@@ -61,12 +61,13 @@ const parseNovelHistoricData = (data) => {
 };
 
 module.exports = () => {
-    covid
-        .historical()
-        .then(parseNovelHistoricData)
-        .then((historical) => {
-            console.log('historical', historical);
-            return { historical };
+    return Promise.all([
+        covid.historical().then(parseNovelHistoricData),
+        covid.historical(null, 'us'),
+    ])
+        .then(([world, us]) => {
+            console.log('us', us);
+            return { world };
         })
         .catch((err) => {
             console.error('error', err.message);

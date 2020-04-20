@@ -368,10 +368,7 @@ const updateChart = (graph, node, link, label) => {
 
     // links
     link.selectAll('path')
-        .data(
-            graph.links,
-            (data) => `${data.source.name}${data.target.name}${data.value}`
-        )
+        .data(graph.links, (data) => `${data.source.name}${data.target.name}`)
         .join(
             (enter) => {
                 enter

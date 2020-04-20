@@ -1,4 +1,9 @@
 const { NovelCovid } = require('novelcovid');
+const axios = require('axios').default;
+
+const URLS = {
+    HISTORICAL_ALL_DATA: 'https://corona.lmao.ninja/v2/historical?lastdays=all',
+};
 
 const covid = new NovelCovid();
 
@@ -62,11 +67,13 @@ const parseNovelHistoricData = (data) => {
 
 module.exports = () => {
     return Promise.all([
-        covid.historical().then(parseNovelHistoricData),
+        axios
+            .get(URLS.HISTORICAL_ALL_DATA)
+            .then((results) => results.data)
+            .then(parseNovelHistoricData),
         covid.historical(null, 'us'),
     ])
         .then(([world, us]) => {
-            console.log('us', us);
             return { world };
         })
         .catch((err) => {

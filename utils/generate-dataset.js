@@ -1,4 +1,4 @@
-import { NovelCovid } from 'novelcovid';
+const { NovelCovid } = require('novelcovid');
 
 const covid = new NovelCovid();
 

@@ -1,12 +1,12 @@
 const generateDataset = require('./generate-dataset');
+const generateHistorical = require('./generate-historical');
 const fs = require('fs');
 const path = require('path');
 
-const saveDataset = async (pathName) => {
+const saveDataset = async (pathName, data) => {
     const outputPath = path.resolve(pathName);
 
     try {
-        const data = await generateDataset();
         fs.writeFileSync(outputPath, JSON.stringify(data));
     } catch (error) {
         console.error(
@@ -15,10 +15,17 @@ const saveDataset = async (pathName) => {
     }
 };
 
-const [pathName] = process.argv.slice(2);
+const [dataPathName, historicalPathName] = process.argv.slice(2);
 
-if (!pathName) {
-    console.error(`Supply output path`);
+if (!dataPathName || !historicalPathName) {
+    console.error(`Supply output path for current data and historic dataset`);
 } else {
-    saveDataset(pathName);
+    Promise.all([generateDataset(), generateHistorical()]).then(
+        async (results) => {
+            const [dataset, historicalDataset] = results;
+
+            saveDataset(dataPathName, dataset);
+            saveDataset(historicalPathName, historicalDataset);
+        }
+    );
 }

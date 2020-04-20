@@ -3,7 +3,7 @@ const { NovelCovid } = require('novelcovid');
 const covid = new NovelCovid();
 
 const parseNovelHistoricData = (data) => {
-    const histData = new Map();
+    const histData = {};
 
     data.forEach((curCountryData) => {
         const { country, timeline } = curCountryData;
@@ -20,11 +20,11 @@ const parseNovelHistoricData = (data) => {
 
             let curDateData = null;
             // set/retrieve date map
-            if (histData.has(curDateKey)) {
-                curDateData = histData.get(curDateKey);
+            if (histData[curDateKey]) {
+                curDateData = histData[curDateKey];
             } else {
                 curDateData = {};
-                histData.set(curDateKey, curDateData);
+                histData[curDateKey] = curDateData;
             }
 
             let curCountryData = null;
@@ -50,11 +50,14 @@ const parseNovelHistoricData = (data) => {
         }
     });
 
-    for (const [histKey, histValue] of histData) {
-        // console.log('histData', histValue);
-        //for (const )
-    }
-    return data;
+    // for (const histKey of Object.keys(histData)) {
+    //     const dateData = histData[histKey];
+    //     histData[histKey] = Object.keys(dateData).map((countryKey) => ({
+    //         [countryKey]: dateData[countryKey],
+    //     }));
+    // }
+
+    return histData;
 };
 
 module.exports = () => {

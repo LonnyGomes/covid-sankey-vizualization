@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 import { sankeyLinkHorizontal, sankey as sankeyInstance } from 'd3-sankey';
 import { parseWorld } from './process-data';
 import rawData from './raw-data.json';
+import historicData from './historic-data.json';
 import { GLOBALS } from './globals';
 import generateData from '../utils/generate-dataset';
 
@@ -78,6 +79,41 @@ const init = (initialData) => {
     const { link, label, node, sankey } = genChart(sankeyData);
     updateChart(sankey(sankeyData), node, link, label);
 
+    const animateBtn = document.getElementById('animate-btn');
+    let animateInterval = null;
+    animateBtn.addEventListener('click', (evt) => {
+        const { world } = historicData;
+        const dates = Object.keys(world).reverse();
+
+        if (animateInterval) {
+            clearInterval(animateInterval);
+            animateInterval = null;
+        }
+
+        animateInterval = setInterval(() => {
+            const dateKey = dates.pop();
+            if (!dateKey) {
+                clearInterval(animateInterval);
+                return;
+            }
+
+            const updatedData = {
+                world: world[dateKey],
+                us: world[dateKey],
+                timestamp: Date.now(),
+            };
+
+            updateAnimatedDate(dateKey);
+
+            const { sankeyData: updatedSankeyData } = updateView(
+                null,
+                updatedData
+            );
+            const graph = sankey(updatedSankeyData);
+            updateChart(graph, node, link, label);
+        }, 200);
+    });
+
     // update data periodically
     setInterval(() => {
         retrieveData().then((updatedData) => {
@@ -142,6 +178,12 @@ const updateTimestamp = (results) => {
     d3.select('#timestamp-label')
         .data([results])
         .text((d) => `Last Updated: ${moment(d.timestamp).fromNow()}`);
+};
+
+const updateAnimatedDate = (results) => {
+    d3.select('#animated-date')
+        .data([results])
+        .text((d) => d);
 };
 
 const updateFootnotes = (country, threshold) => {
@@ -333,7 +375,7 @@ const genChart = (data) => {
 
 const updateChart = (graph, node, link, label) => {
     const { width, height } = calcSize();
-    const t = d3.transition().duration(350).ease(d3.easeLinear);
+    const t = d3.transition().duration(150).ease(d3.easeLinear);
 
     // nodes
     node.selectAll('rect')

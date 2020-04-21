@@ -127,9 +127,11 @@ button {
     }
 }
 
-#animated-date {
-    color: #fff;
-    font-size: 1.4rem;
+#animate-btn {
+    background-color: #fff;
+    color: $body-font-clr;
+    border: 1px solid #ccc;
+    font-size: 1rem;
 }
 
 #timestamp-label {

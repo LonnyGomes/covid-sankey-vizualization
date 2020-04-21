@@ -14,5 +14,5 @@ export const GLOBALS = {
     },
     DATA_TIMEOUT: 2500,
     REFRESH_INTERVAL: 60000,
-    ANIMATION_DELAY: 350,
+    ANIMATION_DELAY: 250,
 };

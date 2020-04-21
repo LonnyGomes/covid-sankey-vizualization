@@ -118,10 +118,8 @@ const init = (initialData) => {
             const updatedData = {
                 world: world[dateKey],
                 us: world[dateKey],
-                timestamp: Date.now(),
+                timestamp: dateKey,
             };
-
-            updateAnimatedDate(dateKey);
 
             const { sankeyData: updatedSankeyData } = updateView(
                 null,
@@ -155,7 +153,7 @@ const init = (initialData) => {
 
 const updateView = (country, covidData, thresholdOverride = -1) => {
     const globalThreshold =
-    thresholdOverride > -1 ? thresholdOverride : GLOBALS.THRESHOLD;
+        thresholdOverride > -1 ? thresholdOverride : GLOBALS.THRESHOLD;
     // track if United States is currently selected
     const threshold =
         country === GLOBALS.US_KEY ? GLOBALS.US_THRESHOLD : globalThreshold;
@@ -200,15 +198,14 @@ const calcSize = () => {
 };
 
 const updateTimestamp = (results) => {
-    d3.select('#timestamp-label')
-        .data([results])
-        .text((d) => `Last Updated: ${moment(d.timestamp).fromNow()}`);
-};
+    const selection = d3.select('#timestamp-label').data([results]);
 
-const updateAnimatedDate = (results) => {
-    d3.select('#animated-date')
-        .data([results])
-        .text((d) => d);
+    // if a string is provided, the timestamp is a historical date
+    if (isNaN(results.timestamp)) {
+        selection.text((d) => `Historical Date: ${d.timestamp}`);
+    } else {
+        selection.text((d) => `Last Updated: ${moment(d.timestamp).fromNow()}`);
+    }
 };
 
 const updateFootnotes = (country, threshold) => {

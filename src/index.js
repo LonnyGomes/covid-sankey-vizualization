@@ -111,7 +111,7 @@ const init = (initialData) => {
             );
             const graph = sankey(updatedSankeyData);
             updateChart(graph, node, link, label);
-        }, 200);
+        }, GLOBALS.ANIMATION_DELAY);
     });
 
     // update data periodically
@@ -375,7 +375,10 @@ const genChart = (data) => {
 
 const updateChart = (graph, node, link, label) => {
     const { width, height } = calcSize();
-    const t = d3.transition().duration(150).ease(d3.easeLinear);
+    const t = d3
+        .transition()
+        .duration(GLOBALS.ANIMATION_DELAY - 20)
+        .ease(d3.easeLinear);
 
     // nodes
     node.selectAll('rect')

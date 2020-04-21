@@ -94,6 +94,7 @@ const init = (initialData) => {
             const dateKey = dates.pop();
             if (!dateKey) {
                 clearInterval(animateInterval);
+                animateInterval = null;
                 return;
             }
 
@@ -117,6 +118,10 @@ const init = (initialData) => {
     // update data periodically
     setInterval(() => {
         retrieveData().then((updatedData) => {
+            if (animateInterval) {
+                // we currently are animating, don't update data!
+                return;
+            }
             // update the data we reference
             covidData = updatedData;
 

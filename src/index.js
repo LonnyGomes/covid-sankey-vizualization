@@ -90,12 +90,29 @@ const init = (initialData) => {
             animateInterval = null;
         }
 
+        let animateThreshold = 100;
         animateInterval = setInterval(() => {
             const dateKey = dates.pop();
             if (!dateKey) {
                 clearInterval(animateInterval);
                 animateInterval = null;
+                animateThreshold = 100;
                 return;
+            }
+
+            switch (dateKey) {
+                case '2/20/20':
+                    animateThreshold = 1000;
+                    break;
+                case '3/10/20':
+                    animateThreshold = 5000;
+                    break;
+                case '4/1/20':
+                    animateThreshold = 12000;
+                    break;
+                case '4/10/20':
+                    animateThreshold = 15000;
+                    break;
             }
 
             const updatedData = {
@@ -108,7 +125,8 @@ const init = (initialData) => {
 
             const { sankeyData: updatedSankeyData } = updateView(
                 null,
-                updatedData
+                updatedData,
+                animateThreshold
             );
             const graph = sankey(updatedSankeyData);
             updateChart(graph, node, link, label);
@@ -135,17 +153,19 @@ const init = (initialData) => {
     }, GLOBALS.REFRESH_INTERVAL);
 };
 
-const updateView = (country, covidData) => {
+const updateView = (country, covidData, thresholdOverride = -1) => {
+    const globalThreshold =
+    thresholdOverride > -1 ? thresholdOverride : GLOBALS.THRESHOLD;
     // track if United States is currently selected
     const threshold =
-        country === GLOBALS.US_KEY ? GLOBALS.US_THRESHOLD : GLOBALS.THRESHOLD;
+        country === GLOBALS.US_KEY ? GLOBALS.US_THRESHOLD : globalThreshold;
 
     const {
         sankey: sankeyData,
         leaderBoard,
         totals: curTotals,
         countries,
-    } = parseWorld(covidData, country, GLOBALS.THRESHOLD, GLOBALS.US_THRESHOLD);
+    } = parseWorld(covidData, country, globalThreshold, GLOBALS.US_THRESHOLD);
 
     // update leader board with latest totals
     updateLeaderBoard(leaderBoard);

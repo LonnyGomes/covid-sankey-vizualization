@@ -1,5 +1,5 @@
 // Name our cache
-const CACHE_NAME = 'covid-19-app-v1.0.3';
+const CACHE_NAME = 'covid-19-app-v1.0.4';
 
 // URLs we want to fetch before using the cached version
 const WHITELIST_URLS = [

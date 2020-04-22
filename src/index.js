@@ -239,7 +239,7 @@ const updateTimestamp = (results) => {
 
     // if a string is provided, the timestamp is a historical date
     if (isNaN(results.timestamp)) {
-        selection.text((d) => `Historical Date: ${d.timestamp}`);
+        selection.text((d) => `Time-lapse Date: ${d.timestamp}`);
     } else {
         selection.text((d) => `Last Updated: ${moment(d.timestamp).fromNow()}`);
     }

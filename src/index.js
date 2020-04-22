@@ -54,39 +54,37 @@ const init = (initialData) => {
     // retrieve latest data and update the UI
     const updateWithLatestData = () => {
         return retrieveData().then((updatedData) => {
-            if (isAnimating) {
-                // we currently are animating, don't update data!
-                return updatedData;
-            }
-
-            const { sankeyData: updatedSankeyData } = updateView(
-                country,
-                updatedData
-            );
-            const graph = sankey(updatedSankeyData);
-            updateChart(graph, node, link, label);
-
+            updateWithData(updatedData);
             return updatedData;
         });
+    };
+
+    // update UI with supplied covid data
+    const updateWithData = (updatedData) => {
+        if (isAnimating) {
+            // we currently are animating, don't update data!
+            return updatedData;
+        }
+
+        const { sankeyData: updatedSankeyData } = updateView(
+            country,
+            updatedData
+        );
+        const graph = sankey(updatedSankeyData);
+        updateChart(graph, node, link, label);
     };
 
     const startAnimation = () => {
         const { world } = historicData;
         const dates = Object.keys(world).reverse();
 
-        if (animateInterval) {
-            clearInterval(animateInterval);
-            animateInterval = null;
-        }
-
         let animateThreshold = 100;
         animateInterval = setInterval(() => {
             isAnimating = true;
             const dateKey = dates.pop();
             if (!dateKey) {
-                clearInterval(animateInterval);
-                animateInterval = null;
-                isAnimating = false;
+                stopAnimation();
+                updateWithLatestData();
                 animateThreshold = 100;
                 return;
             }
@@ -122,6 +120,14 @@ const init = (initialData) => {
         }, GLOBALS.ANIMATION_DELAY);
     };
 
+    const stopAnimation = () => {
+        isAnimating = false;
+        if (animateInterval) {
+            clearInterval(animateInterval);
+            animateInterval = null;
+        }
+    };
+
     // configure country dropdown
     genCountryDropdown(countries, (dropdownEl) => {
         // event handler for dropdown change
@@ -155,7 +161,12 @@ const init = (initialData) => {
     const animateBtn = document.getElementById('animate-btn');
 
     animateBtn.addEventListener('click', (evt) => {
-        startAnimation();
+        if (isAnimating) {
+            stopAnimation();
+            updateWithData(covidData);
+        } else {
+            startAnimation();
+        }
     });
 
     // update data periodically

@@ -41,6 +41,7 @@ const initServiceWorker = () => {
 const init = (initialData) => {
     let country = null;
     let covidData = initialData;
+    let animateInterval = null;
 
     initServiceWorker();
 
@@ -69,39 +70,7 @@ const init = (initialData) => {
         });
     };
 
-    // configure country dropdown
-    genCountryDropdown(countries, (dropdownEl) => {
-        // event handler for dropdown change
-        country =
-            dropdownEl.value === GLOBALS.ALL_COUNTRIES
-                ? null
-                : dropdownEl.value;
-
-        // track if United States is currently selected
-        isUSSelected = country === GLOBALS.US_KEY ? true : false;
-
-        const { sankeyData } = updateView(country, covidData);
-
-        const graph = sankey(sankeyData);
-        updateChart(graph, node, link, label);
-    });
-
-    // configure methodology notes toggle
-    initMethodologyToggle();
-
-    // generate leader board
-    genLeaderBoard(leaderBoard);
-
-    // populate body copy for totals
-    populateBodyCopy();
-
-    // generate chart
-    const { link, label, node, sankey } = genChart(sankeyData);
-    updateChart(sankey(sankeyData), node, link, label);
-
-    const animateBtn = document.getElementById('animate-btn');
-    let animateInterval = null;
-    animateBtn.addEventListener('click', (evt) => {
+    const startAnimation = () => {
         const { world } = historicData;
         const dates = Object.keys(world).reverse();
 
@@ -151,6 +120,42 @@ const init = (initialData) => {
             const graph = sankey(updatedSankeyData);
             updateChart(graph, node, link, label);
         }, GLOBALS.ANIMATION_DELAY);
+    };
+
+    // configure country dropdown
+    genCountryDropdown(countries, (dropdownEl) => {
+        // event handler for dropdown change
+        country =
+            dropdownEl.value === GLOBALS.ALL_COUNTRIES
+                ? null
+                : dropdownEl.value;
+
+        // track if United States is currently selected
+        isUSSelected = country === GLOBALS.US_KEY ? true : false;
+
+        const { sankeyData } = updateView(country, covidData);
+
+        const graph = sankey(sankeyData);
+        updateChart(graph, node, link, label);
+    });
+
+    // configure methodology notes toggle
+    initMethodologyToggle();
+
+    // generate leader board
+    genLeaderBoard(leaderBoard);
+
+    // populate body copy for totals
+    populateBodyCopy();
+
+    // generate chart
+    const { link, label, node, sankey } = genChart(sankeyData);
+    updateChart(sankey(sankeyData), node, link, label);
+
+    const animateBtn = document.getElementById('animate-btn');
+
+    animateBtn.addEventListener('click', (evt) => {
+        startAnimation();
     });
 
     // update data periodically

@@ -81,6 +81,8 @@ const init = (initialData) => {
         let animateThreshold = 100;
         animateInterval = setInterval(() => {
             isAnimating = true;
+            updateAnimateBtn(isAnimating);
+
             const dateKey = dates.pop();
             if (!dateKey) {
                 stopAnimation();
@@ -126,6 +128,7 @@ const init = (initialData) => {
             clearInterval(animateInterval);
             animateInterval = null;
         }
+        updateAnimateBtn(isAnimating);
     };
 
     // configure country dropdown
@@ -222,6 +225,13 @@ const calcSize = () => {
         width,
         height,
     };
+};
+
+const updateAnimateBtn = (isPlaying) => {
+    d3.select('#animate-btn .animate-icon')
+        .data([isPlaying])
+        .attr('class', (d) => `animate-icon ${(d ? ' stop' : ' play')}`)
+        .attr('aria-label', d => d ? 'Stop': 'Play')
 };
 
 const updateTimestamp = (results) => {

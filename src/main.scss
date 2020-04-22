@@ -134,6 +134,26 @@ button {
     font-size: 1rem;
 }
 
+.animate-icon {
+    display: inline-block;
+    box-sizing: border-box;
+    height: $icon-size;
+    width: $icon-size;
+    will-change: border-width;
+    transition: 100ms all ease;
+    border-color: transparent transparent transparent $body-font-clr;
+    border-style: solid;
+
+    &.play {
+        // play state
+        border-width: $icon-size/2 0 $icon-size/2 $icon-size;
+    }
+
+    &.stop {
+        border-width: 0px 0px 0px $icon-size;
+    }
+}
+
 #timestamp-label {
     font-style: italic;
     font-weight: 100;

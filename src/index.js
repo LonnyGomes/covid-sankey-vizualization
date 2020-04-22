@@ -133,6 +133,9 @@ const init = (initialData) => {
 
     // configure country dropdown
     genCountryDropdown(countries, (dropdownEl) => {
+        // if an animation is happening, stop it
+        stopAnimation();
+
         // event handler for dropdown change
         country =
             dropdownEl.value === GLOBALS.ALL_COUNTRIES

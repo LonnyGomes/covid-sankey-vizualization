@@ -158,6 +158,30 @@ button {
     }
 }
 
+.animation-header {
+    @media screen and (max-width: $breakpoints-leader-board-portrait) {
+        display: none;
+    }
+}
+
+.mobile-btn {
+    display: none;
+    background-color: $chart-bg-clr;
+    padding: 5px;
+    // height: 1.2rem;
+    color: $body-font-clr;
+    font-family: $body-font-family;
+    margin-right: 10px;
+    font-size: 1rem;
+    @media screen and (max-width: $breakpoints-leader-board-portrait) {
+        display: inline-block;
+    }
+}
+
+.timestamp-container {
+    display: flex;
+}
+
 #timestamp-label {
     font-style: italic;
     font-weight: 100;

@@ -165,15 +165,18 @@ const init = (initialData) => {
     updateChart(sankey(sankeyData), node, link, label);
 
     const animateBtn = document.getElementById('animate-btn');
-
-    animateBtn.addEventListener('click', (evt) => {
+    const mobileAnimateBtn = document.getElementById('mobile-animate-btn');
+    const animateCallback = (evt) => {
         if (isAnimating) {
             stopAnimation();
             updateWithData(covidData);
         } else {
             startAnimation();
         }
-    });
+    };
+
+    animateBtn.addEventListener('click', animateCallback);
+    mobileAnimateBtn.addEventListener('click', animateCallback);
 
     // update data periodically
     setInterval(() => {
@@ -231,10 +234,10 @@ const calcSize = () => {
 };
 
 const updateAnimateBtn = (isPlaying) => {
-    d3.select('#animate-btn .animate-icon')
-        .data([isPlaying])
-        .attr('class', (d) => `animate-icon ${(d ? ' stop' : ' play')}`)
-        .attr('aria-label', d => d ? 'Stop': 'Play')
+    d3.selectAll('.header .animate-icon')
+        .data([isPlaying, isPlaying])
+        .attr('class', (d) => `animate-icon ${d ? ' stop' : ' play'}`)
+        .attr('aria-label', (d) => (d ? 'Stop' : 'Play'));
 };
 
 const updateTimestamp = (results) => {

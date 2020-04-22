@@ -11,6 +11,7 @@ import generateData from '../utils/generate-dataset';
 const moment = require('moment');
 
 let isUSSelected = false;
+let isAnimating = false;
 
 const initServiceWorker = () => {
     if ('serviceWorker' in navigator) {
@@ -48,6 +49,25 @@ const init = (initialData) => {
         country,
         covidData
     );
+
+    // retrieve latest data and update the UI
+    const updateWithLatestData = () => {
+        return retrieveData().then((updatedData) => {
+            if (isAnimating) {
+                // we currently are animating, don't update data!
+                return updatedData;
+            }
+
+            const { sankeyData: updatedSankeyData } = updateView(
+                country,
+                updatedData
+            );
+            const graph = sankey(updatedSankeyData);
+            updateChart(graph, node, link, label);
+
+            return updatedData;
+        });
+    };
 
     // configure country dropdown
     genCountryDropdown(countries, (dropdownEl) => {
@@ -92,10 +112,12 @@ const init = (initialData) => {
 
         let animateThreshold = 100;
         animateInterval = setInterval(() => {
+            isAnimating = true;
             const dateKey = dates.pop();
             if (!dateKey) {
                 clearInterval(animateInterval);
                 animateInterval = null;
+                isAnimating = false;
                 animateThreshold = 100;
                 return;
             }
@@ -133,20 +155,9 @@ const init = (initialData) => {
 
     // update data periodically
     setInterval(() => {
-        retrieveData().then((updatedData) => {
-            if (animateInterval) {
-                // we currently are animating, don't update data!
-                return;
-            }
+        updateWithLatestData().then((updatedData) => {
             // update the data we reference
             covidData = updatedData;
-
-            const { sankeyData: updatedSankeyData } = updateView(
-                country,
-                updatedData
-            );
-            const graph = sankey(updatedSankeyData);
-            updateChart(graph, node, link, label);
         });
     }, GLOBALS.REFRESH_INTERVAL);
 };

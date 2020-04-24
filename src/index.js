@@ -99,7 +99,7 @@ const init = (initialData) => {
                     animateThreshold = 5000;
                     break;
                 case '4/1/20':
-                    animateThreshold = 12000;
+                    animateThreshold = 10000;
                     break;
                 case '4/10/20':
                     animateThreshold = 15000;

@@ -144,13 +144,28 @@ button {
     font-family: $body-font-family;
     font-weight: 100;
     font-size: 1rem;
+    display: none;
 
     &.mobile {
-        display: none;
         padding: 4px 8px;
         margin: 0px 10px 0px 0px;
-        @media screen and (max-width: $breakpoints-leader-board-portrait) {
-            display: inline-block;
+    }
+}
+
+// when worldwide class exists we want to show the
+// proper time-laps butting given the screen size
+.worldwide {
+    .header-btn {
+        &.mobile {
+            @media screen and (max-width: $breakpoints-leader-board-portrait) {
+                display: inline-block;
+            }
+        }
+
+        &.desktop {
+            @media screen and (min-width: $breakpoints-leader-board-portrait) {
+                display: inline-block;
+            }
         }
     }
 }

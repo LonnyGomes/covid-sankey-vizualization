@@ -148,6 +148,10 @@ const init = (initialData) => {
         // track if United States is currently selected
         isUSSelected = country === GLOBALS.US_KEY ? true : false;
 
+        // if worldwide is selected, show time-lapse buttons
+        // otherwise, they should be hidden
+        toggleAnimateBtnVisibility(country === null ? true : false);
+
         const { sankeyData } = updateView(country, covidData);
 
         const graph = sankey(sankeyData);
@@ -241,6 +245,12 @@ const updateAnimateBtn = (isPlaying) => {
         .data([isPlaying, isPlaying])
         .attr('class', (d) => `animate-icon ${d ? ' stop' : ' play'}`)
         .attr('aria-label', (d) => (d ? 'Stop' : 'Play'));
+};
+
+const toggleAnimateBtnVisibility = (isVisible) => {
+    d3.selectAll('.header')
+        .data([isVisible])
+        .attr('class', (d) => (d ? 'header worldwide' : 'header'));
 };
 
 const updateTimestamp = (results) => {

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
-    "data:update": "node utils/save-dataset.js src/raw-data.json",
+    "data:update": "node utils/save-dataset.js src/raw-data.json src/historic-data.json",
     "test": "echo \"Error: no test specified\" && exit 1",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"
@@ -33,6 +33,7 @@
     "sass": "^1.26.3"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "d3": "^5.15.0",
     "d3-sankey": "^0.12.3",
     "moment": "^2.24.0",

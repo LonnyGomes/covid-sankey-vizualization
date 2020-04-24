@@ -101,10 +101,33 @@
     <body>
         <div class="content">
             <header class="header-container">
-                <div class="header">
+                <div class="header worldwide">
                     <div class="header-title">
                         <h1>COVID-19 Global Cases</h1>
-                        <h3 id="timestamp-label">Last updated: Loading ...</h3>
+                        <div class="timestamp-container">
+                            <button
+                                class="header-btn mobile"
+                                id="mobile-animate-btn"
+                            >
+                                <span
+                                    aria-label="Play"
+                                    class="animate-icon play"
+                                ></span>
+                                <span class="animate-label">Time-lapse</span>
+                            </button>
+                            <h3 id="timestamp-label">
+                                Last updated: Loading ...
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="animation-header">
+                        <button class="header-btn desktop" id="animate-btn">
+                            <span
+                                aria-label="Play"
+                                class="animate-icon play"
+                            ></span>
+                            Worldwide Time-lapse
+                        </button>
                     </div>
                     <div class="country-dropdown">
                         <label for="countries">Select a location</label>
@@ -186,6 +209,21 @@
                     <p>
                         The specific threshold values are noted in the footnotes
                         section.
+                    </p>
+
+                    <h3>Time-lapse Grouping</h3>
+
+                    <p>
+                        When animating through the various years, the data
+                        grouping threshold dynamically changes to ensure the
+                        visualization does not become too cluttered and
+                        difficult to read.
+                    </p>
+
+                    <p>
+                        The "Other" category is necessary to accurately display
+                        the distributions but will fluctuate independently of
+                        the rest of the data because of the dynamic thresholds.
                     </p>
 
                     <h3>Total Confirmed Metric</h3>

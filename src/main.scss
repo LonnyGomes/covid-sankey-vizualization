@@ -20,8 +20,11 @@ $content-max-width: 1200px;
 
 $breakpoints-leader-board-portrait: 715px;
 $breakpoints-leader-board-mobile: 480px;
+$breakpoints-min-mobile: 321px;
 
 $dropdown-min-width: 320px;
+
+$icon-size: 0.8rem;
 
 h1,
 h2,
@@ -31,6 +34,12 @@ h4 {
     color: $header-font-clr;
     margin: 4px 0px;
     font-weight: 300;
+}
+
+h1 {
+    @media screen and (max-width: $breakpoints-min-mobile) {
+        font-size: 1.6rem;
+    }
 }
 
 body {
@@ -125,6 +134,77 @@ button {
     .header-title {
         margin-bottom: 8px;
     }
+}
+
+.header-btn {
+    background-color: lighten($header-bg-clr, 10%);
+    border: 1px solid darken($header-bg-clr, 5%);
+    border-radius: 4px;
+    color: $header-font-clr;
+    font-family: $body-font-family;
+    font-weight: 100;
+    font-size: 1rem;
+    display: none;
+
+    &.mobile {
+        padding: 4px 8px;
+        margin: 0px 10px 0px 0px;
+    }
+}
+
+// when worldwide class exists we want to show the
+// proper time-laps butting given the screen size
+.worldwide {
+    .header-btn {
+        &.mobile {
+            @media screen and (max-width: $breakpoints-leader-board-portrait) {
+                display: inline-block;
+            }
+        }
+
+        &.desktop {
+            @media screen and (min-width: $breakpoints-leader-board-portrait) {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.animate-icon {
+    display: inline-block;
+    box-sizing: border-box;
+    height: $icon-size;
+    width: $icon-size;
+    will-change: border-width;
+    transition: 100ms all ease;
+    border-color: transparent transparent transparent $chart-bg-clr;
+    border-style: solid;
+
+    &.play {
+        // play state
+        border-width: $icon-size/2 0 $icon-size/2 $icon-size;
+    }
+
+    &.stop {
+        // stop state
+        border-width: 0px 0px 0px $icon-size;
+    }
+}
+
+.animate-label {
+    @media screen and (max-width: $breakpoints-min-mobile) {
+        display: none;
+    }
+}
+
+.animation-header {
+    @media screen and (max-width: $breakpoints-leader-board-portrait) {
+        display: none;
+    }
+}
+
+.timestamp-container {
+    display: flex;
 }
 
 #timestamp-label {
@@ -242,6 +322,11 @@ button {
             font-size: 0.7rem;
             white-space: pre;
         }
+
+        @media screen and (max-width: $breakpoints-min-mobile) {
+            font-size: 0.5rem;
+            white-space: pre;
+        }
     }
 
     .leader-board-value {
@@ -264,6 +349,11 @@ button {
         @media screen and (max-width: $breakpoints-leader-board-mobile) {
             font-size: 0.8rem;
             padding: 5px 10px;
+        }
+
+        @media screen and (max-width: $breakpoints-min-mobile) {
+            font-size: 0.7rem;
+            padding: 5px 5px;
         }
 
         &.deaths {

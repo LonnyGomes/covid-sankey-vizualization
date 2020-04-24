@@ -4,12 +4,14 @@ import * as d3 from 'd3';
 import { sankeyLinkHorizontal, sankey as sankeyInstance } from 'd3-sankey';
 import { parseWorld } from './process-data';
 import rawData from './raw-data.json';
+import historicData from './historic-data.json';
 import { GLOBALS } from './globals';
 import generateData from '../utils/generate-dataset';
 
 const moment = require('moment');
 
 let isUSSelected = false;
+let isAnimating = false;
 
 const initServiceWorker = () => {
     if ('serviceWorker' in navigator) {
@@ -39,6 +41,7 @@ const initServiceWorker = () => {
 const init = (initialData) => {
     let country = null;
     let covidData = initialData;
+    let animateInterval = null;
 
     initServiceWorker();
 
@@ -48,8 +51,94 @@ const init = (initialData) => {
         covidData
     );
 
+    // retrieve latest data and update the UI
+    const updateWithLatestData = () => {
+        return retrieveData().then((updatedData) => {
+            updateWithData(updatedData);
+            return updatedData;
+        });
+    };
+
+    // update UI with supplied covid data
+    const updateWithData = (updatedData) => {
+        if (isAnimating) {
+            // we currently are animating, don't update data!
+            return updatedData;
+        }
+
+        const { sankeyData: updatedSankeyData } = updateView(
+            country,
+            updatedData
+        );
+        const graph = sankey(updatedSankeyData);
+        updateChart(graph, node, link, label);
+    };
+
+    const startAnimation = () => {
+        const { world } = historicData;
+        const dates = Object.keys(world).reverse();
+
+        let animateThreshold = 100;
+        animateInterval = setInterval(() => {
+            isAnimating = true;
+            updateAnimateBtn(isAnimating);
+
+            const dateKey = dates.pop();
+            if (!dateKey) {
+                stopAnimation();
+                updateWithLatestData();
+                animateThreshold = 100;
+                return;
+            }
+
+            switch (dateKey) {
+                case '2/20/20':
+                    animateThreshold = 1000;
+                    break;
+                case '3/10/20':
+                    animateThreshold = 5000;
+                    break;
+                case '4/1/20':
+                    animateThreshold = 10000;
+                    break;
+                case '4/10/20':
+                    animateThreshold = 15000;
+                    break;
+                case '4/15/20':
+                    animateThreshold = 25000;
+                    break;
+            }
+
+            const updatedData = {
+                world: world[dateKey],
+                us: world[dateKey],
+                timestamp: dateKey,
+            };
+
+            const { sankeyData: updatedSankeyData } = updateView(
+                null,
+                updatedData,
+                animateThreshold
+            );
+            const graph = sankey(updatedSankeyData);
+            updateChart(graph, node, link, label);
+        }, GLOBALS.ANIMATION_DELAY);
+    };
+
+    const stopAnimation = () => {
+        isAnimating = false;
+        if (animateInterval) {
+            clearInterval(animateInterval);
+            animateInterval = null;
+        }
+        updateAnimateBtn(isAnimating);
+    };
+
     // configure country dropdown
     genCountryDropdown(countries, (dropdownEl) => {
+        // if an animation is happening, stop it
+        stopAnimation();
+
         // event handler for dropdown change
         country =
             dropdownEl.value === GLOBALS.ALL_COUNTRIES
@@ -58,6 +147,10 @@ const init = (initialData) => {
 
         // track if United States is currently selected
         isUSSelected = country === GLOBALS.US_KEY ? true : false;
+
+        // if worldwide is selected, show time-lapse buttons
+        // otherwise, they should be hidden
+        toggleAnimateBtnVisibility(country === null ? true : false);
 
         const { sankeyData } = updateView(country, covidData);
 
@@ -78,33 +171,42 @@ const init = (initialData) => {
     const { link, label, node, sankey } = genChart(sankeyData);
     updateChart(sankey(sankeyData), node, link, label);
 
+    const animateBtn = document.getElementById('animate-btn');
+    const mobileAnimateBtn = document.getElementById('mobile-animate-btn');
+    const animateCallback = (evt) => {
+        if (isAnimating) {
+            stopAnimation();
+            updateWithData(covidData);
+        } else {
+            startAnimation();
+        }
+    };
+
+    animateBtn.addEventListener('click', animateCallback);
+    mobileAnimateBtn.addEventListener('click', animateCallback);
+
     // update data periodically
     setInterval(() => {
-        retrieveData().then((updatedData) => {
+        updateWithLatestData().then((updatedData) => {
             // update the data we reference
             covidData = updatedData;
-
-            const { sankeyData: updatedSankeyData } = updateView(
-                country,
-                updatedData
-            );
-            const graph = sankey(updatedSankeyData);
-            updateChart(graph, node, link, label);
         });
     }, GLOBALS.REFRESH_INTERVAL);
 };
 
-const updateView = (country, covidData) => {
+const updateView = (country, covidData, thresholdOverride = -1) => {
+    const globalThreshold =
+        thresholdOverride > -1 ? thresholdOverride : GLOBALS.THRESHOLD;
     // track if United States is currently selected
     const threshold =
-        country === GLOBALS.US_KEY ? GLOBALS.US_THRESHOLD : GLOBALS.THRESHOLD;
+        country === GLOBALS.US_KEY ? GLOBALS.US_THRESHOLD : globalThreshold;
 
     const {
         sankey: sankeyData,
         leaderBoard,
         totals: curTotals,
         countries,
-    } = parseWorld(covidData, country, GLOBALS.THRESHOLD, GLOBALS.US_THRESHOLD);
+    } = parseWorld(covidData, country, globalThreshold, GLOBALS.US_THRESHOLD);
 
     // update leader board with latest totals
     updateLeaderBoard(leaderBoard);
@@ -138,10 +240,28 @@ const calcSize = () => {
     };
 };
 
+const updateAnimateBtn = (isPlaying) => {
+    d3.selectAll('.header .animate-icon')
+        .data([isPlaying, isPlaying])
+        .attr('class', (d) => `animate-icon ${d ? ' stop' : ' play'}`)
+        .attr('aria-label', (d) => (d ? 'Stop' : 'Play'));
+};
+
+const toggleAnimateBtnVisibility = (isVisible) => {
+    d3.selectAll('.header')
+        .data([isVisible])
+        .attr('class', (d) => (d ? 'header worldwide' : 'header'));
+};
+
 const updateTimestamp = (results) => {
-    d3.select('#timestamp-label')
-        .data([results])
-        .text((d) => `Last Updated: ${moment(d.timestamp).fromNow()}`);
+    const selection = d3.select('#timestamp-label').data([results]);
+
+    // if a string is provided, the timestamp is a historical date
+    if (isNaN(results.timestamp)) {
+        selection.text((d) => `Time-lapse Date: ${d.timestamp}`);
+    } else {
+        selection.text((d) => `Last Updated: ${moment(d.timestamp).fromNow()}`);
+    }
 };
 
 const updateFootnotes = (country, threshold) => {
@@ -333,7 +453,10 @@ const genChart = (data) => {
 
 const updateChart = (graph, node, link, label) => {
     const { width, height } = calcSize();
-    const t = d3.transition().duration(350).ease(d3.easeLinear);
+    const t = d3
+        .transition()
+        .duration(GLOBALS.ANIMATION_DELAY - 20)
+        .ease(d3.easeLinear);
 
     // nodes
     node.selectAll('rect')
@@ -368,10 +491,7 @@ const updateChart = (graph, node, link, label) => {
 
     // links
     link.selectAll('path')
-        .data(
-            graph.links,
-            (data) => `${data.source.name}${data.target.name}${data.value}`
-        )
+        .data(graph.links, (data) => `${data.source.name}${data.target.name}`)
         .join(
             (enter) => {
                 enter

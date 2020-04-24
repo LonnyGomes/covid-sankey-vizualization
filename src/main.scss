@@ -129,13 +129,23 @@ button {
     }
 }
 
-#animate-btn {
-    background-color: #fff;
-    color: $body-font-clr;
-    font-family: $header-font-family;
+.header-btn {
+    background-color: lighten($header-bg-clr, 10%);
+    border: 1px solid darken($header-bg-clr, 5%);
+    border-radius: 4px;
+    color: $header-font-clr;
+    font-family: $body-font-family;
     font-weight: 100;
-    border: 1px solid #ccc;
     font-size: 1rem;
+
+    &.mobile {
+        display: none;
+        padding: 4px 8px;
+        margin-right: 10px;
+        @media screen and (max-width: $breakpoints-leader-board-portrait) {
+            display: inline-block;
+        }
+    }
 }
 
 .animate-icon {
@@ -145,7 +155,7 @@ button {
     width: $icon-size;
     will-change: border-width;
     transition: 100ms all ease;
-    border-color: transparent transparent transparent $body-font-clr;
+    border-color: transparent transparent transparent $chart-bg-clr;
     border-style: solid;
 
     &.play {
@@ -154,6 +164,7 @@ button {
     }
 
     &.stop {
+        // stop state
         border-width: 0px 0px 0px $icon-size;
     }
 }
@@ -161,20 +172,6 @@ button {
 .animation-header {
     @media screen and (max-width: $breakpoints-leader-board-portrait) {
         display: none;
-    }
-}
-
-.mobile-btn {
-    display: none;
-    background-color: $chart-bg-clr;
-    padding: 5px;
-    // height: 1.2rem;
-    color: $body-font-clr;
-    font-family: $body-font-family;
-    margin-right: 10px;
-    font-size: 1rem;
-    @media screen and (max-width: $breakpoints-leader-board-portrait) {
-        display: inline-block;
     }
 }
 

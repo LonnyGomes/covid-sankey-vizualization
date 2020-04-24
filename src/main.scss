@@ -20,6 +20,7 @@ $content-max-width: 1200px;
 
 $breakpoints-leader-board-portrait: 715px;
 $breakpoints-leader-board-mobile: 480px;
+$breakpoints-min-mobile: 400px;
 
 $dropdown-min-width: 320px;
 
@@ -33,6 +34,12 @@ h4 {
     color: $header-font-clr;
     margin: 4px 0px;
     font-weight: 300;
+}
+
+h1 {
+    @media screen and (max-width: $breakpoints-min-mobile) {
+        font-size: 1.6rem;
+    }
 }
 
 body {
@@ -141,7 +148,7 @@ button {
     &.mobile {
         display: none;
         padding: 4px 8px;
-        margin-right: 10px;
+        margin: 0px 10px 0px 0px;
         @media screen and (max-width: $breakpoints-leader-board-portrait) {
             display: inline-block;
         }
@@ -166,6 +173,12 @@ button {
     &.stop {
         // stop state
         border-width: 0px 0px 0px $icon-size;
+    }
+}
+
+.animate-label {
+    @media screen and (max-width: $breakpoints-min-mobile) {
+        display: none;
     }
 }
 
@@ -294,6 +307,11 @@ button {
             font-size: 0.7rem;
             white-space: pre;
         }
+
+        @media screen and (max-width: $breakpoints-min-mobile) {
+            font-size: 0.5rem;
+            white-space: pre;
+        }
     }
 
     .leader-board-value {
@@ -316,6 +334,11 @@ button {
         @media screen and (max-width: $breakpoints-leader-board-mobile) {
             font-size: 0.8rem;
             padding: 5px 10px;
+        }
+
+        @media screen and (max-width: $breakpoints-min-mobile) {
+            font-size: 0.7rem;
+            padding: 5px 5px;
         }
 
         &.deaths {

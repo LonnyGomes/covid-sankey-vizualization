@@ -24,9 +24,9 @@ import {
 } from './helpers';
 
 let isUSSelected = false;
-let isAnimating = false;
 
 const init = (initialData) => {
+    let isAnimating = false;
     let country = null;
     let covidData = initialData;
     let animateInterval = null;

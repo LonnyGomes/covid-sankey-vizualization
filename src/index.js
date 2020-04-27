@@ -11,9 +11,9 @@ import {
     calcSize,
     genCountryDropdown,
     genLeaderBoard,
-    mapLabelName,
     formatNodeLabelLabel,
     initServiceWorker,
+    initAnimateButtons,
     initMethodologyToggle,
     updateTimestamp,
     updateAnimateBtn,
@@ -159,19 +159,15 @@ const init = (initialData) => {
     const { link, label, node, sankey } = genChart(sankeyData);
     updateChart(sankey(sankeyData), node, link, label);
 
-    const animateBtn = document.getElementById('animate-btn');
-    const mobileAnimateBtn = document.getElementById('mobile-animate-btn');
-    const animateCallback = (evt) => {
+    // initialize time-lapse animate buttons
+    initAnimateButtons(() => {
         if (isAnimating) {
             stopAnimation();
             updateWithData(covidData);
         } else {
             startAnimation();
         }
-    };
-
-    animateBtn.addEventListener('click', animateCallback);
-    mobileAnimateBtn.addEventListener('click', animateCallback);
+    });
 
     // update data periodically
     setInterval(() => {

@@ -203,6 +203,14 @@ export const updateTimestamp = (results) => {
     }
 };
 
+export const initAnimateButtons = (animateCallback) => {
+    // retrieve references to both animate button instances
+    const animateBtn = document.getElementById('animate-btn');
+    const mobileAnimateBtn = document.getElementById('mobile-animate-btn');
+    animateBtn.addEventListener('click', animateCallback);
+    mobileAnimateBtn.addEventListener('click', animateCallback);
+};
+
 export const updateAnimateBtn = (isPlaying) => {
     d3.selectAll('.header .animate-icon')
         .data([isPlaying, isPlaying])

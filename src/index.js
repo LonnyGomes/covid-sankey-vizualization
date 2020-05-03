@@ -40,12 +40,8 @@ const init = (initialData) => {
     );
 
     // retrieve latest data and update the UI
-    const updateWithLatestData = () => {
-        return retrieveData().then((updatedData) => {
-            updateWithData(updatedData);
-            return updatedData;
-        });
-    };
+    const updateWithLatestData = () =>
+        retrieveData().then((updatedData) => updateWithData(updatedData));
 
     // update UI with supplied covid data
     const updateWithData = (updatedData) => {
@@ -60,6 +56,8 @@ const init = (initialData) => {
         );
         const graph = sankey(updatedSankeyData);
         updateChart(graph, node, link, label);
+
+        return updatedData;
     };
 
     const startAnimation = () => {

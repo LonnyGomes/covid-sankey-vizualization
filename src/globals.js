@@ -4,8 +4,8 @@ export const GLOBALS = {
     LANDSCAPE_HEIGHT: 425,
     PORTRAIT_WIDTH: 450,
     PORTRAIT_HEIGHT: 500,
-    THRESHOLD: 40000,
-    US_THRESHOLD: 10000,
+    THRESHOLD: 40_000,
+    US_THRESHOLD: 10_000,
     US_KEY: 'US',
     TOGGLE_BTN_SHOW_MORE: 'Show Details',
     TOGGLE_BTN_HIDE: 'Hide Details',
@@ -13,6 +13,6 @@ export const GLOBALS = {
         US: 'United States',
     },
     DATA_TIMEOUT: 2500,
-    REFRESH_INTERVAL: 60000,
+    REFRESH_INTERVAL: 60_000,
     ANIMATION_DELAY: 250,
 };

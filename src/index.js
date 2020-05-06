@@ -79,22 +79,22 @@ const init = (initialData) => {
 
             switch (dateKey) {
                 case '2/20/20':
-                    animateThreshold = 1000;
+                    animateThreshold = 1_000;
                     break;
                 case '3/10/20':
-                    animateThreshold = 5000;
+                    animateThreshold = 5_000;
                     break;
                 case '4/1/20':
-                    animateThreshold = 10000;
+                    animateThreshold = 10_000;
                     break;
                 case '4/10/20':
-                    animateThreshold = 15000;
+                    animateThreshold = 15_000;
                     break;
                 case '4/15/20':
-                    animateThreshold = 25000;
+                    animateThreshold = 25_000;
                     break;
                 case '4/20/20':
-                    animateThreshold = 40000;
+                    animateThreshold = 40_000;
                     break;
             }
 

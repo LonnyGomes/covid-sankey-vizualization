@@ -12,7 +12,7 @@ export const GLOBALS = {
     DROPDOWN_MAPPING: {
         US: 'United States',
     },
-    DATA_TIMEOUT: 2500,
+    DATA_TIMEOUT: 2_500,
     REFRESH_INTERVAL: 60_000,
     ANIMATION_DELAY: 250,
 };

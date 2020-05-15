@@ -96,6 +96,9 @@ const init = (initialData) => {
                 case '4/20/20':
                     animateThreshold = 40_000;
                     break;
+                case '5/1/20':
+                    animateThreshold = 80_000;
+                    break;
             }
 
             const updatedData = {

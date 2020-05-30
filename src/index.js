@@ -31,7 +31,7 @@ const init = (initialData) => {
     let covidData = initialData;
     let animateInterval = null;
 
-    initServiceWorker();
+    //initServiceWorker();
 
     // retrieve data
     const { countries, sankeyData, leaderBoard } = updateView(
@@ -97,6 +97,9 @@ const init = (initialData) => {
                     animateThreshold = 40_000;
                     break;
                 case '5/1/20':
+                    animateThreshold = 80_000;
+                    break;
+                case '5/12/20':
                     animateThreshold = 80_000;
                     break;
             }
